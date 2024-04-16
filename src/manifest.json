@@ -1,6 +1,6 @@
 {
-  "name": "Stencil Starter",
-  "short_name": "Stencil",
+  "name": "myai-shopping-assistant",
+  "short_name": "myai",
   "start_url": "/",
   "display": "standalone",
   "icons": [{

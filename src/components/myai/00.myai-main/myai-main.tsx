@@ -2,14 +2,18 @@ import { Component, h } from '@stencil/core';
 
 @Component({
   tag: 'myai-main',
-  styleUrl: 'myai-main.css',
+  styleUrl: './myai-main.css',
+  shadow: true,
 })
 export class MyaiMain {
   render() {
     return (
       <article class="myai-main-wrap">
-        <myai-chat-main />
-        <myai-product-results/>
+        <div class="myai-main-left">
+          <myai-chat-main />
+          <myai-product-results />
+        </div>
+        <myai-chat-modal />
       </article>
     );
   }

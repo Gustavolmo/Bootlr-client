@@ -1,4 +1,8 @@
 .myai-main-wrap{
+  display: flex;
+}
+
+.myai-main-left {
   padding: 8px;
-  min-height: 100svh;
+  flex-grow: 1;
 }

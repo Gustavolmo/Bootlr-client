@@ -5,15 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { MatchResults } from "@stencil-community/router";
 export namespace Components {
-    interface AppHome {
-    }
-    interface AppProfile {
-        "match": MatchResults;
-    }
-    interface AppRoot {
-    }
     interface MyaiChatMain {
     }
     interface MyaiChatModal {
@@ -22,28 +14,8 @@ export namespace Components {
     }
     interface MyaiProductResults {
     }
-    interface MyaiProductUnit {
-    }
 }
 declare global {
-    interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
-    }
-    var HTMLAppHomeElement: {
-        prototype: HTMLAppHomeElement;
-        new (): HTMLAppHomeElement;
-    };
-    interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {
-    }
-    var HTMLAppProfileElement: {
-        prototype: HTMLAppProfileElement;
-        new (): HTMLAppProfileElement;
-    };
-    interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
-    }
-    var HTMLAppRootElement: {
-        prototype: HTMLAppRootElement;
-        new (): HTMLAppRootElement;
-    };
     interface HTMLMyaiChatMainElement extends Components.MyaiChatMain, HTMLStencilElement {
     }
     var HTMLMyaiChatMainElement: {
@@ -68,31 +40,14 @@ declare global {
         prototype: HTMLMyaiProductResultsElement;
         new (): HTMLMyaiProductResultsElement;
     };
-    interface HTMLMyaiProductUnitElement extends Components.MyaiProductUnit, HTMLStencilElement {
-    }
-    var HTMLMyaiProductUnitElement: {
-        prototype: HTMLMyaiProductUnitElement;
-        new (): HTMLMyaiProductUnitElement;
-    };
     interface HTMLElementTagNameMap {
-        "app-home": HTMLAppHomeElement;
-        "app-profile": HTMLAppProfileElement;
-        "app-root": HTMLAppRootElement;
         "myai-chat-main": HTMLMyaiChatMainElement;
         "myai-chat-modal": HTMLMyaiChatModalElement;
         "myai-main": HTMLMyaiMainElement;
         "myai-product-results": HTMLMyaiProductResultsElement;
-        "myai-product-unit": HTMLMyaiProductUnitElement;
     }
 }
 declare namespace LocalJSX {
-    interface AppHome {
-    }
-    interface AppProfile {
-        "match"?: MatchResults;
-    }
-    interface AppRoot {
-    }
     interface MyaiChatMain {
     }
     interface MyaiChatModal {
@@ -101,31 +56,21 @@ declare namespace LocalJSX {
     }
     interface MyaiProductResults {
     }
-    interface MyaiProductUnit {
-    }
     interface IntrinsicElements {
-        "app-home": AppHome;
-        "app-profile": AppProfile;
-        "app-root": AppRoot;
         "myai-chat-main": MyaiChatMain;
         "myai-chat-modal": MyaiChatModal;
         "myai-main": MyaiMain;
         "myai-product-results": MyaiProductResults;
-        "myai-product-unit": MyaiProductUnit;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
-            "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
-            "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "myai-chat-main": LocalJSX.MyaiChatMain & JSXBase.HTMLAttributes<HTMLMyaiChatMainElement>;
             "myai-chat-modal": LocalJSX.MyaiChatModal & JSXBase.HTMLAttributes<HTMLMyaiChatModalElement>;
             "myai-main": LocalJSX.MyaiMain & JSXBase.HTMLAttributes<HTMLMyaiMainElement>;
             "myai-product-results": LocalJSX.MyaiProductResults & JSXBase.HTMLAttributes<HTMLMyaiProductResultsElement>;
-            "myai-product-unit": LocalJSX.MyaiProductUnit & JSXBase.HTMLAttributes<HTMLMyaiProductUnitElement>;
         }
     }
 }

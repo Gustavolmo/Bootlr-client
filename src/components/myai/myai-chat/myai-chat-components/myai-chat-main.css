@@ -18,7 +18,8 @@
 .chat-main-textarea {
   padding: 8px;
   border-radius: 8px;
-  height: 60px;
+  height: 40px;
+  font-size: large;
   width: 100%;
   max-width: 640px;
   resize: none;
