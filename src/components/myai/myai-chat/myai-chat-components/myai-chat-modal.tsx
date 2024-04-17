@@ -29,7 +29,7 @@ export class MyaiChatModal {
           >
             {this.isChatModalOpen ? 'Close' : 'Ask'}
           </button>
-          <div>CHAT AREA</div>
+          <section class="modal-chat-area">CHAT-AREA</section>
         </div>
       </section>
     );

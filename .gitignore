@@ -11,6 +11,9 @@ www/
 log.txt
 *.sublime-project
 *.sublime-workspace
+.tzap-data
+.tzapignore
+.tzapinclude
 
 .stencil/
 .idea/
