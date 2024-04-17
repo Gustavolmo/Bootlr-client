@@ -1,7 +1,7 @@
 import {
   Product,
   productState,
-} from '../components/myai/myai-products/myai-products-store/product-store';
+} from '../components/stores/myai-products-store/product-store';
 
 export const mockSearchResults = async () => {
   return new Promise(resolve => {

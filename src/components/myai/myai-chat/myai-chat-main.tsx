@@ -1,5 +1,5 @@
 import { Component, State, h } from '@stencil/core';
-import { chatState } from '../myai-chat-store/chat-store';
+import { chatState } from '../../stores/myai-chat-store/chat-store';
 
 @Component({
   tag: 'myai-chat-main',

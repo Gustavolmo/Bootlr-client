@@ -5,7 +5,7 @@ import { Component, State, h } from '@stencil/core';
   styleUrl: './myai-chat-modal.css',
 })
 export class MyaiChatModal {
-  @State() isChatModalOpen = true;
+  @State() isChatModalOpen = true; // TODO: This need to exist in a store
 
   private toggleChatModal() {
     this.isChatModalOpen = !this.isChatModalOpen;

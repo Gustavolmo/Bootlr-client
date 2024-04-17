@@ -1,5 +1,5 @@
 import { Component, Host, h } from '@stencil/core';
-import { productState } from '../myai-products-store/product-store';
+import { productState } from '../../stores/myai-products-store/product-store';
 
 @Component({
   tag: 'myai-product-results',

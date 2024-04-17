@@ -1,7 +1,7 @@
 import { createStore } from '@stencil/store';
 import { Role/* , pushMessageToHistory, translatePromptToSearch */ } from './store-helper';
 /* import { productState } from '../../myai-products/myai-products-store/product-store'; */
-import { mockSearchResults } from '../../../../dev-mocks/search-results-mock';
+import { mockSearchResults } from '../../../dev-mocks/search-results-mock';
 
 export interface ChatStore {
   isLoading: boolean;
