@@ -31,7 +31,7 @@ export class MyaiProductResults {
                       <div>
                         <span class="rating-text">{product.rating}</span>{' '}
                         <span class="rating-start">{stars}</span>{' '}
-                        <span class="rating-text">({product.reviews})</span>
+                        <span class="rating-text">({product.reviews ?? '0 reviews'})</span>
                       </div>
 
                       <p class="info-product-delivery">{product.delivery}</p>

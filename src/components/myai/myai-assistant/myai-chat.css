@@ -1,59 +1,58 @@
-.myai-chat-modal-wrap {
+.myai-chat-wrap {
   /*  border: 1px dashed red; */
   height: 100%;
   min-height: 100svh;
   width: 48vw;
   max-width: 800px;
-  transition: width 0.4s ease;
+  transition: width 0.6s ease;
   background-color: rgb(224, 224, 224);
 }
 
-.myai-chat-modal-wrap-close {
+.myai-chat-wrap-close {
   height: 100%;
   min-height: 100svh;
   width: 0;
   max-width: 800px;
-  transition: width 0.4s ease;
+  transition: width 0.6s ease;
   background-color: rgb(224, 224, 224);
 }
 
-.chat-modal-window {
+.chat-window {
   position: fixed;
   width: 48vw;
   max-width: 800px;
   height: 100svh;
-  background-color: rgb(224, 224, 224);
+  background-color: rgb(241, 241, 241);
 }
 
-.modal-chat-area {
+.chat-area {
   position: relative;
   background-color: white;
-  border-radius: 8px;
   padding: 8px;
   margin:0 16px;
   height: 90%;
 }
 
-.chat-modal-window-button {
+.chat-window-button {
   display: flex;
   position: relative;
   left: 0;
   top: 0;
   margin: 8px;
-  transition: left 0.4s ease;
+  transition: left 0.6s ease;
 }
 
-.chat-modal-window-button-close {
+.chat-window-button-close {
   display: flex;
   position: relative;
   left: -52px;
   top: 0;
   margin: 8px;
-  transition: left 0.4s ease;
+  transition: left 0.6s ease;
 }
 
-@media (max-width: 570px) {
-  .myai-chat-modal-wrap {
+@media (max-width: 710px) {
+  .myai-chat-wrap {
     position: fixed;
     width: 100vw;
     bottom: 0;
@@ -63,7 +62,7 @@
     transition: height 0.6s ease;
   }
 
-  .myai-chat-modal-wrap-close {
+  .myai-chat-wrap-close {
     position: fixed;
     width: 100vw;
     bottom: 0;
@@ -73,24 +72,25 @@
     transition: height 0.6s ease;
   }
 
-  .chat-modal-window {
-    width: 100vw;
+  .chat-window {
+    right: 0;
     height: 50svh;
+    width: 100%;
   }
 
-  .modal-chat-area {
+  .chat-area {
     height: 40svh;
+    margin: 0 8px;
   }
 
-  .chat-modal-window-button {
+  .chat-window-button {
     position: relative;
-    left: 0;
-    top: 0;
+
     margin: 8px;
     transition: top 0.3s ease;
   }
 
-  .chat-modal-window-button-close {
+  .chat-window-button-close {
     position: relative;
     left: 0;
     top: -32px;
@@ -100,7 +100,7 @@
 }
 
 @media (max-height: 620px) {
-  .modal-chat-area {
+  .chat-area {
     height: 80svh;
   }
 }

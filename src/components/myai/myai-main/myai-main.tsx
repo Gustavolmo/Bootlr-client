@@ -10,10 +10,10 @@ export class MyaiMain {
     return (
       <article class="myai-main-wrap">
         <div class="myai-main-left">
-          <myai-chat-main />
+          <myai-search />
           <myai-product-results />
         </div>
-        <myai-chat-modal />
+        <myai-chat />
       </article>
     );
   }

@@ -1,11 +1,12 @@
 import { Component, State, h } from '@stencil/core';
+import { searchState } from '../../stores/myai-search-store/search-store';
 import { chatState } from '../../stores/myai-chat-store/chat-store';
 
 @Component({
-  tag: 'myai-chat-main',
-  styleUrl: 'myai-chat-main.css',
+  tag: 'myai-search',
+  styleUrl: 'myai-search.css',
 })
-export class MyaiChatMain {
+export class MyaiSearch {
   @State() userPrompt = '';
 
   private captureUserPrompt(e: Event) {
@@ -16,27 +17,28 @@ export class MyaiChatMain {
   private async submitPrompt(e: Event) {
     e.preventDefault();
     if (this.userPrompt) {
-      await chatState.processSearchRequest(this.userPrompt);
+      await searchState.processSearchRequest(this.userPrompt);
+      chatState.enableChat();
       this.userPrompt = '';
     }
   }
 
   render() {
     return (
-      <section class="myai-chat-main-container">
-        <header class="chat-main-header">What are you looking for today?</header>
+      <section class="myai-search-container">
+        <header class="search-header">What are you looking for today?</header>
 
         {/* TODO: MAKE THIS A COMPOENENT */}
-        <form class="chat-main-form">
+        <form class="search-form">
           <textarea
             placeholder='I am looking for...' // TODO: Add random examples like openai's suggestions
             maxlength="240"
-            class="chat-main-textarea"
+            class="search-textarea"
             onChange={e => this.captureUserPrompt(e)}
             value={this.userPrompt}
           />
-          <button type="submit" onClick={e => this.submitPrompt(e)} disabled={chatState.isLoading}>
-          {chatState.isLoading ? '...' : '>>'}
+          <button type="submit" onClick={e => this.submitPrompt(e)} disabled={searchState.isLoading}>
+          {'>>'}
           </button>
         </form>
       </section>

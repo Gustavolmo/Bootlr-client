@@ -32,5 +32,5 @@ interface productStore {
 }
 
 export const { state: productState } = createStore<productStore>({
-  shoppingResults: [],
+  shoppingResults: []
 });
