@@ -12,10 +12,14 @@ myai-chat-area {
 }
 
 .chat-history {
-  border: 1px red dashed;
+  /* border: 1px red dashed; */
   flex: 1;
-  overflow-y: scroll;
+  overflow-x: hidden;
   padding: 8px;
+}
+
+.chat-history::-webkit-scrollbar {
+  display: none;
 }
 
 .chat-form {

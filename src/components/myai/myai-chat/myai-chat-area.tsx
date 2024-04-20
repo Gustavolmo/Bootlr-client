@@ -1,4 +1,5 @@
 import { Component, Host, State, h } from '@stencil/core';
+import { chatState } from '../../stores/myai-chat-store/chat-store';
 
 @Component({
   tag: 'myai-chat-area',
@@ -15,7 +16,7 @@ export class MyaiChat {
   private async submitMessage(e: Event) {
     e.preventDefault();
     if (this.userMessage) {
-      // TODO: Process the chat calls to opne ai
+      // TODO: chatState.sendMessageToAi()
       this.userMessage = '';
     }
   }
@@ -25,7 +26,7 @@ export class MyaiChat {
       <Host>
 
         <div class="chat-history">
-          CHAT HISTORY {/* MAKE COMPONENT FOR MESSAGES */}
+          <myai-chat-history />
         </div>
 
         {/* TODO: MAKE THIS A COMPOENENT */}

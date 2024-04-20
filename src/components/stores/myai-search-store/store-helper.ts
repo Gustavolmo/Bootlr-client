@@ -1,5 +1,3 @@
-import { chatState } from '../myai-chat-store/chat-store';
-import { productState } from '../myai-products-store/product-store';
 import { Role, searchState } from './search-store';
 
 export interface TranslatePromptResponse {
@@ -11,26 +9,6 @@ export const pushMessageToHistory = (message: string, role: Role) => {
   searchState.messages.push({
     role: role,
     content: message,
-  });
-};
-
-export const addShoppingSummaryToChatSystem = () => {
-  const shoppingResultSummary = productState.shoppingResults.map(product => {
-    return {
-      positionInPage: product.position,
-      pructPageLink: product.link,
-      seller: product.source,
-      productTitle: product.title,
-    };
-  });
-
-  console.log(shoppingResultSummary);
-
-  chatState.messages.push({
-    role: Role.SYSTEM,
-    content: `At the moment, the user is looking at the following options: ${JSON.stringify(
-      shoppingResultSummary,
-    )}`,
   });
 };
 

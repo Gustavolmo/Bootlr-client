@@ -2,7 +2,7 @@ import { createStore } from '@stencil/store';
 /* import { productState } from '../../myai-products/myai-products-store/product-store'; */
 /* import { productState } from '../myai-products-store/product-store'; */
 import { mockSearchResults } from '../../../dev-mocks/search-results-mock';
-import { addShoppingSummaryToChatSystem } from './store-helper';
+import { addShoppingSummaryToChatSystem } from '../myai-chat-store/store-helper';
 import { chatState } from '../myai-chat-store/chat-store';
 
 export enum Role {

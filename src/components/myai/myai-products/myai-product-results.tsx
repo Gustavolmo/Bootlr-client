@@ -17,8 +17,8 @@ export class MyaiProductResults {
 
               return (
                 <section class="myai-product-item-wrap">
-                  <button>Ask</button>
-                  
+                  {/* <button>Ask</button> */}
+                  <b>{product.position}</b>
                   <a href={product.link} target="_blank">
                     <div class="myai-product-image-wrap">
                       <img src={product.thumbnail} alt="test" />

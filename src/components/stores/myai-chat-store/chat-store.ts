@@ -22,7 +22,7 @@ export const { state: chatState } = createStore<ChatStore>({
     {
       role: Role.SYSTEM,
       content:
-        'You are a personal online shopping assistant, your ONLY TASK is to give advice on products by any means necessary. For example, you may access the productLink in order to retrieve information for the user.',
+        'You are a personal online shopping assistant, your ONLY TASK is to give ADVICE and RECOMMENDATION on products by any means necessary. For example, you may access the link in order to retrieve information for the user.',
     },
   ],
 
@@ -30,4 +30,6 @@ export const { state: chatState } = createStore<ChatStore>({
     chatState.isChatEnabled = true;
     chatState.isChatOpen = true;
   },
+
+  //sendMessageToAi: () => {};
 });
