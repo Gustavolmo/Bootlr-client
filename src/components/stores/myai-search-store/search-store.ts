@@ -1,9 +1,7 @@
 import { createStore } from '@stencil/store';
-/* import { productState } from '../../myai-products/myai-products-store/product-store'; */
-/* import { productState } from '../myai-products-store/product-store'; */
 import { mockSearchResults } from '../../../dev-mocks/search-results-mock';
-import { addShoppingSummaryToChatSystem } from '../myai-chat-store/store-helper';
-import { chatState } from '../myai-chat-store/chat-store';
+import { chatStore } from '../myai-chat-store/chat-store';
+import { addShoppingContextToChat } from '../myai-chat-store/chat-helper';
 
 export enum Role {
   USER = 'user',
@@ -44,19 +42,21 @@ export const { state: searchState } = createStore<searchStore>({
   processSearchRequest: async (userMessage: string): Promise<void> => {
     searchState.isLoading = true;
     try {
+      chatStore.reset();
       console.log(userMessage);
-      /* pushMessageToHistory(userMessage, Role.USER);
+      /* addMessageToSearch(userMessage, Role.USER);
       const response = await translatePromptToSearch();
-      pushMessageToHistory(response.searchQuery, Role.ASSISTANT);
+      addMessageToSearch(response.searchQuery, Role.ASSISTANT);
       productState.shoppingResults = response.shoppingResults */
+
       await mockSearchResults();
-      addShoppingSummaryToChatSystem()
-      
+
+      addShoppingContextToChat();
     } catch (err) {
       console.error('Error while processing searchrequest ->', err);
     } finally {
-      console.log(chatState.messages)
       searchState.isLoading = false;
+      console.log(searchState.messages);
     }
   },
 });

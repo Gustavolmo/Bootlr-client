@@ -7,29 +7,43 @@ import { chatState } from '../../stores/myai-chat-store/chat-store';
 })
 export class MyaiChat {
   @State() userMessage = '';
+  private chatHistoryDiv: HTMLDivElement;
+
+  private scrollToBottom() {
+    if (this.chatHistoryDiv) {
+      this.chatHistoryDiv.scrollTo({
+        left: 0,
+        top: this.chatHistoryDiv.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
+  }
+
+  componentDidRender() {
+    this.scrollToBottom();
+  }
 
   private captureUserMessage(e: Event) {
     const target = e.target as HTMLTextAreaElement;
     this.userMessage = target.value.trim();
   }
 
-  private async submitMessage(e: Event) {
+  private submitMessage(e: Event) {
+    console.log(this.userMessage);
     e.preventDefault();
     if (this.userMessage) {
-      // TODO: chatState.sendMessageToAi()
-      this.userMessage = '';
+      chatState.processNewChatMessage(this.userMessage);
+      this.userMessage = ''
     }
   }
 
   render() {
     return (
       <Host>
-
-        <div class="chat-history">
+        <div ref={el => (this.chatHistoryDiv = el)} class="chat-history">
           <myai-chat-history />
         </div>
 
-        {/* TODO: MAKE THIS A COMPOENENT */}
         <form class="chat-form">
           <textarea
             class="chat-textarea"
@@ -37,11 +51,10 @@ export class MyaiChat {
             value={this.userMessage}
             onChange={e => this.captureUserMessage(e)}
           />
-          <button type="submit" onClick={e => this.submitMessage(e)} disabled={false}>
+          <button type="submit" onClick={e => this.submitMessage(e)} disabled={chatState.isLoading}>
             {'>>'}
           </button>
         </form>
-
       </Host>
     );
   }

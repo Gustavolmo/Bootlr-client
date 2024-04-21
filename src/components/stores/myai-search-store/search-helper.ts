@@ -5,11 +5,14 @@ export interface TranslatePromptResponse {
   shoppingResults: Object[];
 }
 
-export const pushMessageToHistory = (message: string, role: Role) => {
-  searchState.messages.push({
-    role: role,
-    content: message,
-  });
+export const addMessageToSearch = (content: string, role: Role) => {
+  searchState.messages = [
+    ...searchState.messages,
+    {
+      role: role,
+      content: content,
+    },
+  ];
 };
 
 export const translatePromptToSearch = async (): Promise<TranslatePromptResponse> => {

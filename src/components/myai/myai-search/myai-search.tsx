@@ -14,7 +14,7 @@ export class MyaiSearch {
     this.userPrompt = target.value.trim();
   }
 
-  private async submitPrompt(e: Event) {
+  private async submitSearch(e: Event) {
     e.preventDefault();
     if (this.userPrompt) {
       await searchState.processSearchRequest(this.userPrompt);
@@ -26,18 +26,18 @@ export class MyaiSearch {
   render() {
     return (
       <section class="myai-search-container">
-        <header class="search-header">What are you looking for today?</header>
+        <header class="search-header">BOOTLER</header>
 
         {/* TODO: MAKE THIS A COMPOENENT */}
         <form class="search-form">
           <textarea
-            placeholder='I am looking for...' // TODO: Add random examples like openai's suggestions
+            placeholder='I am looking for a wedding gift...' // TODO: Add random examples like openai's suggestions
             maxlength="240"
             class="search-textarea"
             onChange={e => this.captureUserPrompt(e)}
             value={this.userPrompt}
           />
-          <button type="submit" onClick={e => this.submitPrompt(e)} disabled={searchState.isLoading}>
+          <button type="submit" onClick={e => this.submitSearch(e)} disabled={searchState.isLoading}>
           {'>>'}
           </button>
         </form>
