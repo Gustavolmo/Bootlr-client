@@ -5,6 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Product } from "./components/stores/myai-products-store/product-store";
+export { Product } from "./components/stores/myai-products-store/product-store";
 export namespace Components {
     interface MyaiChat {
     }
@@ -13,6 +15,9 @@ export namespace Components {
     interface MyaiChatHistory {
     }
     interface MyaiMain {
+    }
+    interface MyaiProduct {
+        "product": Product;
     }
     interface MyaiProductResults {
     }
@@ -44,6 +49,12 @@ declare global {
         prototype: HTMLMyaiMainElement;
         new (): HTMLMyaiMainElement;
     };
+    interface HTMLMyaiProductElement extends Components.MyaiProduct, HTMLStencilElement {
+    }
+    var HTMLMyaiProductElement: {
+        prototype: HTMLMyaiProductElement;
+        new (): HTMLMyaiProductElement;
+    };
     interface HTMLMyaiProductResultsElement extends Components.MyaiProductResults, HTMLStencilElement {
     }
     var HTMLMyaiProductResultsElement: {
@@ -61,6 +72,7 @@ declare global {
         "myai-chat-area": HTMLMyaiChatAreaElement;
         "myai-chat-history": HTMLMyaiChatHistoryElement;
         "myai-main": HTMLMyaiMainElement;
+        "myai-product": HTMLMyaiProductElement;
         "myai-product-results": HTMLMyaiProductResultsElement;
         "myai-search": HTMLMyaiSearchElement;
     }
@@ -74,6 +86,9 @@ declare namespace LocalJSX {
     }
     interface MyaiMain {
     }
+    interface MyaiProduct {
+        "product"?: Product;
+    }
     interface MyaiProductResults {
     }
     interface MyaiSearch {
@@ -83,6 +98,7 @@ declare namespace LocalJSX {
         "myai-chat-area": MyaiChatArea;
         "myai-chat-history": MyaiChatHistory;
         "myai-main": MyaiMain;
+        "myai-product": MyaiProduct;
         "myai-product-results": MyaiProductResults;
         "myai-search": MyaiSearch;
     }
@@ -95,6 +111,7 @@ declare module "@stencil/core" {
             "myai-chat-area": LocalJSX.MyaiChatArea & JSXBase.HTMLAttributes<HTMLMyaiChatAreaElement>;
             "myai-chat-history": LocalJSX.MyaiChatHistory & JSXBase.HTMLAttributes<HTMLMyaiChatHistoryElement>;
             "myai-main": LocalJSX.MyaiMain & JSXBase.HTMLAttributes<HTMLMyaiMainElement>;
+            "myai-product": LocalJSX.MyaiProduct & JSXBase.HTMLAttributes<HTMLMyaiProductElement>;
             "myai-product-results": LocalJSX.MyaiProductResults & JSXBase.HTMLAttributes<HTMLMyaiProductResultsElement>;
             "myai-search": LocalJSX.MyaiSearch & JSXBase.HTMLAttributes<HTMLMyaiSearchElement>;
         }

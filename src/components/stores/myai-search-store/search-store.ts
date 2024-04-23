@@ -1,7 +1,5 @@
 import { createStore } from '@stencil/store';
-import { mockSearchResults } from '../../../dev-mocks/search-results-mock';
-import { chatStore } from '../myai-chat-store/chat-store';
-import { addShoppingContextToChat } from '../myai-chat-store/chat-helper';
+import { processSearchRequest } from './search-helper';
 
 export enum Role {
   USER = 'user',
@@ -39,24 +37,5 @@ export const { state: searchState } = createStore<searchStore>({
     },
   ],
 
-  processSearchRequest: async (userMessage: string): Promise<void> => {
-    searchState.isLoading = true;
-    try {
-      chatStore.reset();
-      console.log(userMessage);
-      /* addMessageToSearch(userMessage, Role.USER);
-      const response = await translatePromptToSearch();
-      addMessageToSearch(response.searchQuery, Role.ASSISTANT);
-      productState.shoppingResults = response.shoppingResults */
-
-      await mockSearchResults();
-
-      addShoppingContextToChat();
-    } catch (err) {
-      console.error('Error while processing searchrequest ->', err);
-    } finally {
-      searchState.isLoading = false;
-      console.log(searchState.messages);
-    }
-  },
+  processSearchRequest: processSearchRequest,
 });

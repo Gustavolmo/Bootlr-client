@@ -1,3 +1,5 @@
+import { mockSearchResults } from '../../../dev-mocks/search-results-mock';
+import { chatState, chatStore } from '../myai-chat-store/chat-store';
 import { Role, searchState } from './search-store';
 
 export interface TranslatePromptResponse {
@@ -5,7 +7,28 @@ export interface TranslatePromptResponse {
   shoppingResults: Object[];
 }
 
-export const addMessageToSearch = (content: string, role: Role) => {
+export const processSearchRequest = async (userMessage: string): Promise<void> => {
+  searchState.isLoading = true;
+  try {
+    chatStore.reset();
+    console.log(userMessage);
+    /* addMessageToSearch(userMessage, Role.USER);
+    const response = await translatePromptToSearch();
+    addMessageToSearch(response.searchQuery, Role.ASSISTANT);
+    productState.shoppingResults = response.shoppingResults */
+
+    await mockSearchResults();
+
+    chatState.addShoppingContextToChat();
+  } catch (err) {
+    console.error('Error while processing searchrequest ->', err);
+  } finally {
+    searchState.isLoading = false;
+    console.log(searchState.messages);
+  }
+}
+
+const addMessageToSearch = (content: string, role: Role) => {
   searchState.messages = [
     ...searchState.messages,
     {
@@ -15,7 +38,7 @@ export const addMessageToSearch = (content: string, role: Role) => {
   ];
 };
 
-export const translatePromptToSearch = async (): Promise<TranslatePromptResponse> => {
+const translatePromptToSearch = async (): Promise<TranslatePromptResponse> => {
   const URL = 'http://localhost:8080/post-search-request';
   const requestBody = JSON.stringify(searchState.messages);
   const requestOptions: RequestInit = {

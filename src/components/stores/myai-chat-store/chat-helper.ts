@@ -2,6 +2,29 @@ import { productState } from "../myai-products-store/product-store";
 import { Role } from "../myai-search-store/search-store";
 import { chatState } from "./chat-store";
 
+export const processNewChatMessage = async (content: string): Promise<void> => {
+  try {
+    chatState.isLoading = true;
+    addMessageToChat(content, Role.USER);
+
+    const chatResponse: string = await getAiRespose();
+    const parsedChatResponse =
+      chatResponse.length > 0 ? chatResponse : 'Ops, something went wrong, please try again.';
+
+    addMessageToChat(parsedChatResponse, Role.ASSISTANT);
+  } catch (err) {
+    addMessageToChat('Something when wrong', Role.ASSISTANT);
+  } finally {
+    console.log(chatState.messages);
+    chatState.isLoading = false;
+  }
+}
+
+export const enableChat = () => {
+  chatState.isChatEnabled = true;
+  chatState.isChatOpen = true;
+};
+
 export const addShoppingContextToChat = () => {
   const shoppingResultSummary = productState.shoppingResults.map(product => {
     return {
@@ -28,7 +51,7 @@ export const addShoppingContextToChat = () => {
   ];
 };
 
-export const addMessageToChat = (content: string, role: Role) => {
+const addMessageToChat = (content: string, role: Role) => {
   chatState.messages = [
     ...chatState.messages,
     {
@@ -38,10 +61,6 @@ export const addMessageToChat = (content: string, role: Role) => {
   ];
 };
 
-export const enableChat = () => {
-  chatState.isChatEnabled = true;
-  chatState.isChatOpen = true;
-};
 
 // MOVE TO BACK END ONCE IT WORKS
 export const getAiRespose = async () => {
