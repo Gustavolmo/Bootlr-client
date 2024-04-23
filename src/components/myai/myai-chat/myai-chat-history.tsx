@@ -31,7 +31,7 @@ export class MyaiChatHistory {
             </div>
           );
         })}
-        <p class="message-loading">{chatState.isLoading && 'Bootler is typing...'}</p>
+        <i class="message-loading">{chatState.isLoading && 'Bootler is typing...'}</i>
       </Host>
     );
   }

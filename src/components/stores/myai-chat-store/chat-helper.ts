@@ -62,7 +62,7 @@ const addMessageToChat = (content: string, role: Role) => {
 };
 
 
-// MOVE TO BACK END ONCE IT WORKS
+// MOVE TO BACK END ONCE DONE TESTING
 export const getAiRespose = async () => {
   const OPENAI_APIKEY = "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"
   const URL = "https://api.openai.com/v1/chat/completions"
