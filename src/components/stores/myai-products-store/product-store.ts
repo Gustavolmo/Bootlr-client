@@ -29,10 +29,12 @@ export interface Product {
 
 interface productStore {
   shoppingResults: Product[];
-  productsInFocus: string[]
+  productsInFocus: Product[];
 }
 
-export const { state: productState } = createStore<productStore>({
+export const productStore = createStore<productStore>({
   shoppingResults: [],
-  productsInFocus: []
+  productsInFocus: [],
 });
+
+export const { state: productState } = productStore;

@@ -12,3 +12,12 @@
   justify-content: center;
   margin: 32px 0px 64px;
 }
+
+.myai-product-in-focus-wrap{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 8px;
+  max-width: 760px;
+  justify-content: center;
+  margin: 32px 0px 64px;
+}

@@ -7,12 +7,17 @@ import { Product } from '../../stores/myai-products-store/product-store';
 })
 export class MyaiProduct {
   @Prop() product: Product = {};
+  @Prop() inFocus: boolean = false;
   private stars = '★'.repeat(Math.round(this.product.rating));
 
   render() {
     return (
-      <section class="myai-product-item-wrap">
-        <button>Ask</button>
+      <section
+        class={{
+          'myai-product-item-wrap': !this.inFocus,
+          'myai-product-item-wrap focus': this.inFocus,
+        }}
+      >
         <a href={this.product.link} target="_blank">
           <div class="myai-product-image-wrap">
             <img src={this.product.thumbnail} alt="test" />

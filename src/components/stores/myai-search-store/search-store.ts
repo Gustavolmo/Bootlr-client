@@ -24,7 +24,7 @@ export const { state: searchState } = createStore<searchStore>({
     {
       role: Role.SYSTEM,
       content:
-        "Your task is to generate a Google Shopping search that best matches the user's need. Your output will be used to search for products on Google Shopping. You are allowed to search for products by name or brand if you see fit. IF YOU DO NOT UNDERSTAND THE USER'S REQUEST, STILL CREATE A GOOGLE SHOPPING SEARCH.",
+        "Your task is to generate a Google Shopping search that best matches the user's need. Your output will be used to search for products on Google Shopping. You are allowed to search for products by name or brand if you see fit. IF YOU DO NOT UNDERSTAND THE USER'S REQUEST, JUST RETURN WHAT THEY WROTE.",
     },
     {
       role: Role.SYSTEM,

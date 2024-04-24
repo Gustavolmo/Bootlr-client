@@ -1,5 +1,6 @@
 import { mockSearchResults } from '../../../dev-mocks/search-results-mock';
 import { chatState, chatStore } from '../myai-chat-store/chat-store';
+import { productStore } from '../myai-products-store/product-store';
 import { Role, searchState } from './search-store';
 
 export interface TranslatePromptResponse {
@@ -11,20 +12,21 @@ export const processSearchRequest = async (userMessage: string): Promise<void> =
   searchState.isLoading = true;
   try {
     chatStore.reset();
-    console.log(userMessage);
+    productStore.reset();
     /* addMessageToSearch(userMessage, Role.USER);
     const response = await translatePromptToSearch();
     addMessageToSearch(response.searchQuery, Role.ASSISTANT);
     productState.shoppingResults = response.shoppingResults */
-
+    
     await mockSearchResults();
 
     chatState.addShoppingContextToChat();
+
   } catch (err) {
     console.error('Error while processing searchrequest ->', err);
   } finally {
     searchState.isLoading = false;
-    console.log(searchState.messages);
+    console.log('SEARCH LOGS', searchState.messages);
   }
 }
 
