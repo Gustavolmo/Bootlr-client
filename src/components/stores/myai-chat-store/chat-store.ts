@@ -22,6 +22,7 @@ export const chatStore = createStore<ChatStore>({
   isChatOpen: false,
   isChatEnabled: false,
   messages: [
+    // TODO: NEEDS TWEEKING WITH THE RELATIONSHIP BETWEEN RESPONSE TEXT AND PRODUCT REFERENCE 
     {
       role: Role.SYSTEM,
       content: `You are Bootler, a helpful personal online web shopping AI assistant, YOUR TASK IS TO GIVE PROFESSIONAL ADVICE AND RECOMMENDATIONS about products.
@@ -31,7 +32,7 @@ export const chatStore = createStore<ChatStore>({
       {
         responseText: <This field contains a string that will be used as the innerHtml in the div where user's can see your response>,
 
-        productReference: [<If you make reference to any product in your responseText, you MUST also populate this array with those same products. IF NO REFERENCES TO PRODUCTS ARE MADE, THIS ARRAY MUST BE EMPTY>]
+        productReference: [<If you make reference to products in your responseText, you MUST ALSO UPDATE this array with the title of those same products. IF YOU MAKE NO REFERENCE TO PRODUCTS, THIS ARRAY MUST BE RETURNED EMPTY>]
       }
            
       Here are your isntructions:

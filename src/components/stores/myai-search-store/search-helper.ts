@@ -1,4 +1,4 @@
-import { mockSearchResults } from '../../../dev-mocks/search-results-mock';
+import { mockSearchResults } from '../../../../dev-mocks/search-results-mock';
 import { chatState, chatStore } from '../myai-chat-store/chat-store';
 import { productStore } from '../myai-products-store/product-store';
 import { Role, searchState } from './search-store';

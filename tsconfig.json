@@ -18,7 +18,7 @@
   },
   "include": [
     "src"
-, "webpack.config.js"  ],
+, "webpack.config.js", "dev-mocks"  ],
   "exclude": [
     "node_modules"
   ]
