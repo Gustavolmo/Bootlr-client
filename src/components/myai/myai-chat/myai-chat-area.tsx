@@ -1,5 +1,6 @@
 import { Component, Host, State, h } from '@stencil/core';
 import { chatState } from '../../stores/myai-chat-store/chat-store';
+import { sparkles } from '../../../assets/heroIcons/collection';
 
 @Component({
   tag: 'myai-chat-area',
@@ -33,7 +34,7 @@ export class MyaiChat {
     e.preventDefault();
     if (this.userMessage) {
       chatState.processNewChatMessage(this.userMessage);
-      this.userMessage = ''
+      this.userMessage = '';
     }
   }
 
@@ -51,10 +52,18 @@ export class MyaiChat {
             value={this.userMessage}
             onChange={e => this.captureUserMessage(e)}
           />
-          <button type="submit" onClick={e => this.submitMessage(e)} disabled={chatState.isLoading}>
-            {'>>'}
+          <button
+            type="submit"
+            class="chat-textarea-submit"
+            onClick={e => this.submitMessage(e)}
+            disabled={chatState.isLoading}
+          >
+            {sparkles('32px')}
           </button>
         </form>
+        <i class="chat-bootler-disclaimer">
+          *Bootler can make mistakes, always check the information before buying
+        </i>
       </Host>
     );
   }

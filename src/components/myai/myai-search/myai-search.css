@@ -9,23 +9,45 @@
   justify-content: center;
 }
 
+.search-header h2{
+  /* background-color: rgb(255, 253, 240); */
+  /* border: 1px solid rgb(200, 200, 200); */
+  color: rgb(200, 200, 200);
+  padding: 4px 8px;
+}
+
 .search-form {
   display: flex;
   justify-content: center;
-  /* width: 100%; */
   padding: 0 16px;
 }
 
 .search-textarea {
   padding: 8px;
-  border-radius: 8px;
   height: 40px;
   font-size: large;
   width: 100%;
   max-width: 680px;
   resize: none;
+  border: 1px solid rgb(200, 200, 200);
+  border-right: none;
 }
 
 .search-textarea:focus {
   outline: none;
+}
+
+.myai-chat-submit {
+  border-radius: none;
+  border: 1px solid rgb(200, 200, 200);
+  background-color: rgb(255, 253, 240);
+  cursor: pointer;
+}
+
+.myai-chat-submit:hover{
+  border: 1px solid rgb(150, 150, 150);
+}
+
+.myai-chat-submit:active {
+  border: 1px solid rgb(51, 51, 51);
 }

@@ -8,7 +8,7 @@
 
 .history-message-box-bootler {
   word-wrap: break-word;
-  margin: 32px 0;
+  margin: 16px 0 32px 0;
   padding: 8px;
   border-radius: 8px;
 }

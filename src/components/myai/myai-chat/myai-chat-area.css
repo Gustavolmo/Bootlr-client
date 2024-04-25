@@ -6,17 +6,12 @@ myai-chat-area {
 }
 
 .chat-history {
-  /* border: 1px red dashed; */
   flex: 1;
   overflow-x: hidden;
   padding: 8px;
   padding-bottom: 32px;
   margin-bottom: 8px;
 }
-
-/* .chat-history::-webkit-scrollbar {
-  display: none;
-} */
 
 .chat-form {
   display: flex;
@@ -26,13 +21,36 @@ myai-chat-area {
 
 .chat-textarea {
   padding: 8px;
-  border-radius: 8px;
   height: 80px;
   font-size: large;
   width: 100%;
   resize: none;
+  border: 1px solid rgb(200, 200, 200);
+  border-right: none;
 }
 
 .chat-textarea:focus {
   outline: none;
+}
+
+.chat-textarea-submit{
+  border-radius: none;
+  border: 1px solid rgb(200, 200, 200);
+  background-color: rgb(255, 253, 240);
+  cursor: pointer;
+}
+
+.chat-textarea-submit:hover{
+  border: 1px solid rgb(150, 150, 150);
+}
+
+.chat-textarea-submit:active {
+  border: 1px solid rgb(51, 51, 51);
+}
+
+.chat-bootler-disclaimer {
+  align-self: center;
+  font-size: small;
+  margin: 4px 0;
+  color: gray;
 }

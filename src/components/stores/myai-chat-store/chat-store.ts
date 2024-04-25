@@ -42,6 +42,8 @@ export const chatStore = createStore<ChatStore>({
       2. You may ONLY use HTML to format responseText. Make sure to add target="_black" when using links.
 
       3. You may ONLY populate the productReference with a list of strings.
+
+      4. Help the user thorught their shopping experienced.
       ` 
     },
   ],
@@ -52,3 +54,5 @@ export const chatStore = createStore<ChatStore>({
 });
 
 export const { state: chatState } = chatStore;
+
+// TODO: Add try catches with error messages in case API goes wrong

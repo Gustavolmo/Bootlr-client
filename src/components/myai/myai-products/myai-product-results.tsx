@@ -10,18 +10,14 @@ export class MyaiProductResults {
   render() {
     return (
       <Host>
-        <b>{productState.productsInFocus.length > 0 && 'Bootler is looking at:'}</b>
-        <div class="myai-product-in-focus-wrap">
+        <div class="myai-product-results-wrap">
           {productState.productsInFocus.length > 0 &&
             productState.productsInFocus.map(product => {
-              return <myai-product product={product} inFocus={true}/>;
+              return <myai-product product={product} inFocus={true} />;
             })}
-        </div>
-        <b>{productState.shoppingResults.length > 0 && 'Bootler found:'}</b>
-        <div class="myai-product-results-wrap">
           {productState.shoppingResults.length > 0 &&
             productState.shoppingResults.map(product => {
-              return <myai-product product={product} inFocus={false}/>;
+              return <myai-product product={product} inFocus={false} />;
             })}
         </div>
       </Host>

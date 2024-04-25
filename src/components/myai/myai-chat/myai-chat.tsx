@@ -1,5 +1,6 @@
 import { Component, h } from '@stencil/core';
 import { chatState } from '../../stores/myai-chat-store/chat-store';
+import { cross, dialogue } from '../../../assets/heroIcons/collection';
 
 @Component({
   tag: 'myai-chat',
@@ -28,14 +29,13 @@ export class MyaiChat {
               }}
               onClick={() => this.toggleChatModal()}
             >
-              {chatState.isChatOpen ? 'Close' : 'Ask'}
+              {chatState.isChatOpen ? cross("28px", "gray") : dialogue("28px", "gray")}
             </button>
           )}
 
           <section class="chat-area">
             <myai-chat-area />
           </section>
-          
         </div>
       </section>
     );

@@ -1,6 +1,7 @@
 import { Component, State, h } from '@stencil/core';
 import { searchState } from '../../stores/myai-search-store/search-store';
 import { chatState } from '../../stores/myai-chat-store/chat-store';
+import { sparkles } from '../../../assets/heroIcons/collection';
 
 @Component({
   tag: 'myai-search',
@@ -26,19 +27,26 @@ export class MyaiSearch {
   render() {
     return (
       <section class="myai-search-container">
-        <header class="search-header">BOOTLER</header>
+        <header class="search-header">
+          <h2>Bootler</h2>
+        </header>
 
         {/* TODO: MAKE THIS A COMPOENENT */}
         <form class="search-form">
           <textarea
-            placeholder='I am looking for a wedding gift...' // TODO: Add random examples like openai's suggestions
+            placeholder="I am looking for a wedding gift..." // TODO: Add random examples like openai's suggestions
             maxlength="240"
             class="search-textarea"
             onChange={e => this.captureUserPrompt(e)}
             value={this.userPrompt}
           />
-          <button type="submit" onClick={e => this.submitSearch(e)} disabled={searchState.isLoading}>
-          {'>>'}
+          <button
+            class="myai-chat-submit"
+            type="submit"
+            onClick={e => this.submitSearch(e)}
+            disabled={searchState.isLoading}
+          >
+            {sparkles('28px')}
           </button>
         </form>
       </section>
