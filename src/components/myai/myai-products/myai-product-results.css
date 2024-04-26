@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-.myai-product-results-wrap{
+.myai-product-results-wrap {
   display: flex;
   flex-wrap: wrap;
   gap: 32px 8px;

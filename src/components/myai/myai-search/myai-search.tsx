@@ -28,7 +28,8 @@ export class MyaiSearch {
     return (
       <section class="myai-search-container">
         <header class="search-header">
-          <h2>Bootlr</h2>
+          <h2 class={searchState.isLoading && 'search-loading'}>Bootlr</h2>
+          <p>The shopping assistant</p>
         </header>
         <form class="search-form">
           <textarea
