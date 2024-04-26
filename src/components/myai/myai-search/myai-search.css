@@ -43,36 +43,36 @@
   outline: none;
 }
 
-.myai-chat-submit {
+.myai-search-submit {
   border-radius: none;
   border: 1px solid rgb(200, 200, 200);
   background-color: rgb(255, 253, 240);
   cursor: pointer;
 }
 
-.myai-chat-submit:hover{
+.myai-search-submit:hover{
   border: 1px solid rgb(150, 150, 150);
 }
 
-.myai-chat-submit:active {
+.myai-search-submit:active {
   border: 1px solid rgb(51, 51, 51);
 }
 
 .search-loading {
-  animation: searching 2s infinite;
+  animation: searching 1s infinite;
 }
 
 @keyframes searching {
   0% {
-    color: rgb(200, 200, 200);
-    transform: translateY(0);
+    color: rgb(150, 150, 150);
+    /* transform: translateY(0); */
   }
   50% {
-    color: rgb(100, 100, 100);
-    transform: translateY(-5px);
+    color: rgb(225, 225, 225);
+    transform: translateY(-8px);
   }
   100% {
-    transform: translateY(0);
-    color: rgb(200, 200, 200);
+    color: rgb(150, 150, 150);
+    /* transform: translateY(0); */
   }
 }

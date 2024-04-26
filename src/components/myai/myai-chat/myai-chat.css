@@ -35,7 +35,7 @@
 .chat-window-button {
   display: flex;
   position: relative;
-  left: 0;
+  left: 8px;
   top: 0;
   margin: 16px 0 0 16px;
   transition: left 0.6s ease;
@@ -43,6 +43,7 @@
   border: none;
   border-radius: 100%;
   cursor: pointer;
+  padding: 4px;
 }
 
 .chat-window-button :nth-child(1):hover{
@@ -61,6 +62,7 @@
   border: none;
   border-radius: 100%;
   cursor: pointer;
+  padding: 4px;
 }
 
 .chat-window-button-close :nth-child(1):hover{
@@ -111,8 +113,8 @@
 
   .chat-window-button-close {
     position: relative;
-    left: 0;
-    top: -32px;
+    left: 8px;
+    top: -72px;
     margin: 8px;
     transition: top 0.3s ease;
   }

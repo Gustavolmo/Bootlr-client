@@ -1,7 +1,7 @@
 import { Component, State, h } from '@stencil/core';
 import { searchState } from '../../stores/myai-search-store/search-store';
 import { chatState } from '../../stores/myai-chat-store/chat-store';
-import { sparkles } from '../../../assets/heroIcons/collection';
+import { magnifyingGlass } from '../../../assets/heroIcons/collection';
 
 @Component({
   tag: 'myai-search',
@@ -39,12 +39,12 @@ export class MyaiSearch {
             value={this.userPrompt}
           />
           <button
-            class="myai-chat-submit"
+            class="myai-search-submit"
             type="submit"
             onClick={e => this.submitSearch(e)}
             disabled={searchState.isLoading}
           >
-            {sparkles('28px')}
+            {magnifyingGlass('24px', 'gray')}
           </button>
         </form>
       </section>

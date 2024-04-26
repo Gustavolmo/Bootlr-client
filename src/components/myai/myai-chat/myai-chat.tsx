@@ -1,6 +1,6 @@
 import { Component, h } from '@stencil/core';
 import { chatState } from '../../stores/myai-chat-store/chat-store';
-import { cross, dialogue } from '../../../assets/heroIcons/collection';
+import { cross, dialogueBallon } from '../../../assets/heroIcons/collection';
 
 @Component({
   tag: 'myai-chat',
@@ -29,7 +29,7 @@ export class MyaiChat {
               }}
               onClick={() => this.toggleChatModal()}
             >
-              {chatState.isChatOpen ? cross("28px", "gray") : dialogue("28px", "gray")}
+              {chatState.isChatOpen ? cross("28px", "gray") : dialogueBallon("28px", "gray")}
             </button>
           )}
 
