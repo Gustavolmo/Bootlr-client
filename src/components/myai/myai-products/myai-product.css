@@ -18,7 +18,7 @@
 .myai-product-item-wrap{
   max-width: 156px;
   box-shadow:rgb(200, 200, 200) 0px 0px 1px 1px;
-  border-radius: 8px;
+  border-radius: 0px;
   padding: 8px;
   height: 100%;
 }

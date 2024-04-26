@@ -17,10 +17,10 @@ export class MyaiChatHistory {
             <div
               class={{
                 'history-message-box-you': message.role === Role.USER,
-                'history-message-box-bootler': message.role === Role.ASSISTANT,
+                'history-message-box-bootlr': message.role === Role.ASSISTANT,
               }}
             >
-              <b>{message.role === Role.USER ? 'You:' : 'Bootler:'}</b>
+              <b>{message.role === Role.USER ? 'You:' : 'Bootlr:'}</b>
               <div
                 class="message-box-content"
                 innerHTML={message.role === Role.ASSISTANT ? message.content : ''}
@@ -31,7 +31,7 @@ export class MyaiChatHistory {
             </div>
           );
         })}
-        <i class="message-loading">{chatState.isLoading && 'Bootler is typing...'}</i>
+        <i class="message-loading">{chatState.isLoading && 'Bootlr is typing...'}</i>
       </Host>
     );
   }

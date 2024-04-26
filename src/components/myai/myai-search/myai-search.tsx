@@ -28,13 +28,10 @@ export class MyaiSearch {
     return (
       <section class="myai-search-container">
         <header class="search-header">
-          <h2>Bootler</h2>
+          <h2>Bootlr</h2>
         </header>
-
-        {/* TODO: MAKE THIS A COMPOENENT */}
         <form class="search-form">
           <textarea
-            placeholder="I am looking for a wedding gift..." // TODO: Add random examples like openai's suggestions
             maxlength="240"
             class="search-textarea"
             onChange={e => this.captureUserPrompt(e)}

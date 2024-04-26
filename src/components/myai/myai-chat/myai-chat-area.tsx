@@ -30,7 +30,6 @@ export class MyaiChat {
   }
 
   private submitMessage(e: Event) {
-    console.log(this.userMessage);
     e.preventDefault();
     if (this.userMessage) {
       chatState.processNewChatMessage(this.userMessage);
@@ -61,8 +60,8 @@ export class MyaiChat {
             {sparkles('32px')}
           </button>
         </form>
-        <i class="chat-bootler-disclaimer">
-          *Bootler can make mistakes, always check the information before buying
+        <i class="chat-bootlr-disclaimer">
+          *Bootlr can make mistakes, always check the information before buying
         </i>
       </Host>
     );

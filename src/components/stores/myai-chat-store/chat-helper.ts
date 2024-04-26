@@ -17,14 +17,15 @@ export const processNewChatMessage = async (content: string): Promise<void> => {
     const responseText = parsedChatResponse.responseText;
     const productReference = parsedChatResponse.productReference;
 
-    console.log('CHAT RESPONSE', parsedChatResponse); // TODO: Remove
-
     addMessageToChat(responseText, Role.ASSISTANT);
     populateProductsInFocus(productReference);
   } catch (err) {
-    addMessageToChat('Something when wrong', Role.ASSISTANT);
+    alert(`
+    This product is a prototype with limited resources.
+    If you are seeing this, either Bootlr failed to answer correctly, or the chat history is too long and exceeds Bootlr's capacity.
+    Try asking again or reloading the page. 
+    `);
   } finally {
-    console.log(chatState.messages);
     chatState.isLoading = false;
   }
 };
@@ -70,32 +71,24 @@ const addMessageToChat = (content: string, role: Role) => {
   ];
 };
 
-// TODO: MOVE TO BACK END ONCE DONE TESTING
 const getAiRespose = async () => {
-  const OPENAI_APIKEY = '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';
-  const URL = 'https://api.openai.com/v1/chat/completions';
-  const REQUEST_BODY = chatState.messages;
+  const URL = 'http://localhost:8080/post-chat-message';
+  const requestBody = JSON.stringify(chatState.messages);
+  const requestOptions: RequestInit = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: requestBody,
+  };
 
   try {
-    const response = await fetch(URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + OPENAI_APIKEY,
-      },
-      body: JSON.stringify({
-        messages: REQUEST_BODY,
-        model: 'gpt-3.5-turbo',
-        response_format: { type: 'json_object' },
-        temperature: 0.7,
-      }),
-    });
-
-    const chatResponse = await response.json();
-
-    return chatResponse.choices[0].message.content;
+    const response = await fetch(URL, requestOptions);
+    const responseData = await response.json();
+    const generatedQuery = responseData;
+    return generatedQuery;
   } catch (error) {
-    console.error('Error:', error);
+    console.error('getAiRespose Error:', error);
   }
 };
 
@@ -109,6 +102,4 @@ const populateProductsInFocus = (productReferece: string[]) => {
       }
     });
   });
-
-  console.log('PRODS IN FOCUS', productState.productsInFocus); // TODO: Remove
 };

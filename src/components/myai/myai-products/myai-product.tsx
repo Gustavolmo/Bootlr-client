@@ -46,7 +46,6 @@ export class MyaiProduct {
             </div>
             <p class="info-product-delivery">{this.product.delivery}</p>
             <p class="info-product-title">{this.product.title}</p>{' '}
-            {/* TODO: Allow users to copy the name */}
           </div>
         </a>
       </section>

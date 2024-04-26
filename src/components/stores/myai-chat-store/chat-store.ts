@@ -22,10 +22,9 @@ export const chatStore = createStore<ChatStore>({
   isChatOpen: false,
   isChatEnabled: false,
   messages: [
-    // TODO: NEEDS TWEEKING WITH THE RELATIONSHIP BETWEEN RESPONSE TEXT AND PRODUCT REFERENCE 
     {
       role: Role.SYSTEM,
-      content: `You are Bootler, a helpful personal online web shopping AI assistant, YOUR TASK IS TO GIVE PROFESSIONAL ADVICE AND RECOMMENDATIONS about products.
+      content: `You are Bootlr, a helpful personal online web shopping AI assistant, YOUR TASK IS TO GIVE PROFESSIONAL ADVICE AND RECOMMENDATIONS about products.
       
       The response format JSON_OBJECT mode is enabled, which means You MUST answer with the following JSON format:
 
@@ -54,5 +53,3 @@ export const chatStore = createStore<ChatStore>({
 });
 
 export const { state: chatState } = chatStore;
-
-// TODO: Add try catches with error messages in case API goes wrong

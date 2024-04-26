@@ -39,5 +39,3 @@ export const { state: searchState } = createStore<searchStore>({
 
   processSearchRequest: processSearchRequest,
 });
-
-// TODO: Add try catches with error messages in case API goes wrong
