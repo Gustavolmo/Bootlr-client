@@ -59,7 +59,7 @@ export const addShoppingContextToChat = () => {
     },
     {
       role: Role.ASSISTANT,
-      content: '<span>Hello! In this chat I am able to assist you with the products you see on the screen.</span>',
+      content: '<span>Hello! How may I help you today?</span>',
     },
   ];
 };

@@ -1,4 +1,4 @@
-import { mockSearchResults } from '../../../../dev-mocks/search-results-mock';
+/* import { mockSearchResults } from '../../../../dev-mocks/search-results-mock'; */
 import { apiUrl } from '../../../http-definitions/endpoints';
 import { chatState, chatStore } from '../myai-chat-store/chat-store';
 import { productState, productStore } from '../myai-products-store/product-store';
@@ -15,12 +15,12 @@ export const processSearchRequest = async (userMessage: string): Promise<void> =
     chatStore.reset();
     productStore.reset();
 
-    /* addMessageToSearch(userMessage, Role.USER);
+    addMessageToSearch(userMessage, Role.USER);
     const response = await translatePromptToSearch();
     addMessageToSearch(response.searchQuery, Role.ASSISTANT);
-    productState.shoppingResults = response.shoppingResults; */
+    productState.shoppingResults = response.shoppingResults;
 
-    await mockSearchResults();
+    /* await mockSearchResults(); */
 
     chatState.addShoppingContextToChat();
   } catch (err) {
