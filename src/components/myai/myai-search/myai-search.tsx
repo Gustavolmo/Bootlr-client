@@ -33,6 +33,7 @@ export class MyaiSearch {
         </header>
         <form class="search-form">
           <textarea
+            placeholder="Tell Bootlr what to look for"
             maxlength="240"
             class="search-textarea"
             onChange={e => this.captureUserPrompt(e)}

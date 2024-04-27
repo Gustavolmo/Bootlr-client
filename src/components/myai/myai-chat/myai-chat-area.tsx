@@ -46,6 +46,7 @@ export class MyaiChat {
 
         <form class="chat-form">
           <textarea
+            placeholder="Ask Bootlr about the products"
             class="chat-textarea"
             maxlength="1200"
             value={this.userMessage}
@@ -57,7 +58,7 @@ export class MyaiChat {
             onClick={e => this.submitMessage(e)}
             disabled={chatState.isLoading}
           >
-            {sparkles('32px')}
+            {sparkles('32px', 'black')}
           </button>
         </form>
         <i class="chat-bootlr-disclaimer">
