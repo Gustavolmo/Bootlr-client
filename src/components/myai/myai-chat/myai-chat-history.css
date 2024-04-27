@@ -20,7 +20,7 @@
 .message-loading {
   margin-left: 32px;
   color: gray;
-  animation: thinking 2s infinite;
+  animation: thinking 1s infinite;
 }
 
 @keyframes thinking {

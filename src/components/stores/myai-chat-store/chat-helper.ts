@@ -1,3 +1,4 @@
+import { apiUrl } from '../../../http-definitions/endpoints';
 import { productState } from '../myai-products-store/product-store';
 import { Role } from '../myai-search-store/search-store';
 import { chatState } from './chat-store';
@@ -13,6 +14,7 @@ export const processNewChatMessage = async (content: string): Promise<void> => {
     addMessageToChat(content, Role.USER);
 
     const chatResponse: string = await getAiRespose();
+
     const parsedChatResponse: chatAiResponse = JSON.parse(chatResponse);
     const responseText = parsedChatResponse.responseText;
     const productReference = parsedChatResponse.productReference;
@@ -20,6 +22,7 @@ export const processNewChatMessage = async (content: string): Promise<void> => {
     addMessageToChat(responseText, Role.ASSISTANT);
     populateProductsInFocus(productReference);
   } catch (err) {
+    console.error('Error while processing chat ->', err);
     alert(`
     This product is a prototype with limited resources.
     If you are seeing this, either Bootlr failed to answer correctly, or the chat history is too long and exceeds Bootlr's capacity.
@@ -56,7 +59,7 @@ export const addShoppingContextToChat = () => {
     },
     {
       role: Role.ASSISTANT,
-      content: '<span>Let me know if I can help you!</span>',
+      content: '<span>Hello! In this chat I am able to assist you with the products you see on the screen.</span>',
     },
   ];
 };
@@ -72,7 +75,7 @@ const addMessageToChat = (content: string, role: Role) => {
 };
 
 const getAiRespose = async () => {
-  const URL = 'http://localhost:8080/post-chat-message';
+  const URL = apiUrl.prod.bootlrChat;
   const requestBody = JSON.stringify(chatState.messages);
   const requestOptions: RequestInit = {
     method: 'POST',

@@ -1,14 +1,15 @@
 import { mockSearchResults } from '../../../../dev-mocks/search-results-mock';
+import { apiUrl } from '../../../http-definitions/endpoints';
 import { chatState, chatStore } from '../myai-chat-store/chat-store';
-import { /* productState, */ productStore } from '../myai-products-store/product-store';
-import { /* Role, */ searchState } from './search-store';
+import { productState, productStore } from '../myai-products-store/product-store';
+import { Role, searchState } from './search-store';
 
 export interface TranslatePromptResponse {
   searchQuery: string;
   shoppingResults: Object[];
 }
 
-export const processSearchRequest = async (/* userMessage: string */): Promise<void> => {
+export const processSearchRequest = async (userMessage: string): Promise<void> => {
   searchState.isLoading = true;
   try {
     chatStore.reset();
@@ -34,7 +35,7 @@ export const processSearchRequest = async (/* userMessage: string */): Promise<v
   }
 };
 
-/* const addMessageToSearch = (content: string, role: Role) => {
+const addMessageToSearch = (content: string, role: Role) => {
   searchState.messages = [
     ...searchState.messages,
     {
@@ -45,7 +46,7 @@ export const processSearchRequest = async (/* userMessage: string */): Promise<v
 };
 
 const translatePromptToSearch = async (): Promise<TranslatePromptResponse> => {
-  const URL = 'http://localhost:8080/post-search-request';
+  const URL = apiUrl.prod.bootlrSearch;
   const requestBody = JSON.stringify(searchState.messages);
   const requestOptions: RequestInit = {
     method: 'POST',
@@ -63,4 +64,4 @@ const translatePromptToSearch = async (): Promise<TranslatePromptResponse> => {
   } catch (error) {
     console.error('translatePromptToSearch Error:', error);
   }
-}; */
+};

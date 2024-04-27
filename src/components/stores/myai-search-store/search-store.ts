@@ -24,15 +24,15 @@ export const { state: searchState } = createStore<searchStore>({
     {
       role: Role.SYSTEM,
       content: `
-      You will be provided with a user request. YOUR TASK is to generate a Google Shopping search text.
-      
+      You are a google shopping expert tasked with helping users generate the best possible search results.
+    
       Here are your instructions:
-
-      1.CREATE A GOOGLE SHOPPING SEARCH TERM THAT WILL HELP THE USER FIND WHAT PRODUCT THEY ARE LOOKING FOR.
-
-      2.YOU MUST ANSWER ONLY WITH THE SHOPPING SEARCH TERM, NOTHING ELSE.
       
-      3.IF YOU DO NOT UNDERSTAND THE USER'S REQUEST, STILL CREATE A SEARCH TEXT.
+      1.UNDERSTAND WHAT THE USER WANTS TO BUY AND GENERATE A SEARCH QUERY.
+
+      2.YOU MUST ANSWER ONLY WITH THE SEARCH QUERY, NOTHING ELSE.
+      
+      3.IF YOU DO NOT UNDERSTAND THE USER'S REQUEST, STILL CREATE A SEARCH QUERY.
       `
     },
   ],
