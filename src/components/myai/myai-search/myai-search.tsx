@@ -1,7 +1,7 @@
 import { Component, State, h } from '@stencil/core';
 import { searchState } from '../../stores/myai-search-store/search-store';
 import { chatState } from '../../stores/myai-chat-store/chat-store';
-import { magnifyingGlass } from '../../../assets/heroIcons/collection';
+import { bootlrIcon, magnifyingGlass } from '../../../assets/heroIcons/collection';
 
 @Component({
   tag: 'myai-search',
@@ -28,7 +28,7 @@ export class MyaiSearch {
     return (
       <section class="myai-search-container">
         <header class="search-header">
-          <h2 class={searchState.isLoading && 'search-loading'}>Bootlr</h2>
+          <h2 class={searchState.isLoading && 'search-loading'}>Bootlr{bootlrIcon('52')}</h2>
           <p>The shopping assistant</p>
         </header>
         <form class="search-form">

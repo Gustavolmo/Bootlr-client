@@ -17,6 +17,10 @@
   font-size: xx-large;
 }
 
+.search-header > h2 > svg {
+  transform: translateY(6px);
+}
+
 .search-header > p{
   color: rgb(150, 150, 150);
   margin-top: 4px;
