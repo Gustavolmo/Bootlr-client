@@ -35,7 +35,7 @@ export const processNewChatMessage = async (content: string): Promise<void> => {
 
 export const enableChat = () => {
   chatState.isChatEnabled = true;
-  chatState.isChatOpen = true;
+  if (window.innerWidth > 740) chatState.isChatOpen = true;
 };
 
 export const addShoppingContextToChat = () => {

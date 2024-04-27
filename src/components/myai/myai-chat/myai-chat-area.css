@@ -50,6 +50,7 @@ myai-chat-area {
 
 .chat-bootlr-disclaimer {
   align-self: center;
+  text-align: center;
   font-size: small;
   margin: 4px 0;
   color: gray;
