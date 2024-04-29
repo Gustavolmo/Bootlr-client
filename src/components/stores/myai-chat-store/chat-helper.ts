@@ -35,7 +35,7 @@ export const processNewChatMessage = async (content: string): Promise<void> => {
 
 export const enableChat = () => {
   chatState.isChatEnabled = true;
-  chatState.isChatOpen = true;
+  if (window.innerWidth > 740) chatState.isChatOpen = true;
 };
 
 export const addShoppingContextToChat = () => {
@@ -76,6 +76,7 @@ const addMessageToChat = (content: string, role: Role) => {
 
 const getAiRespose = async () => {
   const URL = apiUrl.prod.bootlrChat;
+  //const URL = apiUrl.local.bootlrSearch;
   const requestBody = JSON.stringify(chatState.messages);
   const requestOptions: RequestInit = {
     method: 'POST',

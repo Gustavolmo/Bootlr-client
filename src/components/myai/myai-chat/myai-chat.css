@@ -28,6 +28,7 @@
 .chat-area {
   position: relative;
   padding: 8px;
+  padding-top: 0;
   margin:0 16px;
   height: 90%;
 }
@@ -50,10 +51,16 @@
   color: black;
 }
 
+.chat-window-button :nth-child(1){
+  border: 2px dotted rgb(255, 255, 255);
+  padding: 4px;
+  border-radius: 100%;
+}
+
 .chat-window-button-close {
   display: flex;
   position: relative;
-  left: -52px;
+  left: -72px;
   top: 0;
   margin: 16px 16px 0 0;
   transition: left 0.6s ease;
@@ -63,6 +70,13 @@
   border-radius: 100%;
   cursor: pointer;
   padding: 4px;
+}
+
+.chat-window-button-close :nth-child(1){
+  background-color: rgb(255, 253, 240);
+  border: 2px dotted rgb(200, 200, 200);
+  padding: 4px;
+  border-radius: 100%;
 }
 
 .chat-window-button-close :nth-child(1):hover{
@@ -75,10 +89,18 @@
     width: 100vw;
     bottom: 0;
     right: 0;
-    height: 50svh;
+    height: 80svh;
     min-height: 0;
     transition: height 0.6s ease;
   }
+  
+    .chat-window {
+      right: 0;
+      height: 80svh;
+      width: 100%;
+      border-left: none;
+      border-top: 1px solid rgb(200, 200, 200);
+    }
 
   .myai-chat-wrap-close {
     position: fixed;
@@ -90,23 +112,13 @@
     transition: height 0.6s ease;
   }
 
-  .chat-window {
-    right: 0;
-    height: 50svh;
-    width: 100%;
-    border-left: none;
-    border-top: 1px solid rgb(200, 200, 200);
-    
-  }
-
   .chat-area {
-    height: 40svh;
+    height: 70svh;
     margin: 0 8px;
   }
 
   .chat-window-button {
     position: relative;
-
     margin: 8px;
     transition: top 0.3s ease;
   }
@@ -114,14 +126,8 @@
   .chat-window-button-close {
     position: relative;
     left: 8px;
-    top: -72px;
+    top: -80px;
     margin: 8px;
     transition: top 0.3s ease;
-  }
-}
-
-@media (max-height: 620px) {
-  .chat-area {
-    height: 80svh;
   }
 }

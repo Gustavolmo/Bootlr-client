@@ -47,6 +47,7 @@ const addMessageToSearch = (content: string, role: Role) => {
 
 const translatePromptToSearch = async (): Promise<TranslatePromptResponse> => {
   const URL = apiUrl.prod.bootlrSearch;
+  //const URL = apiUrl.local.bootlrSearch;
   const requestBody = JSON.stringify(searchState.messages);
   const requestOptions: RequestInit = {
     method: 'POST',

@@ -9,8 +9,8 @@ myai-chat-area {
   flex: 1;
   overflow-x: hidden;
   padding: 8px;
-  padding-bottom: 32px;
-  margin-bottom: 8px;
+  padding-bottom: 0;
+  margin-bottom: 4px;
 }
 
 .chat-form {
@@ -50,6 +50,7 @@ myai-chat-area {
 
 .chat-bootlr-disclaimer {
   align-self: center;
+  text-align: center;
   font-size: small;
   margin: 4px 0;
   color: gray;

@@ -46,7 +46,7 @@ export class MyaiChat {
 
         <form class="chat-form">
           <textarea
-            placeholder="Ask Bootlr about the products"
+            placeholder="Ask Bootlr about the products. It may highlight items in the page for you."
             class="chat-textarea"
             maxlength="1200"
             value={this.userMessage}
