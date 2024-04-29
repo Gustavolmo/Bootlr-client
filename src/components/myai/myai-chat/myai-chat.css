@@ -28,6 +28,7 @@
 .chat-area {
   position: relative;
   padding: 8px;
+  padding-top: 0;
   margin:0 16px;
   height: 90%;
 }
@@ -88,10 +89,18 @@
     width: 100vw;
     bottom: 0;
     right: 0;
-    height: 50svh;
+    height: 80svh;
     min-height: 0;
     transition: height 0.6s ease;
   }
+  
+    .chat-window {
+      right: 0;
+      height: 80svh;
+      width: 100%;
+      border-left: none;
+      border-top: 1px solid rgb(200, 200, 200);
+    }
 
   .myai-chat-wrap-close {
     position: fixed;
@@ -103,17 +112,8 @@
     transition: height 0.6s ease;
   }
 
-  .chat-window {
-    right: 0;
-    height: 50svh;
-    width: 100%;
-    border-left: none;
-    border-top: 1px solid rgb(200, 200, 200);
-    
-  }
-
   .chat-area {
-    height: 40svh;
+    height: 70svh;
     margin: 0 8px;
   }
 
@@ -129,11 +129,5 @@
     top: -80px;
     margin: 8px;
     transition: top 0.3s ease;
-  }
-}
-
-@media (max-height: 620px) {
-  .chat-area {
-    height: 80svh;
   }
 }
