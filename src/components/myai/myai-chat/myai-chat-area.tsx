@@ -29,10 +29,10 @@ export class MyaiChat {
     this.userMessage = target.value.trim();
   }
 
-  private submitMessage(e: Event) {
+  private async submitMessage(e: Event) {
     e.preventDefault();
     if (this.userMessage) {
-      chatState.processNewChatMessage(this.userMessage);
+      await chatState.processNewChatMessage(this.userMessage);
       this.userMessage = '';
     }
   }
