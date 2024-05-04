@@ -58,7 +58,7 @@ myai-chat-area {
 
 @media (max-width: 740px) {
   .chat-textarea {
-    height: 56px;
+    height: 58px;
   }
 
   .chat-history {

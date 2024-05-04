@@ -1,17 +1,24 @@
-.myai-product-item-name-copy {
-  width: 100%;
+.myai-product-top {
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
+  width: 100%;
   background: none;
   border: none;
   margin-bottom: 8px;
 }
 
-.myai-product-item-name-copy :nth-child(1) {
+.bootlr-suggested {
+  font-weight: bold;
+}
+
+.myai-product-item-name-copy {
+  background: none;
+  border: none;
+  margin-bottom: 8px;
   cursor: pointer;
 }
 
-.myai-product-item-name-copy :nth-child(1):hover {
+.myai-product-item-name-copy :hover {
   color: black;
 }
 
@@ -107,7 +114,6 @@ a {
 }
 
 @media (max-width: 740px) {
-
   .myai-product-item-name-copy {
     margin-bottom: 4px;
   }
