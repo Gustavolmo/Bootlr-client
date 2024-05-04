@@ -6,7 +6,7 @@ import { sparkles } from '../../../assets/heroIcons/collection';
   tag: 'myai-chat-area',
   styleUrl: './myai-chat-area.css',
 })
-export class MyaiChat {
+export class MyaiChatArea {
   @State() userMessage = '';
   private chatHistoryDiv: HTMLDivElement;
 
@@ -29,10 +29,10 @@ export class MyaiChat {
     this.userMessage = target.value.trim();
   }
 
-  private submitMessage(e: Event) {
+  private async submitMessage(e: Event) {
     e.preventDefault();
     if (this.userMessage) {
-      chatState.processNewChatMessage(this.userMessage);
+      await chatState.processNewChatMessage(this.userMessage);
       this.userMessage = '';
     }
   }

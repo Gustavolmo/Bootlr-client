@@ -1,6 +1,11 @@
 import { createStore } from '@stencil/store';
-import { Role } from '../myai-search-store/search-store';
 import { addShoppingContextToChat, enableChat, processNewChatMessage } from './chat-helper';
+
+enum Role {
+  USER = 'user',
+  SYSTEM = 'system',
+  ASSISTANT = 'assistant',
+}
 
 export interface ChatStore {
   isLoading: boolean;
