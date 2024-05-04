@@ -33,14 +33,14 @@ myai-chat-area {
   outline: none;
 }
 
-.chat-textarea-submit{
+.chat-textarea-submit {
   border-radius: none;
   border: 1px solid rgb(200, 200, 200);
   background-color: rgb(255, 253, 240);
   cursor: pointer;
 }
 
-.chat-textarea-submit:hover{
+.chat-textarea-submit:hover {
   border: 1px solid rgb(150, 150, 150);
 }
 
@@ -54,4 +54,14 @@ myai-chat-area {
   font-size: small;
   margin: 4px 0;
   color: gray;
+}
+
+@media (max-width: 740px) {
+  .chat-textarea {
+    height: 56px;
+  }
+
+  .chat-history {
+    padding: 0 4px;
+  }
 }
