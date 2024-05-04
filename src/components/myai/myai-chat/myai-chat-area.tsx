@@ -44,26 +44,28 @@ export class MyaiChatArea {
           <myai-chat-history />
         </div>
 
-        <form class="chat-form">
-          <textarea
-            placeholder="Ask Bootlr about the products. It may highlight items in the page for you."
-            class="chat-textarea"
-            maxlength="1200"
-            value={this.userMessage}
-            onChange={e => this.captureUserMessage(e)}
-          />
-          <button
-            type="submit"
-            class="chat-textarea-submit"
-            onClick={e => this.submitMessage(e)}
-            disabled={chatState.isLoading}
-          >
-            {sparkles('32px', 'black')}
-          </button>
-        </form>
-        <i class="chat-bootlr-disclaimer">
-          *Bootlr can make mistakes, always check the information before buying
-        </i>
+        <section class="chat-bottom-section">
+          <form class="chat-form">
+            <textarea
+              placeholder="Ask Bootlr about the products. It may highlight items in the page for you."
+              class="chat-textarea"
+              maxlength="1200"
+              value={this.userMessage}
+              onChange={e => this.captureUserMessage(e)}
+            />
+            <button
+              type="submit"
+              class="chat-textarea-submit"
+              onClick={e => this.submitMessage(e)}
+              disabled={chatState.isLoading}
+            >
+              {sparkles('32px', 'black')}
+            </button>
+          </form>
+          <i class="chat-bootlr-disclaimer">
+            *Bootlr can make mistakes, always check the information before buying
+          </i>
+        </section>
       </Host>
     );
   }

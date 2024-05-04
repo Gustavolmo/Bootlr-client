@@ -14,14 +14,14 @@ export const processSearchRequest = async (userMessage: string): Promise<void> =
   try {
     chatStore.reset();
     productStore.reset();
-    
+
     addMessageToSearch(userMessage, Role.USER);
-    
+
     const response =
-    window.location.href === 'https://bootlr.com/'
-    ? await translatePromptToSearch()
-    : await mockPromptToSearch(window);
-    
+      window.location.href === 'https://bootlr.com/'
+        ? await translatePromptToSearch()
+        : await mockPromptToSearch(window);
+
     chatState.enableChat();
     addMessageToSearch(response.searchQuery, Role.ASSISTANT);
     productState.shoppingResults = response.shoppingResults;
