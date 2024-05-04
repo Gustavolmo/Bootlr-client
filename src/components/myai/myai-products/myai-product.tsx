@@ -10,7 +10,13 @@ export class MyaiProduct {
   @Prop() product: Product = {};
   @Prop() inFocus: boolean = false;
   @State() copySuccess: boolean = false;
-  private stars = '★'.repeat(Math.round(this.product.rating));
+  @State() stars: string;
+
+
+  componentWillRender() {
+    console.log('UPDATED')
+    this.stars = '★'.repeat(Math.round(this.product.rating))
+  }
 
   private copyToClipboard() {
     navigator.clipboard.writeText(this.product.title);
@@ -38,7 +44,7 @@ export class MyaiProduct {
 
           <div class="myai-product-info-wrap">
             <p class="info-prouct-source">{this.product.source}</p>
-            <p class="info-price-tag">{this.product.price}</p>
+            <p class="info-price-tag">{this.product.price} <span class="old-price-tag">{this.product.old_price}</span></p>
             <div>
               <span class="rating-text">{this.product.rating}</span>{' '}
               <span class="rating-start">{this.stars}</span>{' '}

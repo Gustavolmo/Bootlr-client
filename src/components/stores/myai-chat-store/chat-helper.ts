@@ -1,6 +1,6 @@
 import { mockChatResponse } from '../../../../dev-mocks/search-results-mock';
 import { apiUrl } from '../../../http-definitions/endpoints';
-import { productState } from '../myai-products-store/product-store';
+import { Product, productState } from '../myai-products-store/product-store';
 import { Role } from '../myai-search-store/search-store';
 import { chatState } from './chat-store';
 
@@ -51,6 +51,8 @@ export const addShoppingContextToChat = () => {
       title: product.title,
       rating: product.rating,
       price: product.price,
+      delivery: product.delivery,
+      extensions: product.extensions,
     };
   });
 
@@ -104,11 +106,15 @@ const getAiRespose = async () => {
 const populateProductsInFocus = (productReferece: string[]) => {
   productState.productsInFocus.length = 0;
 
+  let matchedProducts: Product[] = [];
+
   productState.shoppingResults.forEach(product => {
-    productReferece.forEach(productTitle => {
-      if (product.title.includes(productTitle)) {
-        productState.productsInFocus = [...productState.productsInFocus, product];
+    productReferece.forEach(reference => {
+      if (product.title.includes(reference)) {
+        matchedProducts.push(product)
       }
     });
   });
+
+  productState.productsInFocus = matchedProducts
 };
