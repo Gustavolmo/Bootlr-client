@@ -17,6 +17,8 @@
 }
 
 .chat-window {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   width: 48vw;
   max-width: 800px;
@@ -30,7 +32,8 @@
   padding: 8px;
   padding-top: 0;
   margin: 0 16px;
-  height: 90%;
+  min-height: 10%;
+  flex: 1;
 }
 
 .chat-window-button {
@@ -64,18 +67,18 @@
   top: 0;
   margin: 16px 16px 0 0;
   transition: left 0.6s ease;
-  background-color: white;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border: none;
   border-radius: 100%;
   cursor: pointer;
   padding: 4px;
+  width: fit-content;
 }
 
 .chat-window-button-close :nth-child(1) {
   background-color: rgb(255, 253, 240);
   border: 2px dotted rgb(200, 200, 200);
-  padding: 4px;
+  padding: 6px;
   border-radius: 100%;
 }
 
@@ -89,21 +92,21 @@
     width: 100vw;
     bottom: 0;
     right: 0;
-    height: 60svh;
+    height: 55svh;
     min-height: 0;
     transition: height 0.6s ease;
   }
 
   .chat-window {
     right: 0;
-    height: 60svh;
+    height: 55svh;
     width: 100%;
     border-left: none;
     border-top: 1px solid rgb(200, 200, 200);
   }
 
   .chat-area {
-    height: 51svh;
+    height: 46svh;
     margin: 0 8px;
   }
 
@@ -119,8 +122,7 @@
 
   .chat-window-button {
     position: relative;
-    margin: 8px;
-    margin-bottom: 0;
+    margin: 0 8px;
     transition: top 0.3s ease;
   }
 
@@ -130,5 +132,11 @@
     top: -80px;
     margin: 8px;
     transition: top 0.3s ease;
+    width: fit-content;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .chat-window-button-close :nth-child(1) {
+    background-color: rgb(245, 239, 200);
   }
 }

@@ -12,3 +12,9 @@
   justify-content: center;
   margin: 32px 0px 160px;
 }
+
+@media (max-width: 740px) {
+  .myai-product-results-wrap {
+    gap: 16px 8px;
+  }
+}

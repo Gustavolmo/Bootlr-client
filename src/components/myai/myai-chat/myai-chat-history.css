@@ -26,7 +26,22 @@
 }
 
 @keyframes thinking {
-  0% { color: rgb(200, 200, 200) }
-  50% { color: gray }
-  100% { color: rgb(200, 200, 200) }
+  0% {
+    color: rgb(200, 200, 200);
+  }
+  50% {
+    color: gray;
+  }
+  100% {
+    color: rgb(200, 200, 200);
+  }
+}
+
+@media (max-width: 740px) {
+  .history-message-box-you {
+    margin: 16px 0px;
+  }
+  .history-message-box-bootlr {
+    padding: 0 8px;
+  }
 }

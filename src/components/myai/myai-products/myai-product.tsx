@@ -10,7 +10,12 @@ export class MyaiProduct {
   @Prop() product: Product = {};
   @Prop() inFocus: boolean = false;
   @State() copySuccess: boolean = false;
-  private stars = '★'.repeat(Math.round(this.product.rating));
+  @State() stars: string;
+
+  componentWillRender() {
+    console.log('UPDATED');
+    this.stars = '★'.repeat(Math.round(this.product.rating));
+  }
 
   private copyToClipboard() {
     navigator.clipboard.writeText(this.product.title);
@@ -28,9 +33,14 @@ export class MyaiProduct {
           'myai-product-item-wrap focus': this.inFocus,
         }}
       >
-        <button class="myai-product-item-name-copy" onClick={() => this.copyToClipboard()}>
-          {this.copySuccess ? copiedSuccessfully('16px', 'gray') : copyToClipboard('16px', 'gray')}
-        </button>
+        <div class="myai-product-top">
+          <span class="bootlr-suggested">{this.inFocus && 'Bootlr:'}</span>
+          <button onClick={() => this.copyToClipboard()} class="myai-product-item-name-copy">
+            {this.copySuccess
+              ? copiedSuccessfully('16px', 'gray')
+              : copyToClipboard('16px', 'gray')}
+          </button>
+        </div>
         <a href={this.product.link} target="_blank">
           <div class="myai-product-image-wrap">
             <img src={this.product.thumbnail} alt="test" />
@@ -38,7 +48,9 @@ export class MyaiProduct {
 
           <div class="myai-product-info-wrap">
             <p class="info-prouct-source">{this.product.source}</p>
-            <p class="info-price-tag">{this.product.price}</p>
+            <p class="info-price-tag">
+              {this.product.price} <span class="old-price-tag">{this.product.old_price}</span>
+            </p>
             <div>
               <span class="rating-text">{this.product.rating}</span>{' '}
               <span class="rating-start">{this.stars}</span>{' '}

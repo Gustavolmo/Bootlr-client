@@ -14,7 +14,7 @@ export const processNewChatMessage = async (content: string): Promise<void> => {
     chatState.isLoading = true;
     addMessageToChat(content, Role.USER);
 
-    const chatResponse: string =
+    const chatResponse =
       window.location.href === 'http://testing.stenciljs.com/'
         ? mockChatResponse
         : await getAiRespose();
@@ -51,6 +51,8 @@ export const addShoppingContextToChat = () => {
       title: product.title,
       rating: product.rating,
       price: product.price,
+      delivery: product.delivery,
+      extensions: product.extensions,
     };
   });
 
@@ -101,14 +103,16 @@ const getAiRespose = async () => {
   }
 };
 
-const populateProductsInFocus = (productReferece: string[]) => {
+const populateProductsInFocus = (productReference: string[]) => {
   productState.productsInFocus.length = 0;
 
-  productState.shoppingResults.forEach(product => {
-    productReferece.forEach(productTitle => {
-      if (product.title.includes(productTitle)) {
-        productState.productsInFocus = [...productState.productsInFocus, product];
-      }
-    });
+  const matchedProducts = productState.shoppingResults.filter(product => {
+    return productReference.some(reference => product.title.includes(reference));
   });
+
+  const uniqueProducts = matchedProducts.filter((match, index, self) => {
+    return self.findIndex(obj => obj.position === match.position) === index;
+  }) 
+
+  productState.productsInFocus = uniqueProducts;
 };
