@@ -6,7 +6,7 @@ import { sparkles } from '../../../assets/heroIcons/collection';
   tag: 'myai-chat-area',
   styleUrl: './myai-chat-area.css',
 })
-export class MyaiChat {
+export class MyaiChatArea {
   @State() userMessage = '';
   private chatHistoryDiv: HTMLDivElement;
 

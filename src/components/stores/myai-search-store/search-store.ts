@@ -18,7 +18,7 @@ export type Messages = {
   content: string;
 };
 
-export const { state: searchState } = createStore<searchStore>({
+export const searchStore = createStore<searchStore>({
   isLoading: false,
   messages: [
     {
@@ -39,3 +39,5 @@ export const { state: searchState } = createStore<searchStore>({
 
   processSearchRequest: processSearchRequest,
 });
+
+export const { state: searchState } = searchStore;

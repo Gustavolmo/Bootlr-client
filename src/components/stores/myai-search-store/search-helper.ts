@@ -14,20 +14,25 @@ export const processSearchRequest = async (userMessage: string): Promise<void> =
   try {
     chatStore.reset();
     productStore.reset();
+    chatState.enableChat();
 
-    /* addMessageToSearch(userMessage, Role.USER);
-    const response = await translatePromptToSearch();
+    addMessageToSearch(userMessage, Role.USER);
+
+    const response =
+      window.location.href === 'https://bootlr.com/'
+        ? await translatePromptToSearch()
+        : await mockSearchResults();
+
     addMessageToSearch(response.searchQuery, Role.ASSISTANT);
-    productState.shoppingResults = response.shoppingResults; */
-
-    await mockSearchResults();
+    productState.shoppingResults = response.shoppingResults;
 
     chatState.addShoppingContextToChat();
   } catch (err) {
     console.error('Error while processing searchrequest ->', err);
     alert(`
     This product is a prototype with limited resources.
-    If you are seeing this, either Bootlr failed to answer correctly,or we have exceeded the number of product searches available.
+    If you are seeing this, either Bootlr failed to answer correctly,
+    or we have exceeded the number of product searches available.
     Try asking again or reloading the page.
     `);
   } finally {
@@ -60,8 +65,7 @@ const translatePromptToSearch = async (): Promise<TranslatePromptResponse> => {
   try {
     const response = await fetch(URL, requestOptions);
     const responseData = await response.json();
-    const generatedQuery = responseData;
-    return generatedQuery;
+    return responseData;
   } catch (error) {
     console.error('translatePromptToSearch Error:', error);
   }

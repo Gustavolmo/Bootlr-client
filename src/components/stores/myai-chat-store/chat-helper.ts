@@ -1,3 +1,4 @@
+import { mockChatResponse } from '../../../../dev-mocks/search-results-mock';
 import { apiUrl } from '../../../http-definitions/endpoints';
 import { productState } from '../myai-products-store/product-store';
 import { Role } from '../myai-search-store/search-store';
@@ -8,12 +9,12 @@ type chatAiResponse = {
   productReference: string[];
 };
 
-export const processNewChatMessage = async (content: string): Promise<void> => {
+export const processNewChatMessage = async (content: string, mock?: boolean): Promise<void> => {
   try {
     chatState.isLoading = true;
     addMessageToChat(content, Role.USER);
 
-    const chatResponse: string = await getAiRespose();
+    const chatResponse: string = mock ? mockChatResponse : await getAiRespose();
 
     const parsedChatResponse: chatAiResponse = JSON.parse(chatResponse);
     const responseText = parsedChatResponse.responseText;
@@ -25,7 +26,8 @@ export const processNewChatMessage = async (content: string): Promise<void> => {
     console.error('Error while processing chat ->', err);
     alert(`
     This product is a prototype with limited resources.
-    If you are seeing this, either Bootlr failed to answer correctly, or the chat history is too long and exceeds Bootlr's capacity.
+    If you are seeing this, either Bootlr failed to answer correctly,
+    or the chat history is too long and exceeds Bootlr's capacity.
     Try asking again or reloading the page. 
     `);
   } finally {

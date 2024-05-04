@@ -16,8 +16,6 @@ export const config: Config = {
     },
   ],
   rollupPlugins: {
-    after: [
-      nodePolyfills(),
-    ]
-  }
+    after: [nodePolyfills()],
+  },
 };
