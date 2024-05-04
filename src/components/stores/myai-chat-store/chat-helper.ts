@@ -9,12 +9,15 @@ type chatAiResponse = {
   productReference: string[];
 };
 
-export const processNewChatMessage = async (content: string, mock?: boolean): Promise<void> => {
+export const processNewChatMessage = async (content: string): Promise<void> => {
   try {
     chatState.isLoading = true;
     addMessageToChat(content, Role.USER);
 
-    const chatResponse: string = mock ? mockChatResponse : await getAiRespose();
+    const chatResponse: string =
+      window.location.href === 'http://testing.stenciljs.com/'
+        ? mockChatResponse
+        : await getAiRespose();
 
     const parsedChatResponse: chatAiResponse = JSON.parse(chatResponse);
     const responseText = parsedChatResponse.responseText;

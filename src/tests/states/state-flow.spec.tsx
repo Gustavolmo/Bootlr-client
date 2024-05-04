@@ -44,7 +44,7 @@ describe('SEARCH FLOW STATES', () => {
 describe('CHAT FLOW STATE', () => {
   it('Asks a question in the chat', async () => {
     await searchState.processSearchRequest('test_search');
-    await chatState.processNewChatMessage('mock_chat_message', true);
+    await chatState.processNewChatMessage('mock_chat_message');
 
     expect(chatState.messages[3].role).toBe('user');
     expect(chatState.messages[3].content).toBe('mock_chat_message');

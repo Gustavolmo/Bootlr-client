@@ -14,7 +14,7 @@ export interface ChatStore {
   messages: Messages[];
   enableChat: () => void;
   addShoppingContextToChat: () => void;
-  processNewChatMessage: (content: string, mock?: boolean) => Promise<void>;
+  processNewChatMessage: (content: string) => Promise<void>;
 }
 
 export type Messages = {

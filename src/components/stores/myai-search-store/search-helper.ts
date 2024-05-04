@@ -1,4 +1,4 @@
-import { mockSearchResults } from '../../../../dev-mocks/search-results-mock';
+import { mockPromptToSearch } from '../../../../dev-mocks/search-results-mock';
 import { apiUrl } from '../../../http-definitions/endpoints';
 import { chatState, chatStore } from '../myai-chat-store/chat-store';
 import { productState, productStore } from '../myai-products-store/product-store';
@@ -14,15 +14,15 @@ export const processSearchRequest = async (userMessage: string): Promise<void> =
   try {
     chatStore.reset();
     productStore.reset();
-    chatState.enableChat();
-
+    
     addMessageToSearch(userMessage, Role.USER);
-
+    
     const response =
-      window.location.href === 'https://bootlr.com/'
-        ? await translatePromptToSearch()
-        : await mockSearchResults();
-
+    window.location.href === 'https://bootlr.com/'
+    ? await translatePromptToSearch()
+    : await mockPromptToSearch(window);
+    
+    chatState.enableChat();
     addMessageToSearch(response.searchQuery, Role.ASSISTANT);
     productState.shoppingResults = response.shoppingResults;
 
