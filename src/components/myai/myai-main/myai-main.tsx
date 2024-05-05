@@ -12,6 +12,7 @@ export class MyaiMain {
         <div class="myai-main-left">
           <myai-search />
           <myai-product-results />
+          <myai-footer/>
         </div>
         <myai-chat />
       </article>

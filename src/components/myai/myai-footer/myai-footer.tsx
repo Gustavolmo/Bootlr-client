@@ -9,12 +9,12 @@ export class MyaiFooter {
   render() {
     return (
       <footer class="myai-footer-wrap">
-        <div class="myai-footer-title">Bootlr - The shopping assistant</div>
-        <div class="myai-footer-contact">
-          Contact: <a href="mailto:admin@bootlr.com"> admin@bootlr.com</a>
-        </div>
+        <div class="myai-footer-title">Bootlr.com</div>
         <div class="myai-footer-policy">
-          Terms: <a href="/policy.html">privacy Policy</a>
+          Terms:<a href="/policy.html">Privacy Policy</a>
+        </div>
+        <div class="myai-footer-contact">
+          Contact:<a href="mailto:admin@bootlr.com">admin@bootlr.com</a>
         </div>
       </footer>
     );

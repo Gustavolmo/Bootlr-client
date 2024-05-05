@@ -3,6 +3,10 @@
 }
 
 .myai-main-left {
-  padding: 8px;
+  padding: 0 8px;
   flex-grow: 1;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
