@@ -1,0 +1,35 @@
+.myai-footer-wrap {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(245, 245, 245);
+  padding: 32px 64px;
+  margin: 32px 0 0 0;
+  gap: 12px;
+}
+
+.myai-footer-title {
+  color: gray;
+  font-weight: bold;
+  font-size: large;
+  margin-bottom: 8px;
+}
+
+.myai-footer-contact, .myai-footer-policy {
+  color: gray;
+}
+
+.myai-footer-policy > a {
+  color:cornflowerblue;
+  text-decoration: none;
+}
+
+.myai-footer-contact > a {
+  color:cornflowerblue;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .myai-footer-wrap {
+    padding: 32px;
+  }
+}

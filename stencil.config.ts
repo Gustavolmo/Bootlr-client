@@ -13,6 +13,10 @@ export const config: Config = {
       // comment the following line to disable service workers in production
       serviceWorker: null,
       baseUrl: 'https://myapp.local/',
+      copy: [
+        { src: 'policy.html' },
+        { src: 'policy.css' },
+      ],
     },
   ],
   rollupPlugins: {
