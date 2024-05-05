@@ -8,6 +8,8 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Product } from "./components/stores/myai-products-store/product-store";
 export { Product } from "./components/stores/myai-products-store/product-store";
 export namespace Components {
+    interface MyaiAds {
+    }
     interface MyaiChat {
     }
     interface MyaiChatArea {
@@ -28,6 +30,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLMyaiAdsElement extends Components.MyaiAds, HTMLStencilElement {
+    }
+    var HTMLMyaiAdsElement: {
+        prototype: HTMLMyaiAdsElement;
+        new (): HTMLMyaiAdsElement;
+    };
     interface HTMLMyaiChatElement extends Components.MyaiChat, HTMLStencilElement {
     }
     var HTMLMyaiChatElement: {
@@ -77,6 +85,7 @@ declare global {
         new (): HTMLMyaiSearchElement;
     };
     interface HTMLElementTagNameMap {
+        "myai-ads": HTMLMyaiAdsElement;
         "myai-chat": HTMLMyaiChatElement;
         "myai-chat-area": HTMLMyaiChatAreaElement;
         "myai-chat-history": HTMLMyaiChatHistoryElement;
@@ -88,6 +97,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface MyaiAds {
+    }
     interface MyaiChat {
     }
     interface MyaiChatArea {
@@ -107,6 +118,7 @@ declare namespace LocalJSX {
     interface MyaiSearch {
     }
     interface IntrinsicElements {
+        "myai-ads": MyaiAds;
         "myai-chat": MyaiChat;
         "myai-chat-area": MyaiChatArea;
         "myai-chat-history": MyaiChatHistory;
@@ -121,6 +133,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "myai-ads": LocalJSX.MyaiAds & JSXBase.HTMLAttributes<HTMLMyaiAdsElement>;
             "myai-chat": LocalJSX.MyaiChat & JSXBase.HTMLAttributes<HTMLMyaiChatElement>;
             "myai-chat-area": LocalJSX.MyaiChatArea & JSXBase.HTMLAttributes<HTMLMyaiChatAreaElement>;
             "myai-chat-history": LocalJSX.MyaiChatHistory & JSXBase.HTMLAttributes<HTMLMyaiChatHistoryElement>;
