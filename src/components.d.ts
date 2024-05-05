@@ -16,6 +16,8 @@ export namespace Components {
     }
     interface MyaiChatHistory {
     }
+    interface MyaiError {
+    }
     interface MyaiFooter {
     }
     interface MyaiMain {
@@ -54,6 +56,12 @@ declare global {
         prototype: HTMLMyaiChatHistoryElement;
         new (): HTMLMyaiChatHistoryElement;
     };
+    interface HTMLMyaiErrorElement extends Components.MyaiError, HTMLStencilElement {
+    }
+    var HTMLMyaiErrorElement: {
+        prototype: HTMLMyaiErrorElement;
+        new (): HTMLMyaiErrorElement;
+    };
     interface HTMLMyaiFooterElement extends Components.MyaiFooter, HTMLStencilElement {
     }
     var HTMLMyaiFooterElement: {
@@ -89,6 +97,7 @@ declare global {
         "myai-chat": HTMLMyaiChatElement;
         "myai-chat-area": HTMLMyaiChatAreaElement;
         "myai-chat-history": HTMLMyaiChatHistoryElement;
+        "myai-error": HTMLMyaiErrorElement;
         "myai-footer": HTMLMyaiFooterElement;
         "myai-main": HTMLMyaiMainElement;
         "myai-product": HTMLMyaiProductElement;
@@ -104,6 +113,8 @@ declare namespace LocalJSX {
     interface MyaiChatArea {
     }
     interface MyaiChatHistory {
+    }
+    interface MyaiError {
     }
     interface MyaiFooter {
     }
@@ -122,6 +133,7 @@ declare namespace LocalJSX {
         "myai-chat": MyaiChat;
         "myai-chat-area": MyaiChatArea;
         "myai-chat-history": MyaiChatHistory;
+        "myai-error": MyaiError;
         "myai-footer": MyaiFooter;
         "myai-main": MyaiMain;
         "myai-product": MyaiProduct;
@@ -137,6 +149,7 @@ declare module "@stencil/core" {
             "myai-chat": LocalJSX.MyaiChat & JSXBase.HTMLAttributes<HTMLMyaiChatElement>;
             "myai-chat-area": LocalJSX.MyaiChatArea & JSXBase.HTMLAttributes<HTMLMyaiChatAreaElement>;
             "myai-chat-history": LocalJSX.MyaiChatHistory & JSXBase.HTMLAttributes<HTMLMyaiChatHistoryElement>;
+            "myai-error": LocalJSX.MyaiError & JSXBase.HTMLAttributes<HTMLMyaiErrorElement>;
             "myai-footer": LocalJSX.MyaiFooter & JSXBase.HTMLAttributes<HTMLMyaiFooterElement>;
             "myai-main": LocalJSX.MyaiMain & JSXBase.HTMLAttributes<HTMLMyaiMainElement>;
             "myai-product": LocalJSX.MyaiProduct & JSXBase.HTMLAttributes<HTMLMyaiProductElement>;

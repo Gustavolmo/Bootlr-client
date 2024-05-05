@@ -1,5 +1,6 @@
 import { mockChatResponse } from '../../../../dev-mocks/search-results-mock';
 import { apiUrl } from '../../../http-definitions/endpoints';
+import { ErrorType, errorState } from '../myai-error-store/error-store';
 import { productState } from '../myai-products-store/product-store';
 import { Role } from '../myai-search-store/search-store';
 import { chatState } from './chat-store';
@@ -25,14 +26,10 @@ export const processNewChatMessage = async (content: string): Promise<void> => {
 
     addMessageToChat(responseText, Role.ASSISTANT);
     populateProductsInFocus(productReference);
+
   } catch (err) {
     console.error('Error while processing chat ->', err);
-    alert(`
-    This product is a prototype with limited resources.
-    If you are seeing this, either Bootlr failed to answer correctly,
-    or the chat history is too long and exceeds Bootlr's capacity.
-    Try asking again or reloading the page. 
-    `);
+    errorState.setNewError(ErrorType.CHAT, 'Something went wrong, please try again.')
   } finally {
     chatState.isLoading = false;
   }

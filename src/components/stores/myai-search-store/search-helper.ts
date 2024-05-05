@@ -1,6 +1,7 @@
 import { mockPromptToSearch } from '../../../../dev-mocks/search-results-mock';
 import { apiUrl } from '../../../http-definitions/endpoints';
 import { chatState, chatStore } from '../myai-chat-store/chat-store';
+import { ErrorType, errorState, errorStore } from '../myai-error-store/error-store';
 import { productState, productStore } from '../myai-products-store/product-store';
 import { Role, searchState } from './search-store';
 
@@ -14,6 +15,7 @@ export const processSearchRequest = async (userMessage: string): Promise<void> =
   try {
     chatStore.reset();
     productStore.reset();
+    errorStore.reset();
 
     addMessageToSearch(userMessage, Role.USER);
 
@@ -25,16 +27,11 @@ export const processSearchRequest = async (userMessage: string): Promise<void> =
     chatState.enableChat();
     addMessageToSearch(response.searchQuery, Role.ASSISTANT);
     productState.shoppingResults = response.shoppingResults;
-
     chatState.addShoppingContextToChat();
+
   } catch (err) {
     console.error('Error while processing searchrequest ->', err);
-    alert(`
-    This product is a prototype with limited resources.
-    If you are seeing this, either Bootlr failed to answer correctly,
-    or we have exceeded the number of product searches available.
-    Try asking again or reloading the page.
-    `);
+    errorState.setNewError(ErrorType.SEARCH, 'It seems there was an error, please try again.')
   } finally {
     searchState.isLoading = false;
   }
