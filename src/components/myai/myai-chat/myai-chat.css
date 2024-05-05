@@ -24,6 +24,7 @@
   max-width: 800px;
   height: 100svh;
   border-left: 1px solid rgb(200, 200, 200);
+  background-color: white;
   border-top: none;
 }
 

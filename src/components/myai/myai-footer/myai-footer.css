@@ -1,0 +1,39 @@
+.myai-footer-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  justify-content: center;
+  background-color: rgb(245, 245, 245);
+  padding: 16px 48px;
+  margin: 64px 0 0 0;
+  gap: 12px;
+}
+
+.myai-footer-title {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: gray;
+  font-weight: bold;
+  font-size: large;
+  margin: 0 12px;
+}
+
+.myai-footer-contact,
+.myai-footer-policy {
+  display: flex;
+  gap: 4px;
+  /* flex-direction: column; */
+  color: gray;
+  align-items: center;
+}
+
+.myai-footer-policy > a {
+  color: cornflowerblue;
+  text-decoration: none;
+}
+
+.myai-footer-contact > a {
+  color: cornflowerblue;
+  text-decoration: none;
+}

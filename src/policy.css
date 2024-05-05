@@ -1,0 +1,53 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
+    sans-serif;
+}
+
+.policy-content-wrapp {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 760px;
+  justify-content: center;
+  margin: auto;
+  margin-top: 0;
+  padding: 0 32px 32px 32px;
+}
+
+.policy-navbar {
+  display: flex;
+  padding: 32px 32px 0 32px;
+  justify-content: center;
+}
+
+.policy-navbar > a {
+  color: cornflowerblue;
+  text-decoration: none;
+  display: flex;
+  max-width: 760px;
+  justify-content: right;
+  flex-grow: 1;
+  font-size: large;
+}
+
+p {
+  font-weight: lighter;
+  color: rgb(100, 100, 100);
+}
+
+h1, h3 {
+  color: gray;
+}
+
+.bootlr-logo {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
