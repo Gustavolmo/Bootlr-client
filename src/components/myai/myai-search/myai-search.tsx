@@ -47,6 +47,9 @@ export class MyaiSearch {
             {magnifyingGlass('24px', 'gray')}
           </button>
         </form>
+
+        {searchState.isFirstSearch && <myai-search-examples />}
+
       </section>
     );
   }

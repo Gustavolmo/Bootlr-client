@@ -11,11 +11,15 @@ export interface TranslatePromptResponse {
 }
 
 export const processSearchRequest = async (userMessage: string): Promise<void> => {
+  console.log(userMessage)
+
   searchState.isLoading = true;
   try {
     chatStore.reset();
     productStore.reset();
     errorStore.reset();
+
+    searchState.isFirstSearch = false;
 
     addMessageToSearch(userMessage, Role.USER);
 
