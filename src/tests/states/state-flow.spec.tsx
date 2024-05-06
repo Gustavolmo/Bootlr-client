@@ -16,6 +16,7 @@ describe('SEARCH FLOW STATES', () => {
     expect(productState.productsInFocus).toStrictEqual([]);
 
     expect(searchState.isLoading).toBe(false);
+    expect(searchState.isFirstSearch).toBe(true);
     expect(searchState.messages.length).toBe(1);
     expect(searchState.messages[0].role).toBe('system');
   });
@@ -26,6 +27,7 @@ describe('SEARCH FLOW STATES', () => {
     expect(chatState.isChatOpen).toBe(true);
     expect(chatState.messages.length).toBe(3);
 
+    expect(searchState.isFirstSearch).toBe(false);
     expect(searchState.messages.length).toBe(3);
     expect(searchState.messages[0].role).toBe('system');
     expect(searchState.messages[1].role).toBe('user');
