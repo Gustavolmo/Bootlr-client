@@ -15,6 +15,7 @@ export const processNewChatMessage = async (content: string): Promise<void> => {
   try {
     errorStore.reset()
 
+    addMessageToChat(content, Role.USER);
     const chatResponse =
       window.location.href === 'http://testing.stenciljs.com/'
         ? mockChatResponse
@@ -24,8 +25,6 @@ export const processNewChatMessage = async (content: string): Promise<void> => {
     const parsedChatResponse: chatAiResponse = JSON.parse(chatResponse);
     const responseText = parsedChatResponse.responseText;
     const productReference = parsedChatResponse.productReference;
-
-    addMessageToChat(content, Role.USER);
     addMessageToChat(responseText, Role.ASSISTANT);
 
     populateProductsInFocus(productReference);

@@ -18,12 +18,12 @@ export const processSearchRequest = async (userMessage: string): Promise<void> =
     productStore.reset();
     searchState.isFirstSearch = false;
 
+    addMessageToSearch(userMessage, Role.USER);
     const response =
       window.location.href === 'https://bootlr.com/'
         ? await translatePromptToSearch()
         : await mockPromptToSearch(window);
 
-    addMessageToSearch(userMessage, Role.USER);
     addMessageToSearch(response.searchQuery, Role.ASSISTANT);
 
     chatState.enableChat();
