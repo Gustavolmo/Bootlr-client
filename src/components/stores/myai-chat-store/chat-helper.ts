@@ -11,10 +11,8 @@ type chatAiResponse = {
 };
 
 export const processNewChatMessage = async (content: string): Promise<void> => {
+  chatState.isLoading = true;
   try {
-    chatState.isLoading = true;
-    addMessageToChat(content, Role.USER);
-
     const chatResponse =
       window.location.href === 'http://testing.stenciljs.com/'
         ? mockChatResponse
@@ -24,7 +22,9 @@ export const processNewChatMessage = async (content: string): Promise<void> => {
     const responseText = parsedChatResponse.responseText;
     const productReference = parsedChatResponse.productReference;
 
+    addMessageToChat(content, Role.USER);
     addMessageToChat(responseText, Role.ASSISTANT);
+
     populateProductsInFocus(productReference);
   } catch (err) {
     console.error('Error while processing chat ->', err);

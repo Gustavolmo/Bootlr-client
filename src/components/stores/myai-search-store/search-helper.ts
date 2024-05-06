@@ -11,32 +11,29 @@ export interface TranslatePromptResponse {
 }
 
 export const processSearchRequest = async (userMessage: string): Promise<void> => {
-  console.log(userMessage)
+  console.log(userMessage);
 
   searchState.isLoading = true;
   try {
     chatStore.reset();
     productStore.reset();
     errorStore.reset();
-
     searchState.isFirstSearch = false;
-
-    addMessageToSearch(userMessage, Role.USER);
 
     const response =
       window.location.href === 'https://bootlr.com/'
         ? await translatePromptToSearch()
         : await mockPromptToSearch(window);
 
-    chatState.enableChat();
+    addMessageToSearch(userMessage, Role.USER);
     addMessageToSearch(response.searchQuery, Role.ASSISTANT);
 
+    chatState.enableChat();
     productState.shoppingResults = response.shoppingResults;
     chatState.addShoppingContextToChat(userMessage);
-
   } catch (err) {
+    errorState.setNewError(ErrorType.SEARCH, 'It seems there was an error, please try again.');
     console.error('Error while processing searchrequest ->', err);
-    errorState.setNewError(ErrorType.SEARCH, 'It seems there was an error, please try again.')
   } finally {
     searchState.isLoading = false;
   }

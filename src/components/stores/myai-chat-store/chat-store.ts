@@ -49,7 +49,7 @@ export const chatStore = createStore<ChatStore>({
       3. You may ONLY populate the productReference array with strings.
 
       4. Always be friendly and communicate with the user.
-      ` 
+      `,
     },
   ],
 

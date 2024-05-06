@@ -1,6 +1,7 @@
 import { searchState } from '../../components/stores/myai-search-store/search-store';
 import { productState } from '../../components/stores/myai-products-store/product-store';
 import { chatState } from '../../components/stores/myai-chat-store/chat-store';
+import { ErrorType, errorState } from '../../components/stores/myai-error-store/error-store';
 
 describe('SEARCH FLOW STATES', () => {
   it('starts with default store values', () => {
@@ -22,6 +23,8 @@ describe('SEARCH FLOW STATES', () => {
   });
   it('Performs a search', async () => {
     await searchState.processSearchRequest('test_search');
+    expect(errorState.errorMessage).toBe('')
+    expect(errorState.errorType).toBe(ErrorType.NONE)
 
     expect(chatState.isChatEnabled).toBe(true);
     expect(chatState.isChatOpen).toBe(true);
@@ -46,7 +49,12 @@ describe('SEARCH FLOW STATES', () => {
 describe('CHAT FLOW STATE', () => {
   it('Asks a question in the chat', async () => {
     await searchState.processSearchRequest('test_search');
+    expect(errorState.errorMessage).toBe('')
+    expect(errorState.errorType).toBe(ErrorType.NONE)
+
     await chatState.processNewChatMessage('mock_chat_message');
+    expect(errorState.errorMessage).toBe('')
+    expect(errorState.errorType).toBe(ErrorType.NONE)
 
     expect(chatState.messages[3].role).toBe('user');
     expect(chatState.messages[3].content).toBe('mock_chat_message');

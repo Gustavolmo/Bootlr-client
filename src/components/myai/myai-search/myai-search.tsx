@@ -18,7 +18,7 @@ export class MyaiSearch {
     e.preventDefault();
     if (this.userPrompt) {
       await searchState.processSearchRequest(this.userPrompt);
-      
+
       this.userPrompt = '';
     }
   }
@@ -47,9 +47,6 @@ export class MyaiSearch {
             {magnifyingGlass('24px', 'gray')}
           </button>
         </form>
-
-        {searchState.isFirstSearch && <myai-search-examples />}
-
       </section>
     );
   }

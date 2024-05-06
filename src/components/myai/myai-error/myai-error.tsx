@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, h } from '@stencil/core';
 import { errorState, errorStore } from '../../stores/myai-error-store/error-store';
 import { cross, errorIcon } from '../../../assets/heroIcons/collection';
 
