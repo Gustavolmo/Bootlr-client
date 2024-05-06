@@ -27,8 +27,8 @@ export const processNewChatMessage = async (content: string): Promise<void> => {
 
     populateProductsInFocus(productReference);
   } catch (err) {
-    console.error('Error while processing chat ->', err);
     errorState.setNewError(ErrorType.CHAT, 'Something went wrong, please try again.');
+    console.error('Error while processing chat ->', err);
   } finally {
     chatState.isLoading = false;
   }
