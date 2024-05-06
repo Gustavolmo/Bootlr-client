@@ -1,6 +1,7 @@
 import { mockPromptToSearch } from '../../../../dev-mocks/search-results-mock';
 import { apiUrl } from '../../../http-definitions/endpoints';
 import { chatState, chatStore } from '../myai-chat-store/chat-store';
+import { ErrorType, errorState, errorStore } from '../myai-error-store/error-store';
 import { productState, productStore } from '../myai-products-store/product-store';
 import { Role, searchState } from './search-store';
 
@@ -12,29 +13,25 @@ export interface TranslatePromptResponse {
 export const processSearchRequest = async (userMessage: string): Promise<void> => {
   searchState.isLoading = true;
   try {
+    errorStore.reset();
     chatStore.reset();
     productStore.reset();
-
-    addMessageToSearch(userMessage, Role.USER);
+    searchState.isFirstSearch = false;
 
     const response =
       window.location.href === 'https://bootlr.com/'
         ? await translatePromptToSearch()
         : await mockPromptToSearch(window);
 
-    chatState.enableChat();
+    addMessageToSearch(userMessage, Role.USER);
     addMessageToSearch(response.searchQuery, Role.ASSISTANT);
-    productState.shoppingResults = response.shoppingResults;
 
-    chatState.addShoppingContextToChat();
+    chatState.enableChat();
+    productState.shoppingResults = response.shoppingResults;
+    chatState.addShoppingContextToChat(userMessage);
   } catch (err) {
+    errorState.setNewError(ErrorType.SEARCH, 'It seems there was an error, please try again.');
     console.error('Error while processing searchrequest ->', err);
-    alert(`
-    This product is a prototype with limited resources.
-    If you are seeing this, either Bootlr failed to answer correctly,
-    or we have exceeded the number of product searches available.
-    Try asking again or reloading the page.
-    `);
   } finally {
     searchState.isLoading = false;
   }

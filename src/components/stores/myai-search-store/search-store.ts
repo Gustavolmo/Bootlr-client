@@ -9,6 +9,7 @@ export enum Role {
 
 export interface searchStore {
   isLoading: boolean;
+  isFirstSearch: boolean;
   messages: Messages[];
   processSearchRequest: (userMessage: string) => Promise<void>;
 }
@@ -19,6 +20,7 @@ export type Messages = {
 };
 
 export const searchStore = createStore<searchStore>({
+  isFirstSearch: true,
   isLoading: false,
   messages: [
     {

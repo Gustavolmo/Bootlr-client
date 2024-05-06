@@ -1,6 +1,7 @@
 import { Component, Host, h } from '@stencil/core';
 import { chatState } from '../../stores/myai-chat-store/chat-store';
 import { Role } from '../../stores/myai-search-store/search-store';
+import { ErrorType, errorState } from '../../stores/myai-error-store/error-store';
 
 @Component({
   tag: 'myai-chat-history',
@@ -32,6 +33,7 @@ export class MyaiChatHistory {
           );
         })}
         <i class="message-loading">{chatState.isLoading && 'Bootlr is typing...'}</i>
+        {errorState.errorType === ErrorType.CHAT && <myai-error/>}
       </Host>
     );
   }

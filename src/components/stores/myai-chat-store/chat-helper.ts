@@ -1,5 +1,6 @@
 import { mockChatResponse } from '../../../../dev-mocks/search-results-mock';
 import { apiUrl } from '../../../http-definitions/endpoints';
+import { ErrorType, errorState, errorStore } from '../myai-error-store/error-store';
 import { productState } from '../myai-products-store/product-store';
 import { Role } from '../myai-search-store/search-store';
 import { chatState } from './chat-store';
@@ -10,29 +11,27 @@ type chatAiResponse = {
 };
 
 export const processNewChatMessage = async (content: string): Promise<void> => {
+  chatState.isLoading = true;
   try {
-    chatState.isLoading = true;
-    addMessageToChat(content, Role.USER);
+    errorStore.reset()
 
     const chatResponse =
       window.location.href === 'http://testing.stenciljs.com/'
         ? mockChatResponse
         : await getAiRespose();
 
+
     const parsedChatResponse: chatAiResponse = JSON.parse(chatResponse);
     const responseText = parsedChatResponse.responseText;
     const productReference = parsedChatResponse.productReference;
 
+    addMessageToChat(content, Role.USER);
     addMessageToChat(responseText, Role.ASSISTANT);
+
     populateProductsInFocus(productReference);
   } catch (err) {
+    errorState.setNewError(ErrorType.CHAT, 'Something went wrong, please try again.');
     console.error('Error while processing chat ->', err);
-    alert(`
-    This product is a prototype with limited resources.
-    If you are seeing this, either Bootlr failed to answer correctly,
-    or the chat history is too long and exceeds Bootlr's capacity.
-    Try asking again or reloading the page. 
-    `);
   } finally {
     chatState.isLoading = false;
   }
@@ -43,7 +42,7 @@ export const enableChat = () => {
   if (window.innerWidth > 740) chatState.isChatOpen = true;
 };
 
-export const addShoppingContextToChat = () => {
+export const addShoppingContextToChat = (userMessage: string) => {
   const shoppingResultSummary = productState.shoppingResults.map(product => {
     return {
       link: product.link,
@@ -60,9 +59,10 @@ export const addShoppingContextToChat = () => {
     ...chatState.messages,
     {
       role: Role.SYSTEM,
-      content: `The user is looking at the following options: ${JSON.stringify(
-        shoppingResultSummary,
-      )}`,
+      content: `
+      The user made the following search request "${userMessage}"
+      and is now presented with the these products:
+      ${JSON.stringify(shoppingResultSummary)}`,
     },
     {
       role: Role.ASSISTANT,
@@ -112,7 +112,7 @@ const populateProductsInFocus = (productReference: string[]) => {
 
   const uniqueProducts = matchedProducts.filter((match, index, self) => {
     return self.findIndex(obj => obj.position === match.position) === index;
-  }) 
+  });
 
   productState.productsInFocus = uniqueProducts;
 };

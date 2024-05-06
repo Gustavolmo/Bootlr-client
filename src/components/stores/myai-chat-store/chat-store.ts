@@ -13,7 +13,7 @@ export interface ChatStore {
   isChatEnabled: boolean;
   messages: Messages[];
   enableChat: () => void;
-  addShoppingContextToChat: () => void;
+  addShoppingContextToChat: (userMessage: string) => void;
   processNewChatMessage: (content: string) => Promise<void>;
 }
 
@@ -42,14 +42,14 @@ export const chatStore = createStore<ChatStore>({
 
       Here are your instructions:
 
-      1. You will be provided with all the products the user is currently looking at on the webpage.
+      1. You will be provided with all the products the user is currently looking at on the webpage and their initial search request.
 
       2. You may ONLY use HTML to format the responseText. Make sure to add target="_blank" when using links. DO NOT ADD IMG TAGS.
 
       3. You may ONLY populate the productReference array with strings.
 
       4. Always be friendly and communicate with the user.
-      ` 
+      `,
     },
   ],
 

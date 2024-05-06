@@ -13,7 +13,6 @@ export class MyaiProduct {
   @State() stars: string;
 
   componentWillRender() {
-    console.log('UPDATED');
     this.stars = '★'.repeat(Math.round(this.product.rating));
   }
 
@@ -47,7 +46,7 @@ export class MyaiProduct {
           </div>
 
           <div class="myai-product-info-wrap">
-            <p class="info-prouct-source">{this.product.source}</p>
+            <p class="info-product-source">{this.product.source}</p>
             <p class="info-price-tag">
               {this.product.price} <span class="old-price-tag">{this.product.old_price}</span>
             </p>

@@ -59,10 +59,12 @@
   gap: 4px;
 }
 
-.info-prouct-source {
+.info-product-source {
   margin-top: 4px;
   height: 42px;
   color: gray;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .info-price-tag {
@@ -81,6 +83,8 @@
   color: gray;
   font-style: italic;
   font-size: small;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .info-product-title {
@@ -145,7 +149,7 @@ a {
     text-overflow: ellipsis;
   }
 
-  .info-prouct-source {
+  .info-product-source {
     height: 24px;
     margin-bottom: 4px;
     white-space: nowrap;

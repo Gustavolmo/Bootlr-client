@@ -1,0 +1,28 @@
+.myai-error-wrap {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 8px;
+}
+
+.error-message {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background-color: rgb(255, 245, 245);
+  color: rgb(219, 81, 81);
+  max-width: 600px;
+  text-wrap: wrap;
+  padding: 12px;
+  box-shadow: 4px 4px 1px 1px rgb(219, 81, 81);;
+}
+
+.error-message-close {
+  display: flex;
+  align-items: center;
+}
+
+.error-message-close :hover {
+  color: rgb(255, 0, 0);
+  cursor: pointer;
+}
