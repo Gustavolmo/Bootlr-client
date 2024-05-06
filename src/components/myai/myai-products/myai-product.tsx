@@ -13,7 +13,6 @@ export class MyaiProduct {
   @State() stars: string;
 
   componentWillRender() {
-    console.log('UPDATED');
     this.stars = '★'.repeat(Math.round(this.product.rating));
   }
 
