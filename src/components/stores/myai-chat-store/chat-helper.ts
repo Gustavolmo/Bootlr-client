@@ -1,6 +1,6 @@
 import { mockChatResponse } from '../../../../dev-mocks/search-results-mock';
 import { apiUrl } from '../../../http-definitions/endpoints';
-import { ErrorType, errorState } from '../myai-error-store/error-store';
+import { ErrorType, errorState, errorStore } from '../myai-error-store/error-store';
 import { productState } from '../myai-products-store/product-store';
 import { Role } from '../myai-search-store/search-store';
 import { chatState } from './chat-store';
@@ -13,10 +13,13 @@ type chatAiResponse = {
 export const processNewChatMessage = async (content: string): Promise<void> => {
   chatState.isLoading = true;
   try {
+    errorStore.reset()
+
     const chatResponse =
       window.location.href === 'http://testing.stenciljs.com/'
         ? mockChatResponse
         : await getAiRespose();
+
 
     const parsedChatResponse: chatAiResponse = JSON.parse(chatResponse);
     const responseText = parsedChatResponse.responseText;

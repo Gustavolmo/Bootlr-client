@@ -13,9 +13,9 @@ export interface TranslatePromptResponse {
 export const processSearchRequest = async (userMessage: string): Promise<void> => {
   searchState.isLoading = true;
   try {
+    errorStore.reset();
     chatStore.reset();
     productStore.reset();
-    errorStore.reset();
     searchState.isFirstSearch = false;
 
     const response =
