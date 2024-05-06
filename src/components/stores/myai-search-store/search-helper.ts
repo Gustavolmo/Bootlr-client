@@ -26,6 +26,7 @@ export const processSearchRequest = async (userMessage: string): Promise<void> =
 
     chatState.enableChat();
     addMessageToSearch(response.searchQuery, Role.ASSISTANT);
+
     productState.shoppingResults = response.shoppingResults;
     chatState.addShoppingContextToChat(userMessage);
 
