@@ -7,11 +7,11 @@ declare global {
 }
 
 @Component({
-  tag: 'myai-ads',
-  styleUrl: './myai-ads.css',
+  tag: 'myai-display-ads',
+  styleUrl: './myai-display-ads.css',
   shadow: true,
 })
-export class MyaiAds {
+export class MyaiDisplayAds {
 
   componentDidLoad() {
     if (!window.adsbygoogle) {
@@ -22,7 +22,7 @@ export class MyaiAds {
   render() {
     return (
       <Host>
-        <section class="myai-ads-wrap">
+        <section class="myai-display-ads-wrap">
           <script
             async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7033679041342232"
@@ -31,9 +31,10 @@ export class MyaiAds {
           <ins
             class="adsbygoogle"
             style={{ display: 'block' }}
-            data-ad-format="autorelaxed"
             data-ad-client="ca-pub-7033679041342232"
-            data-ad-slot="3878994003"
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+            data-ad-slot="9525942474"
           ></ins>
         </section>
       </Host>

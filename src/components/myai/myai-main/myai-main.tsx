@@ -14,9 +14,10 @@ export class MyaiMain {
       <article class="myai-main-wrap">
         <div class="myai-main-left">
           <myai-search />
-          {errorState.errorType === ErrorType.SEARCH && <myai-error/>}
+          {errorState.errorType === ErrorType.SEARCH && <myai-error />}
           {searchState.isFirstSearch && <myai-search-examples />}
-          <myai-product-results />
+          {productState.shoppingResults.length > 0 && <myai-product-results />}
+          {searchState.isFirstSearch && <myai-display-ads />}
           {productState.shoppingResults.length > 0 && <myai-ads />}
           <myai-footer />
         </div>
