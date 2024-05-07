@@ -82,7 +82,7 @@ const addMessageToChat = (content: string, role: Role) => {
 
 const getAiRespose = async () => {
   const URL = apiUrl.prod.bootlrChat;
-  //const URL = apiUrl.local.bootlrSearch;
+  //const URL = apiUrl.local.bootlrChat;
   const requestBody = JSON.stringify(chatState.messages);
   const requestOptions: RequestInit = {
     method: 'POST',
