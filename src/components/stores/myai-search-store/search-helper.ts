@@ -11,6 +11,10 @@ export interface TranslatePromptResponse {
 }
 
 export const processSearchRequest = async (userMessage: string): Promise<void> => {
+  const isLocalEnv =
+    window.location.href === 'http://testing.stenciljs.com/' ||
+    window.location.href === 'http://localhost:3333/';
+
   searchState.isLoading = true;
   try {
     errorStore.reset();
@@ -19,10 +23,9 @@ export const processSearchRequest = async (userMessage: string): Promise<void> =
     searchState.isFirstSearch = false;
 
     addMessageToSearch(userMessage, Role.USER);
-    const response =
-      window.location.href === 'https://bootlr.com/'
-        ? await translatePromptToSearch()
-        : await mockPromptToSearch(window);
+    const response = isLocalEnv
+      ? await mockPromptToSearch(window)
+      : await translatePromptToSearch();
 
     addMessageToSearch(response.searchQuery, Role.ASSISTANT);
 
