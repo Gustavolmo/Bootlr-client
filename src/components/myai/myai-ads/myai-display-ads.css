@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.myai-display-ads-wrap {
+  margin: 32px 16px;
+  max-width: 720px;
+  flex: 1;
+}

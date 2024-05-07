@@ -16,6 +16,8 @@ export namespace Components {
     }
     interface MyaiChatHistory {
     }
+    interface MyaiDisplayAds {
+    }
     interface MyaiError {
     }
     interface MyaiFooter {
@@ -57,6 +59,12 @@ declare global {
     var HTMLMyaiChatHistoryElement: {
         prototype: HTMLMyaiChatHistoryElement;
         new (): HTMLMyaiChatHistoryElement;
+    };
+    interface HTMLMyaiDisplayAdsElement extends Components.MyaiDisplayAds, HTMLStencilElement {
+    }
+    var HTMLMyaiDisplayAdsElement: {
+        prototype: HTMLMyaiDisplayAdsElement;
+        new (): HTMLMyaiDisplayAdsElement;
     };
     interface HTMLMyaiErrorElement extends Components.MyaiError, HTMLStencilElement {
     }
@@ -105,6 +113,7 @@ declare global {
         "myai-chat": HTMLMyaiChatElement;
         "myai-chat-area": HTMLMyaiChatAreaElement;
         "myai-chat-history": HTMLMyaiChatHistoryElement;
+        "myai-display-ads": HTMLMyaiDisplayAdsElement;
         "myai-error": HTMLMyaiErrorElement;
         "myai-footer": HTMLMyaiFooterElement;
         "myai-main": HTMLMyaiMainElement;
@@ -122,6 +131,8 @@ declare namespace LocalJSX {
     interface MyaiChatArea {
     }
     interface MyaiChatHistory {
+    }
+    interface MyaiDisplayAds {
     }
     interface MyaiError {
     }
@@ -144,6 +155,7 @@ declare namespace LocalJSX {
         "myai-chat": MyaiChat;
         "myai-chat-area": MyaiChatArea;
         "myai-chat-history": MyaiChatHistory;
+        "myai-display-ads": MyaiDisplayAds;
         "myai-error": MyaiError;
         "myai-footer": MyaiFooter;
         "myai-main": MyaiMain;
@@ -161,6 +173,7 @@ declare module "@stencil/core" {
             "myai-chat": LocalJSX.MyaiChat & JSXBase.HTMLAttributes<HTMLMyaiChatElement>;
             "myai-chat-area": LocalJSX.MyaiChatArea & JSXBase.HTMLAttributes<HTMLMyaiChatAreaElement>;
             "myai-chat-history": LocalJSX.MyaiChatHistory & JSXBase.HTMLAttributes<HTMLMyaiChatHistoryElement>;
+            "myai-display-ads": LocalJSX.MyaiDisplayAds & JSXBase.HTMLAttributes<HTMLMyaiDisplayAdsElement>;
             "myai-error": LocalJSX.MyaiError & JSXBase.HTMLAttributes<HTMLMyaiErrorElement>;
             "myai-footer": LocalJSX.MyaiFooter & JSXBase.HTMLAttributes<HTMLMyaiFooterElement>;
             "myai-main": LocalJSX.MyaiMain & JSXBase.HTMLAttributes<HTMLMyaiMainElement>;
