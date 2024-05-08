@@ -13,14 +13,13 @@ type chatAiResponse = {
 export const processNewChatMessage = async (userMessage: string): Promise<void> => {
   chatState.isLoading = true;
   try {
-    errorStore.reset()
+    errorStore.reset();
 
     addMessageToChat(userMessage, Role.USER);
     const chatResponse =
       window.location.href === 'http://testing.stenciljs.com/'
         ? mockChatResponse
         : await getAiRespose();
-
 
     const parsedChatResponse: chatAiResponse = JSON.parse(chatResponse);
     const responseText = parsedChatResponse.responseText;
@@ -102,8 +101,10 @@ const getAiRespose = async () => {
 };
 
 const populateProductsInFocus = (productReference: string[]) => {
-  productState.productsInFocus.length = 0;
+  if (!productReference) return;
 
+  productState.productsInFocus.length = 0;
+  
   const matchedProducts = productState.shoppingResults.filter(product => {
     return productReference.some(reference => product.title.includes(reference));
   });
