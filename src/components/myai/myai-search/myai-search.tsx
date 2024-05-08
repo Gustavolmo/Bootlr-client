@@ -1,6 +1,7 @@
 import { Component, State, h } from '@stencil/core';
 import { searchState } from '../../stores/myai-search-store/search-store';
 import { bootlrIcon, magnifyingGlass } from '../../../assets/heroIcons/collection';
+import { ErrorType, errorState } from '../../stores/myai-error-store/error-store';
 
 @Component({
   tag: 'myai-search',
@@ -47,6 +48,8 @@ export class MyaiSearch {
             {magnifyingGlass('24px', 'gray')}
           </button>
         </form>
+        {searchState.isFirstSearch && <myai-search-examples />}
+        {errorState.errorType === ErrorType.SEARCH && <myai-error />}
       </section>
     );
   }

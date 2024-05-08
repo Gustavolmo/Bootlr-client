@@ -1,7 +1,7 @@
-import { Component, h } from '@stencil/core';
+import { Component, Fragment, h } from '@stencil/core';
 import { productState } from '../../stores/myai-products-store/product-store';
-import { ErrorType, errorState } from '../../stores/myai-error-store/error-store';
 import { searchState } from '../../stores/myai-search-store/search-store';
+import { /* discountedProducts,  */trendingProducts } from '../myai-trending-products/trending-products';
 
 @Component({
   tag: 'myai-main',
@@ -14,10 +14,21 @@ export class MyaiMain {
       <article class="myai-main-wrap">
         <div class="myai-main-left">
           <myai-search />
-          {errorState.errorType === ErrorType.SEARCH && <myai-error />}
-          {searchState.isFirstSearch && <myai-search-examples />}
+
+          {searchState.isFirstSearch && (
+            <Fragment>
+              <myai-trending-products
+                sectionTitle="Most popular this week"
+                productSelection={trendingProducts}
+              />
+              {/* <myai-trending-products
+                sectionTitle="Huge discounts"
+                productSelection={discountedProducts}
+              /> */}
+            </Fragment>
+          )}
+
           {productState.shoppingResults.length > 0 && <myai-product-results />}
-          {searchState.isFirstSearch && <myai-display-ads />}
           {productState.shoppingResults.length > 0 && <myai-ads />}
           <myai-footer />
         </div>
