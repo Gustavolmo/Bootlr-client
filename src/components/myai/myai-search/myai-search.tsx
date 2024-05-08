@@ -48,6 +48,9 @@ export class MyaiSearch {
             {magnifyingGlass('24px', 'gray')}
           </button>
         </form>
+        <div class="myai-search-sponsor-message">
+          <i>*Bootlr offers sponsored products</i>
+        </div>
         {searchState.isFirstSearch && <myai-search-examples />}
         {errorState.errorType === ErrorType.SEARCH && <myai-error />}
       </section>
