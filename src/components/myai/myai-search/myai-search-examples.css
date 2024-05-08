@@ -4,9 +4,11 @@
   padding: 32px 16px;
   justify-content: center;
   align-items: center;
+  max-width: 600px;
+  margin: auto;
 }
 
-.search-example{
+.search-example {
   display: flex;
   flex-direction: column;
   margin: 12px;
@@ -17,7 +19,7 @@
   font-size: small;
 }
 
-.search-example:hover{
+.search-example:hover {
   cursor: pointer;
   background-color: rgb(255, 253, 240);
   box-shadow: 2px 2px 1px 1px rgb(225, 225, 225);

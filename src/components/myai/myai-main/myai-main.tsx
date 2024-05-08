@@ -1,7 +1,7 @@
 import { Component, Fragment, h } from '@stencil/core';
 import { productState } from '../../stores/myai-products-store/product-store';
 import { searchState } from '../../stores/myai-search-store/search-store';
-import { /* discountedProducts,  */trendingProducts } from '../myai-trending-products/trending-products';
+import { summerProducts, trendingProducts } from '../myai-trending-products/sponsored-products';
 
 @Component({
   tag: 'myai-main',
@@ -21,10 +21,10 @@ export class MyaiMain {
                 sectionTitle="Most popular this week"
                 productSelection={trendingProducts}
               />
-              {/* <myai-trending-products
-                sectionTitle="Huge discounts"
-                productSelection={discountedProducts}
-              /> */}
+              <myai-trending-products
+                sectionTitle="Summer is here"
+                productSelection={summerProducts}
+              />
             </Fragment>
           )}
 

@@ -21,7 +21,15 @@
 
 .myai-trending-products-title {
   max-width: 740px;
+  margin: 0;
+  margin-bottom: 8px;
   color: gray;
+}
+
+.myai-trending-products-sponsored {
+  max-width: 740px;
+  margin-top: 4px;
+  color: rgb(150, 150, 150);
 }
 
 @media (max-width: 740px) {

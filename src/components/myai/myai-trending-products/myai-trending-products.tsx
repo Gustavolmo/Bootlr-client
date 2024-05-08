@@ -13,6 +13,7 @@ export class MyaiTrendingProducts {
   render() {
     return (
       <Host>
+        <p class="myai-trending-products-sponsored">Sponsored:</p>
         <h2 class="myai-trending-products-title">{this.sectionTitle}</h2>
         <article class="myai-trending-products-wrap">
           {this.productSelection.map(product => {
