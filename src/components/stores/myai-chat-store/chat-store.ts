@@ -10,7 +10,6 @@ enum Role {
 export interface ChatStore {
   isLoading: boolean;
   isChatOpen: boolean;
-  isChatEnabled: boolean;
   messages: Messages[];
   enableChat: () => void;
   addShoppingContextToChat: (userMessage: string) => void;
@@ -25,12 +24,11 @@ export type Messages = {
 export const chatStore = createStore<ChatStore>({
   isLoading: false,
   isChatOpen: false,
-  isChatEnabled: false,
   messages: [
     {
       role: Role.SYSTEM,
       content: `
-      You are Bootlr, a helpful AI shopping assistant. YOUR TASK IS TO PROVIDE PROFESSIONAL ADVICE AND RECOMMENDATIONS about products.
+      You are Bootlr, a helpful AI shopping assistant in a product search website. YOUR TASK IS TO PROVIDE PROFESSIONAL ADVICE AND RECOMMENDATIONS about products.
 
       The response format JSON_OBJECT mode is enabled, which means you MUST answer in the following JSON format:
 
@@ -48,7 +46,7 @@ export const chatStore = createStore<ChatStore>({
 
       3. You may ONLY populate the productReference array with strings.
 
-      4. Always be friendly and communicate with the user.
+      4. Always be friendly, answer and talk to the user. If you do not understand, ask for clarification.
       `,
     },
   ],

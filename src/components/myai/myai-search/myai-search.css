@@ -66,6 +66,14 @@
   animation: searching 1s infinite;
 }
 
+.myai-search-sponsor-message {
+  display: flex;
+  font-size: small;
+  color: rgb(180, 180, 180);
+  justify-content: center;
+  padding: 4px;
+}
+
 @keyframes searching {
   0% {
     color: rgb(150, 150, 150);

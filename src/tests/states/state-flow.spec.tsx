@@ -5,11 +5,9 @@ import { ErrorType, errorState } from '../../components/stores/myai-error-store/
 
 describe('SEARCH FLOW STATES', () => {
   it('starts with default store values', () => {
-    expect(chatState.isChatEnabled).toBe(false);
     expect(chatState.isChatOpen).toBe(false);
     expect(chatState.isLoading).toBe(false);
     expect(chatState.isChatOpen).toBe(false);
-    expect(chatState.isChatEnabled).toBe(false);
     expect(chatState.messages.length).toBe(1);
     expect(chatState.messages[0].role).toBe('system');
 
@@ -26,7 +24,6 @@ describe('SEARCH FLOW STATES', () => {
     expect(errorState.errorMessage).toBe('')
     expect(errorState.errorType).toBe(ErrorType.NONE)
 
-    expect(chatState.isChatEnabled).toBe(true);
     expect(chatState.isChatOpen).toBe(true);
     expect(chatState.messages.length).toBe(3);
 

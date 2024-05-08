@@ -11,7 +11,7 @@ export class MyaiFooter {
       <footer class="myai-footer-wrap">
         <div class="myai-footer-title">Bootlr.com</div>
         <div class="myai-footer-policy">
-          Terms:<a href="/policy.html">Privacy Policy</a>
+          Terms:<a href="/policy.html" target='_blank'>Privacy Policy</a>
         </div>
         <div class="myai-footer-contact">
           Contact:<a href="mailto:admin@bootlr.com">admin@bootlr.com</a>
