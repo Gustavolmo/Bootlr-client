@@ -42,7 +42,7 @@ export class MyaiProduct {
         </div>
         <a href={this.product.link} target="_blank">
           <div class="myai-product-image-wrap">
-            <img src={this.product.thumbnail} alt="test" />
+            <img src={this.product.thumbnail} alt="product-image" />
           </div>
 
           <div class="myai-product-info-wrap">
