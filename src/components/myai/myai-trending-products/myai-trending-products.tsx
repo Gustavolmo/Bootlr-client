@@ -1,5 +1,5 @@
 import { Component, Host, Prop, h } from '@stencil/core';
-import { Product } from '../../stores/myai-products-store/product-store';
+import { Product, productState } from '../../stores/myai-products-store/product-store';
 import { trendingProducts } from '../../../../dev-mocks/sponsored-products-mock';
 
 @Component({
@@ -17,7 +17,11 @@ export class MyaiTrendingProducts {
         <p class="myai-trending-products-sponsored">Sponsored:</p>
         <h2 class="myai-trending-products-title">Popular Items</h2>
         <article class="myai-trending-products-wrap">
-          {trendingProducts.map(product => {
+        {productState.productsInFocus.length > 0 &&
+            productState.productsInFocus.map(product => {
+              return <myai-product product={product} inFocus={true} />;
+            })}
+          {productState.shoppingResults.map(product => {
             return <myai-product product={product} inFocus={false} />;
           })}
         </article>
