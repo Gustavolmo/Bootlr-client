@@ -21,7 +21,6 @@ export class MyaiChat {
       >
         <div class="chat-window">
           
-          {chatState.isChatEnabled && (
             <button
               class={{
                 'chat-window-button': chatState.isChatOpen,
@@ -31,7 +30,6 @@ export class MyaiChat {
             >
               {chatState.isChatOpen ? cross("28px", "gray") : dialogueBallon("28px", "gray")}
             </button>
-          )}
 
           <section class="chat-area">
             <myai-chat-area />

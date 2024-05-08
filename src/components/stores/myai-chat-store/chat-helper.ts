@@ -37,7 +37,6 @@ export const processNewChatMessage = async (userMessage: string): Promise<void> 
 };
 
 export const enableChat = () => {
-  chatState.isChatEnabled = true;
   if (window.innerWidth > 740) chatState.isChatOpen = true;
 };
 
