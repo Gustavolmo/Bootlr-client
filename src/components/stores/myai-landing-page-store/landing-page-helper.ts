@@ -1,7 +1,6 @@
 import { mockTrendingProducts } from '../../../../dev-mocks/sponsored-products-mock';
 import { addShoppingContextToChat } from '../myai-chat-store/chat-helper';
-import { chatState } from '../myai-chat-store/chat-store';
-import { ErrorType, errorState } from '../myai-error-store/error-store';
+import { chatState, chatStore } from '../myai-chat-store/chat-store';
 import { productState } from '../myai-products-store/product-store';
 import { searchState } from '../myai-search-store/search-store';
 import { landingPageState } from './landing-page-store';
@@ -9,8 +8,10 @@ import { landingPageState } from './landing-page-store';
 export const processTrendingItems = async () => {
   searchState.isLoading = true;
   try {
+    chatStore.reset();
+    
     landingPageState.isFirstLoad = false;
-    const trendingProducts = await mockTrendingProducts(window); //This will become the real api call once amazon is fixed
+    const trendingProducts = await mockTrendingProducts(window); // TODO: Make api endpoint for getting trendy products 
 
     productState.shoppingResults = trendingProducts;
 
@@ -18,10 +19,6 @@ export const processTrendingItems = async () => {
     chatState.enableChat();
 
   } catch (err) {
-    errorState.setNewError(
-      ErrorType.SEARCH,
-      'Ops, something is not right, please reload the page.',
-    );
     console.error('Error while processing searchrequest ->', err);
   
   } finally {

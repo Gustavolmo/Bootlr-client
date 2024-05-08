@@ -10,12 +10,12 @@ type chatAiResponse = {
   productReference: string[];
 };
 
-export const processNewChatMessage = async (content: string): Promise<void> => {
+export const processNewChatMessage = async (userMessage: string): Promise<void> => {
   chatState.isLoading = true;
   try {
     errorStore.reset()
 
-    addMessageToChat(content, Role.USER);
+    addMessageToChat(userMessage, Role.USER);
     const chatResponse =
       window.location.href === 'http://testing.stenciljs.com/'
         ? mockChatResponse
