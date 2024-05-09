@@ -18,7 +18,7 @@ export class MyaiSearchExamples {
   @State() canYouFind: string;
   @State() iAmLookingFor: string;
 
-  componentWillRender() {
+  componentWillLoad() {
     this.ideasFor = this.suggestionRandomizer(ideasForExamples);
     this.showMe = this.suggestionRandomizer(showMeExamples);
     this.canYouFind = this.suggestionRandomizer(canYouFindExamples);
@@ -27,7 +27,6 @@ export class MyaiSearchExamples {
 
   private suggestionRandomizer = (examples: string[]): string => {
     const randomIndex = Math.floor(Math.random() * examples.length);
-    console.log(examples[0]);
     return examples[randomIndex];
   };
 
