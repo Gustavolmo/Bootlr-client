@@ -46,6 +46,7 @@
   transition: left 0.6s ease;
   background-color: white;
   border: none;
+  width: fit-content;
   border-radius: 100%;
   cursor: pointer;
   padding: 4px;
@@ -56,9 +57,7 @@
 }
 
 .chat-window-button :nth-child(1) {
-  border: 2px dotted rgb(255, 255, 255);
   padding: 4px;
-  border-radius: 100%;
 }
 
 .chat-window-button-close {
@@ -68,7 +67,7 @@
   top: 0;
   margin: 16px 16px 0 0;
   transition: left 0.6s ease;
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   border: none;
   border-radius: 100%;
   cursor: pointer;
