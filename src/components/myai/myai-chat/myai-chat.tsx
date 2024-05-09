@@ -1,6 +1,7 @@
 import { Component, h } from '@stencil/core';
 import { chatState } from '../../stores/myai-chat-store/chat-store';
 import { cross, dialogueBallon } from '../../../assets/heroIcons/collection';
+import { searchState } from '../../stores/myai-search-store/search-store';
 
 @Component({
   tag: 'myai-chat',
@@ -27,6 +28,7 @@ export class MyaiChat {
                 'chat-window-button-close': !chatState.isChatOpen,
               }}
               onClick={() => this.toggleChatModal()}
+              disabled={searchState.isLoading}
             >
               {chatState.isChatOpen ? cross("28px", "gray") : dialogueBallon("28px", "gray")}
             </button>
