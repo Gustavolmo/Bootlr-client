@@ -13,7 +13,7 @@ export class MyaiTrendingProducts {
   render() {
     return (
       <Host>
-        <h2 class="myai-trending-products-title">Popular Items</h2>
+        <p class="myai-trending-products-title">TODAY'S DEALS</p>
         <article class="myai-trending-products-wrap">
         {productState.productsInFocus.length > 0 &&
             productState.productsInFocus.map(product => {
