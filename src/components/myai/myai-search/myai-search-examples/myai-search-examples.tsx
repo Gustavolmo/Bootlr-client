@@ -32,7 +32,12 @@ export class MyaiSearchExamples {
 
   render() {
     return (
-      <article class="search-example-wrap">
+      <article
+        class={{
+          'search-example-wrap': !searchState.isLoading,
+          'search-example-wrap disabled': searchState.isLoading,
+        }}
+      >
         <div
           class="search-example"
           onClick={() => searchState.processSearchRequest(`Ideas for ${this.ideasFor}`)}

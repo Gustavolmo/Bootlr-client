@@ -28,3 +28,7 @@
 .gray {
   color: gray;
 }
+
+.disabled {
+  opacity: 0.2;
+}

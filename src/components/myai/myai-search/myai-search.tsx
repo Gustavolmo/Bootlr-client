@@ -51,7 +51,7 @@ export class MyaiSearch {
         <div class="myai-search-sponsor-message">
           <i>*Bootlr offers sponsored products</i>
         </div>
-        {searchState.isFirstSearch && !searchState.isLoading && <myai-search-examples />}
+        {searchState.isFirstSearch && <myai-search-examples />}
         {errorState.errorType === ErrorType.SEARCH && <myai-error />}
       </section>
     );

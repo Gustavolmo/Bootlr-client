@@ -28,6 +28,8 @@ export class MyaiMain {
             <myai-product-results />
           )}
 
+          {searchState.isLoading && <myai-product-loader/>}
+
           {productState.shoppingResults.length > 0 && <myai-ads />}
           <myai-footer />
         </div>

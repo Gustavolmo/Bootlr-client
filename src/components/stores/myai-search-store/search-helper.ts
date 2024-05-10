@@ -11,6 +11,8 @@ export interface TranslatePromptResponse {
 }
 
 export const processSearchRequest = async (userMessage: string): Promise<void> => {
+  if (searchState.isLoading) return;
+
   const isLocalEnv =
     window.location.href === 'http://testing.stenciljs.com/' ||
     window.location.href === 'http://localhost:3333/';

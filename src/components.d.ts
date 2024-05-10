@@ -26,6 +26,8 @@ export namespace Components {
         "inFocus": boolean;
         "product": Product;
     }
+    interface MyaiProductLoader {
+    }
     interface MyaiProductResults {
     }
     interface MyaiSearch {
@@ -86,6 +88,12 @@ declare global {
         prototype: HTMLMyaiProductElement;
         new (): HTMLMyaiProductElement;
     };
+    interface HTMLMyaiProductLoaderElement extends Components.MyaiProductLoader, HTMLStencilElement {
+    }
+    var HTMLMyaiProductLoaderElement: {
+        prototype: HTMLMyaiProductLoaderElement;
+        new (): HTMLMyaiProductLoaderElement;
+    };
     interface HTMLMyaiProductResultsElement extends Components.MyaiProductResults, HTMLStencilElement {
     }
     var HTMLMyaiProductResultsElement: {
@@ -119,6 +127,7 @@ declare global {
         "myai-footer": HTMLMyaiFooterElement;
         "myai-main": HTMLMyaiMainElement;
         "myai-product": HTMLMyaiProductElement;
+        "myai-product-loader": HTMLMyaiProductLoaderElement;
         "myai-product-results": HTMLMyaiProductResultsElement;
         "myai-search": HTMLMyaiSearchElement;
         "myai-search-examples": HTMLMyaiSearchExamplesElement;
@@ -144,6 +153,8 @@ declare namespace LocalJSX {
         "inFocus"?: boolean;
         "product"?: Product;
     }
+    interface MyaiProductLoader {
+    }
     interface MyaiProductResults {
     }
     interface MyaiSearch {
@@ -163,6 +174,7 @@ declare namespace LocalJSX {
         "myai-footer": MyaiFooter;
         "myai-main": MyaiMain;
         "myai-product": MyaiProduct;
+        "myai-product-loader": MyaiProductLoader;
         "myai-product-results": MyaiProductResults;
         "myai-search": MyaiSearch;
         "myai-search-examples": MyaiSearchExamples;
@@ -181,6 +193,7 @@ declare module "@stencil/core" {
             "myai-footer": LocalJSX.MyaiFooter & JSXBase.HTMLAttributes<HTMLMyaiFooterElement>;
             "myai-main": LocalJSX.MyaiMain & JSXBase.HTMLAttributes<HTMLMyaiMainElement>;
             "myai-product": LocalJSX.MyaiProduct & JSXBase.HTMLAttributes<HTMLMyaiProductElement>;
+            "myai-product-loader": LocalJSX.MyaiProductLoader & JSXBase.HTMLAttributes<HTMLMyaiProductLoaderElement>;
             "myai-product-results": LocalJSX.MyaiProductResults & JSXBase.HTMLAttributes<HTMLMyaiProductResultsElement>;
             "myai-search": LocalJSX.MyaiSearch & JSXBase.HTMLAttributes<HTMLMyaiSearchElement>;
             "myai-search-examples": LocalJSX.MyaiSearchExamples & JSXBase.HTMLAttributes<HTMLMyaiSearchExamplesElement>;
