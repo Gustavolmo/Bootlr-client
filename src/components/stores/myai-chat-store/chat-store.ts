@@ -1,5 +1,5 @@
 import { createStore } from '@stencil/store';
-import { addShoppingContextToChat, enableChat, processNewChatMessage } from './chat-helper';
+import { addSearchContext as addSearchContext, enableChat, processNewChatMessage } from './chat-helper';
 
 enum Role {
   USER = 'user',
@@ -12,7 +12,7 @@ export interface ChatStore {
   isChatOpen: boolean;
   messages: Messages[];
   enableChat: () => void;
-  addShoppingContextToChat: (userMessage: string) => void;
+  addSearchContext: (userSearch: string) => void;
   processNewChatMessage: (content: string) => Promise<void>;
 }
 
@@ -54,7 +54,7 @@ export const chatStore = createStore<ChatStore>({
   ],
 
   enableChat: enableChat,
-  addShoppingContextToChat: addShoppingContextToChat,
+  addSearchContext: addSearchContext,
   processNewChatMessage: processNewChatMessage,
 });
 

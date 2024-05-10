@@ -5,14 +5,14 @@
   gap: 32px 8px;
   max-width: 760px;
   justify-content: center;
-  margin: auto;
+  margin: 32px auto;
 }
 
 .card {
   padding: 8px;
   width: 156px;
   background: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.05);
 
   .content {
     padding: 4px;
@@ -24,7 +24,7 @@
   h2,
   p {
     background: #eee;
-    background: linear-gradient(110deg, #ececec 8%, #eeeeee 18%, #ececec 33%);
+    background: linear-gradient(110deg, #ececec 8%, #f3f3f3 18%, #ececec 33%);
     background-size: 200% 100%;
     animation: 1.5s shine linear infinite;
   }

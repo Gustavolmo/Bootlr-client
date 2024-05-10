@@ -16,7 +16,6 @@ export const config: Config = {
       copy: [
         { src: 'policy.html' },
         { src: 'policy.css' },
-        { src: 'ads.txt' },
       ],
     },
   ],

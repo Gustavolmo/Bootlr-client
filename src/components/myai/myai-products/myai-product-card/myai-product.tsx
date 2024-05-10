@@ -1,6 +1,6 @@
 import { Component, Prop, State, h } from '@stencil/core';
-import { Product } from '../../stores/myai-products-store/product-store';
-import { copiedSuccessfully, copyToClipboard } from '../../../assets/heroIcons/collection';
+import { Product } from '../../../stores/myai-products-store/product-store';
+import { copiedSuccessfully, copyToClipboard } from '../../../../assets/heroIcons/collection';
 
 @Component({
   tag: 'myai-product',

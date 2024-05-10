@@ -1,5 +1,4 @@
 import { Component, h } from '@stencil/core';
-import { productState } from '../../stores/myai-products-store/product-store';
 import { searchState } from '../../stores/myai-search-store/search-store';
 import { landingPageState } from '../../stores/myai-landing-page-store/landing-page-store';
 
@@ -21,16 +20,8 @@ export class MyaiMain {
         <div class="myai-main-left">
           <myai-search />
 
-          {productState.shoppingResults.length > 0 && searchState.isFirstSearch && (
-            <myai-trending-products />
-          )}
-          {productState.shoppingResults.length > 0 && !searchState.isFirstSearch && (
-            <myai-product-results />
-          )}
+          {searchState.isFirstSearch ? <myai-trending-products /> : <myai-product-results />}
 
-          {searchState.isLoading && <myai-product-loader/>}
-
-          {productState.shoppingResults.length > 0 && <myai-ads />}
           <myai-footer />
         </div>
         <myai-chat />

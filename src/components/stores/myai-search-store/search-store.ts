@@ -11,7 +11,7 @@ export interface searchStore {
   isLoading: boolean;
   isFirstSearch: boolean;
   messages: Messages[];
-  processSearchRequest: (userMessage: string) => Promise<void>;
+  processSearchRequest: (userSearch: string) => Promise<void>;
 }
 
 export type Messages = {

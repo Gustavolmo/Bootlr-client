@@ -2,7 +2,7 @@ import { mockChatResponse } from '../../../../dev-mocks/search-results-mock';
 import { apiUrl } from '../../../http-definitions/endpoints';
 import { ErrorType, errorState, errorStore } from '../myai-error-store/error-store';
 import { productState } from '../myai-products-store/product-store';
-import { Role } from '../myai-search-store/search-store';
+import { Role, searchState } from '../myai-search-store/search-store';
 import { chatState } from './chat-store';
 
 type chatAiResponse = {
@@ -11,6 +11,8 @@ type chatAiResponse = {
 };
 
 export const processNewChatMessage = async (userMessage: string): Promise<void> => {
+  if (searchState.isLoading) return;
+
   chatState.isLoading = true;
   try {
     errorStore.reset();
@@ -26,10 +28,12 @@ export const processNewChatMessage = async (userMessage: string): Promise<void> 
     const productReference = parsedChatResponse.productReference;
     addMessageToChat(responseText, Role.ASSISTANT);
 
-    populateProductsInFocus(productReference);
+    productState.populateProductsInFocus(productReference);
+
   } catch (err) {
     errorState.setNewError(ErrorType.CHAT, 'Something went wrong, please try again.');
     console.error('Error while processing chat ->', err);
+  
   } finally {
     chatState.isLoading = false;
   }
@@ -39,7 +43,7 @@ export const enableChat = () => {
   if (window.innerWidth > 740) chatState.isChatOpen = true;
 };
 
-export const addShoppingContextToChat = (userMessage: string) => {
+export const addSearchContext = (userSearch: string) => {
   const shoppingResultSummary = productState.shoppingResults.map(product => {
     return {
       link: product.link,
@@ -57,13 +61,13 @@ export const addShoppingContextToChat = (userMessage: string) => {
     {
       role: Role.SYSTEM,
       content: `
-      The user made the following search request "${userMessage}"
-      and is now presented with the these products:
+      The user made the following search request "${userSearch}"
+      and is now presented with these products:
       ${JSON.stringify(shoppingResultSummary)}`,
     },
     {
       role: Role.ASSISTANT,
-      content: '<span>Hello! How may I help you today?</span>',
+      content: '<span>Hi, how may I help you today?</span>',
     },
   ];
 };
@@ -98,22 +102,4 @@ const getAiRespose = async () => {
   } catch (error) {
     console.error('getAiRespose Error:', error);
   }
-};
-
-const populateProductsInFocus = (productReference: string[]) => {
-  if (!productReference) return;
-
-  productState.productsInFocus.length = 0;
-
-  const matchedProducts = productState.shoppingResults.filter(product => {
-    return productReference.some(reference => product.title.includes(reference));
-  });
-
-  if(!matchedProducts) return;
-
-  const uniqueProducts = matchedProducts.filter((match, index, self) => {
-    return self.findIndex(obj => obj.position === match.position) === index;
-  });
-
-  productState.productsInFocus = uniqueProducts;
 };

@@ -4,8 +4,8 @@ import { MyaiMain } from '../../components/myai/myai-main/myai-main';
 import { MyaiChat } from '../../components/myai/myai-chat/myai-chat';
 import { MyaiChatArea } from '../../components/myai/myai-chat/myai-chat-area';
 import { MyaiChatHistory } from '../../components/myai/myai-chat/myai-chat-history';
-import { MyaiProduct } from '../../components/myai/myai-products/myai-product';
-import { MyaiProductResults } from '../../components/myai/myai-products/myai-product-results';
+import { MyaiProduct } from '../../components/myai/myai-products/myai-product-card/myai-product';
+import { MyaiProductResults } from '../../components/myai/myai-products/myai-product-results/myai-product-results';
 import { MyaiSearch } from '../../components/myai/myai-search/myai-search';
 import { ComponentTagNames, GetComponentProperties } from '../..';
 

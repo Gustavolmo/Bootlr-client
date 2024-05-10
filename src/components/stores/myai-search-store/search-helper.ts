@@ -10,7 +10,7 @@ export interface TranslatePromptResponse {
   shoppingResults: Object[];
 }
 
-export const processSearchRequest = async (userMessage: string): Promise<void> => {
+export const processSearchRequest = async (userSearch: string): Promise<void> => {
   if (searchState.isLoading) return;
 
   const isLocalEnv =
@@ -24,16 +24,15 @@ export const processSearchRequest = async (userMessage: string): Promise<void> =
     productStore.reset();
     searchState.isFirstSearch = false;
 
-    addMessageToSearch(userMessage, Role.USER);
+    addMessageToSearch(userSearch, Role.USER);
     const response = isLocalEnv
       ? await mockPromptToSearch(window)
       : await translatePromptToSearch();
-
     addMessageToSearch(response.searchQuery, Role.ASSISTANT);
 
     chatState.enableChat();
     productState.shoppingResults = response.shoppingResults;
-    chatState.addShoppingContextToChat(userMessage);
+    chatState.addSearchContext(userSearch);
   } catch (err) {
     errorState.setNewError(ErrorType.SEARCH, 'It seems there was an error, please try again.');
     console.error('Error while processing searchrequest ->', err);
