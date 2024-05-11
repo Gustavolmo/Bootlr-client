@@ -15,7 +15,7 @@ export const processTrendingItems = async () => {
 
     productState.shoppingResults = trendingProducts;
 
-    chatState.addSearchContext('Show me the currently trending products');
+    chatState.addSearchContext('Popular products in discount');
     chatState.enableChat();
 
   } catch (err) {
