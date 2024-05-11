@@ -13,11 +13,11 @@ export class MyaiProduct {
   @State() stars: string;
 
   componentWillRender() {
-    this.stars = '★'.repeat(Math.round(this.product.rating));
+    this.stars = '★'.repeat(Math.round(this.product.product_rating));
   }
 
   private copyToClipboard() {
-    navigator.clipboard.writeText(this.product.title);
+    navigator.clipboard.writeText(this.product.product_title);
     this.copySuccess = true;
     setTimeout(() => {
       this.copySuccess = false;
@@ -40,23 +40,23 @@ export class MyaiProduct {
               : copyToClipboard('16px', 'gray')}
           </button>
         </div>
-        <a href={this.product.link} target="_blank">
+        <a href={this.product.offer.offer_page_url} target="_blank">
           <div class="myai-product-image-wrap">
-            <img src={this.product.thumbnail} alt="product-image" />
+            <img src={this.product.product_photos[0]} alt="product-image" />
           </div>
 
           <div class="myai-product-info-wrap">
-            <p class="info-product-source">{this.product.source}</p>
+            <p class="info-product-source">{this.product.offer.store_name}</p>
             <p class="info-price-tag">
-              {this.product.price} <span class="old-price-tag">{this.product.old_price}</span>
+              {this.product.offer.price} <span class="old-price-tag">{this.product.offer.original_price}</span>
             </p>
             <div class="rating-container">
-              <span class="rating-text">{this.product.rating}</span>{' '}
+              <span class="rating-text">{this.product.product_rating}</span>{' '}
               <span class="rating-start">{this.stars}</span>{' '}
-              <span class="rating-text">({this.product.reviews ?? '0 reviews'})</span>
+              <span class="rating-text">({this.product.product_num_reviews ?? '0 reviews'})</span>
             </div>
-            <p class="info-product-delivery">{this.product.delivery}</p>
-            <p class="info-product-title">{this.product.title}</p>{' '}
+            <p class="info-product-delivery">{this.product.offer.shipping}</p>
+            <p class="info-product-title">{this.product.product_title}</p>{' '}
           </div>
         </a>
       </section>

@@ -18,11 +18,11 @@ export const processSearchRequest = async (userSearch: string): Promise<void> =>
     window.location.href === 'http://localhost:3333/';
 
   searchState.isLoading = true;
+  searchState.isFirstSearch = false;
   try {
     errorStore.reset();
     chatStore.reset();
     productStore.reset();
-    searchState.isFirstSearch = false;
 
     addMessageToSearch(userSearch, Role.USER);
     const response = isLocalEnv
@@ -52,8 +52,8 @@ const addMessageToSearch = (content: string, role: Role) => {
 };
 
 const translatePromptToSearch = async (): Promise<TranslatePromptResponse> => {
-  const URL = apiUrl.prod.bootlrSearch;
-  //const URL = apiUrl.local.bootlrSearch;
+  const URL = apiUrl('local').bootlrSearch;
+  
   const requestBody = JSON.stringify(searchState.messages);
   const requestOptions: RequestInit = {
     method: 'POST',
