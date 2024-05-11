@@ -29,10 +29,18 @@
   border-radius: 0px;
   padding: 8px;
   height: 100%;
+  max-height: 500px;
+  overflow: hidden;
 }
 
 .myai-product-item-wrap:hover {
   box-shadow: 0px 0px 1px 1px rgb(150, 150, 150);
+}
+
+.rating-container {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .rating-text {
@@ -74,6 +82,9 @@
 
 .info-price-tag {
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .old-price-tag {
@@ -94,6 +105,11 @@
 
 .info-product-title {
   color: cornflowerblue;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  white-space: normal !important;
+  overflow: hidden;
 }
 
 .info-product-title:hover {
@@ -128,6 +144,7 @@ a {
   }
 
   .myai-product-item-wrap {
+    height: 100%;
     padding: 4px 8px;
   }
 
@@ -148,10 +165,7 @@ a {
   }
 
   .info-product-title {
-    height: 24px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
   }
 
   .info-product-source {

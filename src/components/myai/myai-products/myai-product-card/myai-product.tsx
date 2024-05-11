@@ -50,7 +50,7 @@ export class MyaiProduct {
             <p class="info-price-tag">
               {this.product.price} <span class="old-price-tag">{this.product.old_price}</span>
             </p>
-            <div>
+            <div class="rating-container">
               <span class="rating-text">{this.product.rating}</span>{' '}
               <span class="rating-start">{this.stars}</span>{' '}
               <span class="rating-text">({this.product.reviews ?? '0 reviews'})</span>
