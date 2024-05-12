@@ -13,33 +13,31 @@
   width: 156px;
   background: #fff;
   box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.05);
-
-  .content {
-    padding: 4px;
-  }
 }
 
-.card.is-loading {
-  .image,
-  h2,
-  p {
-    background: #eee;
-    background: linear-gradient(110deg, #ececec 8%, #f3f3f3 18%, #ececec 33%);
-    background-size: 200% 100%;
-    animation: 1.5s shine linear infinite;
-  }
+.card .content {
+  padding: 4px;
+}
 
-  .image {
-    height: 160px;
-  }
+.card.is-loading .image,
+.card.is-loading h2,
+.card.is-loading p {
+  background: #eee;
+  background: linear-gradient(110deg, #ececec 8%, #f3f3f3 18%, #ececec 33%);
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
 
-  h2 {
-    height: 20px;
-  }
+.card.is-loading .image {
+  height: 160px;
+}
 
-  p {
-    height: 70px;
-  }
+.card.is-loading h2 {
+  height: 20px;
+}
+
+.card.is-loading p {
+  height: 70px;
 }
 
 @keyframes shine {
@@ -49,18 +47,15 @@
 }
 
 @media (max-width: 728px) {
-  .card.is-loading {
-    .image {
-      height: 100px;
-    }
-  
-    h2 {
-      height: 10px;
-    }
-  
-    p {
-      height: 40px;
-    }
+  .card.is-loading .image {
+    height: 100px;
+  }
+
+  .card.is-loading h2 {
+    height: 10px;
+  }
+
+  .card.is-loading p {
+    height: 40px;
   }
 }
-
