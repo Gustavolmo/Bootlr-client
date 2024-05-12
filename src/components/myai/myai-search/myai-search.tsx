@@ -25,11 +25,21 @@ export class MyaiSearch {
     }
   }
 
+  private returnHome = () => {
+    if (chatState.isLoading || searchState.isLoading) return
+    window.location.reload();
+  };
+
   render() {
     return (
       <section class="myai-search-container">
         <header class="search-header">
-          <h2 class={searchState.isLoading && 'search-loading'}>Bootlr{bootlrIcon('52')}</h2>
+          <h2
+            onClick={this.returnHome}
+            class={searchState.isLoading && 'search-loading'}
+          >
+            Bootlr{bootlrIcon('52')}
+          </h2>
           <p>The shopping assistant</p>
         </header>
         <form class="search-form">
