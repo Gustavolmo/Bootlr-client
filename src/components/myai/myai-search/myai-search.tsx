@@ -2,6 +2,7 @@ import { Component, State, h } from '@stencil/core';
 import { searchState } from '../../stores/myai-search-store/search-store';
 import { bootlrIcon, magnifyingGlass } from '../../../assets/heroIcons/collection';
 import { ErrorType, errorState } from '../../stores/myai-error-store/error-store';
+import { chatState } from '../../stores/myai-chat-store/chat-store';
 
 @Component({
   tag: 'myai-search',
@@ -43,7 +44,7 @@ export class MyaiSearch {
             class="myai-search-submit"
             type="submit"
             onClick={e => this.submitSearch(e)}
-            disabled={searchState.isLoading}
+            disabled={searchState.isLoading || chatState.isLoading}
           >
             {magnifyingGlass('24px', 'gray')}
           </button>

@@ -12,6 +12,7 @@ type chatAiResponse = {
 
 export const processNewChatMessage = async (userMessage: string): Promise<void> => {
   if (searchState.isLoading) return;
+  if (chatState.isLoading) return;
 
   chatState.isLoading = true;
   try {

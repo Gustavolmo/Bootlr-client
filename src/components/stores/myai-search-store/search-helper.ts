@@ -12,6 +12,7 @@ export interface TranslatePromptResponse {
 
 export const processSearchRequest = async (userSearch: string): Promise<void> => {
   if (searchState.isLoading) return;
+  if (chatState.isLoading) return;
 
   const isLocalEnv =
     window.location.href === 'http://testing.stenciljs.com/' ||

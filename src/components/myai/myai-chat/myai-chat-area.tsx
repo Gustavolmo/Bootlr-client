@@ -2,6 +2,7 @@ import { Component, Host, State, h } from '@stencil/core';
 import { chatState } from '../../stores/myai-chat-store/chat-store';
 import { sparkles } from '../../../assets/heroIcons/collection';
 import { productState } from '../../stores/myai-products-store/product-store';
+import { searchState } from '../../stores/myai-search-store/search-store';
 
 @Component({
   tag: 'myai-chat-area',
@@ -63,7 +64,7 @@ export class MyaiChatArea {
               type="submit"
               class="chat-textarea-submit"
               onClick={e => this.submitMessage(e)}
-              disabled={chatState.isLoading}
+              disabled={chatState.isLoading || searchState.isLoading}
             >
               {sparkles('32px', 'black')}
             </button>
