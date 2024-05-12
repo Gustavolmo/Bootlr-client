@@ -15,7 +15,8 @@ export const processSearchRequest = async (userSearch: string): Promise<void> =>
 
   const isLocalEnv =
     window.location.href === 'http://testing.stenciljs.com/' ||
-    window.location.href === 'http://localhost:3333/';
+    window.location.href === 'http://localhost:3333/' ||
+    userSearch === 'super-secret-search-for-testing';
 
   searchState.isLoading = true;
   searchState.isFirstSearch = false;
@@ -25,10 +26,10 @@ export const processSearchRequest = async (userSearch: string): Promise<void> =>
     productStore.reset();
 
     addMessageToSearch(userSearch, Role.USER);
-    const response = await translatePromptToSearch();
-    /* const response = isLocalEnv
+    /* const response = await translatePromptToSearch(); */
+    const response = isLocalEnv
       ? await mockPromptToSearch(window)
-      : await translatePromptToSearch(); */
+      : await translatePromptToSearch();
     addMessageToSearch(response.searchQuery, Role.ASSISTANT);
 
     chatState.enableChat();
