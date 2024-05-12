@@ -43,16 +43,20 @@ export const enableChat = () => {
 
 export const addSearchContext = (userSearch: string) => {
   const shoppingResultSummary = productState.shoppingResults.map(product => {
+
+    let reducedDescription: string;
+    if (product.product_description) {
+      reducedDescription = product.product_description.substring(0, 300)
+    }
+
     return {
       product_attributes: product.product_attributes,
-      product_description: product.product_description,
+      product_description: reducedDescription,
       product_rating: product.product_rating,
       product_title: product.product_title,
-      typical_price_range: product.typical_price_range,
       offer: {
         offer_page_url: product.offer.offer_page_url,
         on_sale: product.offer.on_sale,
-        original_price: product.offer.original_price,
         price: product.offer.price,
         product_condition: product.offer.product_condition,
         shipping: product.offer.shipping,
@@ -88,7 +92,7 @@ const addMessageToChat = (content: string, role: Role) => {
 };
 
 const getAiRespose = async () => {
-  const URL = apiUrl('local').bootlrChat;
+  const URL = apiUrl().bootlrChat;
 
   const requestBody = JSON.stringify(chatState.messages);
   const requestOptions: RequestInit = {

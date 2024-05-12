@@ -25,9 +25,10 @@ export const processSearchRequest = async (userSearch: string): Promise<void> =>
     productStore.reset();
 
     addMessageToSearch(userSearch, Role.USER);
-    const response = isLocalEnv
+    const response = await translatePromptToSearch();
+    /* const response = isLocalEnv
       ? await mockPromptToSearch(window)
-      : await translatePromptToSearch();
+      : await translatePromptToSearch(); */
     addMessageToSearch(response.searchQuery, Role.ASSISTANT);
 
     chatState.enableChat();
@@ -52,7 +53,7 @@ const addMessageToSearch = (content: string, role: Role) => {
 };
 
 const translatePromptToSearch = async (): Promise<TranslatePromptResponse> => {
-  const URL = apiUrl('local').bootlrSearch;
+  const URL = apiUrl().bootlrSearch;
   
   const requestBody = JSON.stringify(searchState.messages);
   const requestOptions: RequestInit = {
