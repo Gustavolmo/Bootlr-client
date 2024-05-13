@@ -37,7 +37,7 @@ export const processSearchRequest = async (userSearch: string): Promise<void> =>
     productState.shoppingResults = response.shoppingResults;
     chatState.addSearchContext(userSearch);
   } catch (err) {
-    errorState.setNewError(ErrorType.SEARCH, 'It seems there was an error, please try again.');
+    errorState.setNewError(ErrorType.SEARCH, 'Bootlr made a mistake, please try again.');
     console.error('Error while processing searchrequest ->', err);
   } finally {
     searchState.isLoading = false;
