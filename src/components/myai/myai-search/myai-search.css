@@ -11,6 +11,11 @@
   align-items: center;
 }
 
+.header-swedish-flag {
+  color: rgb(200, 200, 200);
+  margin-bottom: 64px;
+}
+
 .search-header > h2{
   color: rgb(150, 150, 150);
   margin-bottom: 0;

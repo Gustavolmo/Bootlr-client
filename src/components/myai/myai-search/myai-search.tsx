@@ -1,6 +1,6 @@
 import { Component, State, h } from '@stencil/core';
 import { searchState } from '../../stores/myai-search-store/search-store';
-import { bootlrIcon, magnifyingGlass } from '../../../assets/heroIcons/collection';
+import { bootlrIcon, magnifyingGlass, swedishFlag } from '../../../assets/heroIcons/collection';
 import { ErrorType, errorState } from '../../stores/myai-error-store/error-store';
 import { chatState } from '../../stores/myai-chat-store/chat-store';
 
@@ -26,7 +26,7 @@ export class MyaiSearch {
   }
 
   private returnHome = () => {
-    if (chatState.isLoading || searchState.isLoading) return
+    if (chatState.isLoading || searchState.isLoading) return;
     window.location.reload();
   };
 
@@ -34,10 +34,8 @@ export class MyaiSearch {
     return (
       <section class="myai-search-container">
         <header class="search-header">
-          <h2
-            onClick={this.returnHome}
-            class={searchState.isLoading && 'search-loading'}
-          >
+        <div class="header-swedish-flag">{swedishFlag('12', 0.6)} Developed in Sweden</div>
+          <h2 onClick={this.returnHome} class={searchState.isLoading && 'search-loading'}>
             Bootlr{bootlrIcon('52')}
           </h2>
           <p>The shopping assistant</p>
@@ -60,7 +58,7 @@ export class MyaiSearch {
           </button>
         </form>
         <div class="myai-search-sponsor-message">
-          <i>*Bootlr offers sponsored products</i>
+          {/* <i>*Bootlr offers sponsored products</i> */}
         </div>
         {searchState.isFirstSearch && <myai-search-examples />}
         {errorState.errorType === ErrorType.SEARCH && <myai-error />}
