@@ -20,6 +20,7 @@
   color: rgb(150, 150, 150);
   margin-bottom: 0;
   font-size: xx-large;
+  cursor: pointer;
 }
 
 .search-header > h2 > svg {
