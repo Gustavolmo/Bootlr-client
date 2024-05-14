@@ -34,12 +34,14 @@ interface Offer {
 }
 
 interface productStore {
+  isResultEmpty: boolean;
   shoppingResults: Product[];
   productsInFocus: Product[];
   populateProductsInFocus: (productReference: string[]) => void
 }
 
 export const productStore = createStore<productStore>({
+  isResultEmpty: false,
   shoppingResults: [],
   productsInFocus: [],
   populateProductsInFocus: populateProductsInFocus

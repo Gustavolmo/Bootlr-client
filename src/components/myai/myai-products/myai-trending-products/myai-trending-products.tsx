@@ -29,8 +29,9 @@ export class MyaiTrendingProducts {
   render() {
     return (
       <Host>
-        <p class="myai-trending-products-title">SPONSORED DEALS</p>
+        <p class="myai-trending-products-title">BOOTLR PICKS</p>
         {searchState.isLoading ? this.renderLoadingState() : this.renderLoadedProducts()}
+        {productState.isResultEmpty && <myai-empty-results/>}
       </Host>
     );
   }

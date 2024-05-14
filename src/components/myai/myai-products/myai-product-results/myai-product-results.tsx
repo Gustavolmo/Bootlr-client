@@ -32,6 +32,7 @@ export class MyaiProductResults {
       <Host>
         <div class="myai-product-results-wrap">
           {searchState.isLoading ? this.renderLoadingState() : this.renderLoadedProducts()}
+          {productState.isResultEmpty && <myai-empty-results/>}
         </div>
       </Host>
     );

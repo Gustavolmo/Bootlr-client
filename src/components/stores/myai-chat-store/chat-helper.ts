@@ -77,7 +77,7 @@ export const addSearchContext = (userSearch: string) => {
     },
     {
       role: Role.ASSISTANT,
-      content: '<span>Hi, how may I help you today?</span>',
+      content: '<p>Hi, how may I help you today?</p>',
     },
   ];
 };

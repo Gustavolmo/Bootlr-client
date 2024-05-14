@@ -32,10 +32,17 @@ export const processSearchRequest = async (userSearch: string): Promise<void> =>
       ? await mockPromptToSearch(window)
       : await translatePromptToSearch();
     addMessageToSearch(response.searchQuery, Role.ASSISTANT);
+    
+    if (response.shoppingResults.length === 0) {
+      productState.isResultEmpty = true;
+      userSearch += ', but unfortunately the search generated no results'
+    }
 
     chatState.enableChat();
+    
     productState.shoppingResults = response.shoppingResults;
     chatState.addSearchContext(userSearch);
+    
   } catch (err) {
     errorState.setNewError(ErrorType.SEARCH, 'Bootlr made a mistake, please try again.');
     console.error('Error while processing searchrequest ->', err);
@@ -44,7 +51,7 @@ export const processSearchRequest = async (userSearch: string): Promise<void> =>
   }
 };
 
-const addMessageToSearch = (content: string, role: Role) => {
+export const addMessageToSearch = (content: string, role: Role) => {
   searchState.messages = [
     ...searchState.messages,
     {
