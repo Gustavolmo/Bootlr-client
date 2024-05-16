@@ -41,7 +41,7 @@ export class MyaiProduct {
           </button>
         </div>
         <a
-          onClick={/* TODO: LOG CLICK */ () => console.log('LOG THIS')}
+          /* onClick={() => console.log('LOG THIS')} */
           href={this.product.offer.offer_page_url}
           target="_blank"
         >

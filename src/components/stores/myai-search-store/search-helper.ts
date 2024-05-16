@@ -45,10 +45,11 @@ export const processSearchRequest = async (userSearch: string): Promise<void> =>
     console.error('Error while processing searchrequest ->', err);
   } finally {
     searchState.isLoading = false;
-    console.log('SEARCH MESSAGES', searchState.messages);
-    chatState.processNewChatMessage(
-      'Make an infored recommendation based on the search request. Choose varied items. Explain why you recommeded those products',
-    );
+    if (errorState.errorType === ErrorType.NONE) {
+      chatState.processNewChatMessage(
+        'Make an infored recommendation based on the search request. Choose varied items. Explain why you recommeded those products',
+      );
+    }
   }
 };
 
