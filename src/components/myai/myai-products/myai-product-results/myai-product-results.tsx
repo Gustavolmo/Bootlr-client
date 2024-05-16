@@ -19,20 +19,6 @@ export class MyaiProductResults {
     );
   }
 
-  private renderBootlrSuggestions() {
-    return (
-      <Fragment>
-        {productState.productsInFocus.length > 0 ? (
-          productState.productsInFocus.map(product => {
-            return <myai-product product={product} inFocus={true} />;
-          })
-        ) : (
-          <p class="suggestions-explain-text">Bootlr will place suggestions here</p>
-        )}
-      </Fragment>
-    );
-  }
-
   private renderLoadingState() {
     return <myai-product-loader />;
   }
@@ -40,10 +26,6 @@ export class MyaiProductResults {
   render() {
     return (
       <Host>
-        {!searchState.isFirstSearch && (
-          <div class="bootlr-product-suggestions-wrap">{this.renderBootlrSuggestions()}</div>
-        )}
-
         <div class="myai-product-results-wrap">
           {searchState.isLoading ? this.renderLoadingState() : this.renderLoadedProducts()}
           {productState.isResultEmpty && <myai-empty-results />}

@@ -7,30 +7,10 @@
 .myai-product-results-wrap {
   display: flex;
   flex-wrap: wrap;
-  gap: 32px 8px;
+  gap: 32px 4px;
   max-width: 760px;
   justify-content: center;
-  margin: 32px 0px 100px;
-}
-
-.bootlr-product-suggestions-wrap {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  overflow-x: auto;
-  max-height: 560px;
-  height: 540px;
-  max-width: 760px;
-  padding: 8px;
-  margin: 0 8px;
-  gap: 0 8px;
-  justify-content: center;
-  border: 1px rgb(209, 207, 191) solid;
-  box-shadow: 4px 6px 1px 1px rgb(209, 207, 191);
-}
-
-.suggestions-explain-text {
-  margin: 0 40px;
+  margin: 16px 0px 100px;
 }
 
 @media (max-width: 740px) {
@@ -39,6 +19,6 @@
   }
 
   .bootlr-product-suggestions-wrap {
-    max-height: 320px;
+    max-height: 260px;
   }
 }

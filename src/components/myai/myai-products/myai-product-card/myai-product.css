@@ -24,11 +24,11 @@
 
 .myai-product-item-wrap {
   max-width: 156px;
-  box-shadow: rgb(200, 200, 200) 1px 1px 1px 1px;
+  width: fit-content;
   background-color: white;
   border-radius: 0px;
   padding: 8px;
-  height: 490px;
+  height: 380px;
   max-height: 500px;
   overflow: hidden;
 }
@@ -53,7 +53,7 @@
 }
 
 .myai-product-image-wrap {
-  height: 200px;
+  height: 160px;
   flex-grow: 1;
   display: flex;
   align-items: center;
@@ -81,6 +81,7 @@
 }
 
 .info-price-tag {
+  color: black;
   font-weight: 600;
   white-space: nowrap;
   overflow: hidden;
@@ -106,7 +107,7 @@
 .info-product-title {
   color: cornflowerblue;
   display: -webkit-box;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   white-space: normal !important;
   overflow: hidden;
@@ -135,7 +136,6 @@ a {
 
 .focus {
   background-color: rgb(255, 253, 240);
-  box-shadow: 2px 2px 1px 1px rgb(200, 200, 200);
 }
 
 @media (max-width: 740px) {
@@ -144,7 +144,7 @@ a {
   }
 
   .myai-product-item-wrap {
-    height: 280px;
+    height: 240px;
     padding: 4px 8px;
   }
 

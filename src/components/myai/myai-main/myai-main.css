@@ -3,7 +3,7 @@
 }
 
 .myai-main-left {
-  padding: 0 8px;
+  padding: 0;
   flex-grow: 1;
   min-height: 100svh;
   display: flex;

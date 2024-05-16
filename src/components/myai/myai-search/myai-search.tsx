@@ -32,12 +32,21 @@ export class MyaiSearch {
     return (
       <section class="myai-search-container">
         <header class="search-header">
-        <div class="header-swedish-flag">{swedishFlag('12', 0.6)} Developed in Sweden</div>
+          <div
+            class={{
+              'header-swedish-flag': searchState.isFirstSearch,
+              'header-swedish-flag-no-margin': !searchState.isFirstSearch,
+            }}
+          >
+            {swedishFlag('12', 0.6)} Developed in Sweden
+          </div>
+
           <h2 onClick={this.returnHome} class={searchState.isLoading && 'search-loading'}>
             Bootlr{bootlrIcon('52')}
           </h2>
           <p>The shopping assistant</p>
         </header>
+        
         <form class="search-form">
           <textarea
             placeholder="Tell Bootlr what you are looking for"
