@@ -14,40 +14,41 @@ export const processSearchRequest = async (userSearch: string): Promise<void> =>
   if (searchState.isLoading) return;
   if (chatState.isLoading) return;
 
-  const isLocalEnv =
-    window.location.href === 'http://testing.stenciljs.com/' ||
-    window.location.href === 'http://localhost:3333/' ||
-    userSearch === 'super-secret-search-for-testing';
+  const isLocalEnv = getIsLocalEnv(userSearch);
 
   searchState.isLoading = true;
   searchState.isFirstSearch = false;
+
   try {
     errorStore.reset();
     chatStore.reset();
     productStore.reset();
 
-    addMessageToSearch(userSearch, Role.USER);
+    searchState.addMessageToSearch(userSearch, Role.USER);
     /* const response = await translatePromptToSearch(); */
     const response = isLocalEnv
       ? await mockPromptToSearch(window)
       : await translatePromptToSearch();
-    addMessageToSearch(response.searchQuery, Role.ASSISTANT);
-    
+
+    searchState.addMessageToSearch(response.searchQuery, Role.ASSISTANT);
+
     if (response.shoppingResults.length === 0) {
       productState.isResultEmpty = true;
-      userSearch += ', but unfortunately the search generated no results'
+      userSearch += '. But unfortunately the search generated no results';
     }
+    productState.shoppingResults = response.shoppingResults;
 
     chatState.enableChat();
-    
-    productState.shoppingResults = response.shoppingResults;
     chatState.addSearchContext(userSearch);
-    
   } catch (err) {
     errorState.setNewError(ErrorType.SEARCH, 'Bootlr made a mistake, please try again.');
     console.error('Error while processing searchrequest ->', err);
   } finally {
     searchState.isLoading = false;
+    console.log('SEARCH MESSAGES', searchState.messages);
+    chatState.processNewChatMessage(
+      'Make an infored recommendation based on the search request. Choose varied items. Explain why you recommeded those products',
+    );
   }
 };
 
@@ -63,7 +64,7 @@ export const addMessageToSearch = (content: string, role: Role) => {
 
 const translatePromptToSearch = async (): Promise<TranslatePromptResponse> => {
   const URL = apiUrl().bootlrSearch;
-  
+
   const requestBody = JSON.stringify(searchState.messages);
   const requestOptions: RequestInit = {
     method: 'POST',
@@ -80,4 +81,12 @@ const translatePromptToSearch = async (): Promise<TranslatePromptResponse> => {
   } catch (error) {
     console.error('translatePromptToSearch Error:', error);
   }
+};
+
+const getIsLocalEnv = (userSearch: string): boolean => {
+  return (
+    window.location.href === 'http://testing.stenciljs.com/' ||
+    window.location.href === 'http://localhost:3333/' ||
+    userSearch === 'super-secret-search-for-testing'
+  );
 };

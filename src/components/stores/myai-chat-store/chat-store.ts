@@ -11,6 +11,7 @@ export interface ChatStore {
   isLoading: boolean;
   isChatOpen: boolean;
   isChatEnabled: boolean;
+  isNewChatNotification: boolean;
   messages: Messages[];
   enableChat: () => void;
   addSearchContext: (userSearch: string) => void;
@@ -26,6 +27,7 @@ export const chatStore = createStore<ChatStore>({
   isLoading: false,
   isChatOpen: false,
   isChatEnabled: false,
+  isNewChatNotification: false,
   messages: [
     {
       role: Role.SYSTEM,
@@ -48,7 +50,7 @@ export const chatStore = createStore<ChatStore>({
 
       3. You may ONLY populate the productReference array with strings.
 
-      4. Be friendly, answer and talk to the user. If you do not understand, ask for clarification.
+      4. Be friendly, answer and talk to the user. If you do not understand, ask for clarifications.
 
       5. If the user asks for products that are not present in the current search, you may tell them that it is possible to search for new products in the search bar.
       `,

@@ -14,25 +14,26 @@ export const processNewChatMessage = async (userMessage: string): Promise<void> 
   if (searchState.isLoading) return;
   if (chatState.isLoading) return;
 
+  const isTestingEnv = window.location.href === 'http://testing.stenciljs.com/'
+
   chatState.isLoading = true;
   try {
     errorStore.reset();
 
     addMessageToChat(userMessage, Role.USER);
-    const chatResponse =
-      window.location.href === 'http://testing.stenciljs.com/'
+    const response = isTestingEnv
         ? mockChatResponse
         : await getAiRespose();
+    const chatResponse: chatAiResponse = JSON.parse(response);
+    addMessageToChat(chatResponse.responseText, Role.ASSISTANT);
 
-    const parsedChatResponse: chatAiResponse = JSON.parse(chatResponse);
-    const responseText = parsedChatResponse.responseText;
-    const productReference = parsedChatResponse.productReference;
-    addMessageToChat(responseText, Role.ASSISTANT);
+    productState.populateProductsInFocus(chatResponse.productReference);
 
-    productState.populateProductsInFocus(productReference);
+    if (!chatState.isChatOpen) chatState.isNewChatNotification = true;
   } catch (err) {
     errorState.setNewError(ErrorType.CHAT, 'Something went wrong, please try again.');
     console.error('Error while processing chat ->', err);
+  
   } finally {
     chatState.isLoading = false;
   }
@@ -75,10 +76,6 @@ export const addSearchContext = (userSearch: string) => {
       The user made the following search request "${userSearch}"
       and is now presented with these products:
       ${JSON.stringify(shoppingResultSummary)}`,
-    },
-    {
-      role: Role.ASSISTANT,
-      content: '<p>Hi, how may I help you today?</p>',
     },
   ];
 };

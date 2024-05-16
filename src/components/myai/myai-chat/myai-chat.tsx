@@ -9,6 +9,7 @@ import { searchState } from '../../stores/myai-search-store/search-store';
 })
 export class MyaiChat {
   private toggleChatModal() {
+    chatState.isNewChatNotification = false;
     chatState.isChatOpen = !chatState.isChatOpen;
   }
 
@@ -32,6 +33,7 @@ export class MyaiChat {
               disabled={searchState.isLoading}
             >
               {chatState.isChatOpen ? cross('28px', 'gray') : dialogueBallon('28px', 'gray')}
+              {chatState.isNewChatNotification && <div class="notification-alert">1</div>}
             </button>
           )}
 

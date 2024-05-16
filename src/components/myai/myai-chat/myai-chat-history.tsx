@@ -13,7 +13,7 @@ export class MyaiChatHistory {
     return (
       <Host>
         {chatState.messages.map((message, index) => {
-          if (index <= 1) return;
+          if (index <= 2) return;
           return (
             <div
               class={{
