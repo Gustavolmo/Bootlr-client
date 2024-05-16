@@ -40,6 +40,7 @@ export const processNewChatMessage = async (userMessage: string): Promise<void> 
 
 export const enableChat = () => {
   if (window.innerWidth > 740) chatState.isChatOpen = true;
+  chatState.isChatEnabled = true;
 };
 
 export const addSearchContext = (userSearch: string) => {

@@ -10,6 +10,7 @@ enum Role {
 export interface ChatStore {
   isLoading: boolean;
   isChatOpen: boolean;
+  isChatEnabled: boolean;
   messages: Messages[];
   enableChat: () => void;
   addSearchContext: (userSearch: string) => void;
@@ -24,6 +25,7 @@ export type Messages = {
 export const chatStore = createStore<ChatStore>({
   isLoading: false,
   isChatOpen: false,
+  isChatEnabled: false,
   messages: [
     {
       role: Role.SYSTEM,

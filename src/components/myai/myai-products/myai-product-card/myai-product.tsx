@@ -40,7 +40,11 @@ export class MyaiProduct {
               : copyToClipboard('16px', 'gray')}
           </button>
         </div>
-        <a href={this.product.offer.offer_page_url} target="_blank">
+        <a
+          onClick={/* TODO: LOG CLICK */ () => console.log('LOG THIS')}
+          href={this.product.offer.offer_page_url}
+          target="_blank"
+        >
           <div class="myai-product-image-wrap">
             <img src={this.product.product_photos[0]} alt="product-image" />
           </div>
@@ -48,7 +52,8 @@ export class MyaiProduct {
           <div class="myai-product-info-wrap">
             <p class="info-product-source">{this.product.offer.store_name}</p>
             <p class="info-price-tag">
-              {this.product.offer.price} <span class="old-price-tag">{this.product.offer.original_price}</span>
+              {this.product.offer.price}{' '}
+              <span class="old-price-tag">{this.product.offer.original_price}</span>
             </p>
             <div class="rating-container">
               <span class="rating-text">{this.product.product_rating}</span>{' '}
