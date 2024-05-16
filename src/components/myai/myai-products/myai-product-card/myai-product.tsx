@@ -33,7 +33,7 @@ export class MyaiProduct {
         }}
       >
         <div class="myai-product-top">
-          <span class="bootlr-suggested">{this.inFocus && 'Bootlr:'}</span>
+          {<span class="bootlr-suggested">{/* {this.inFocus && 'Bootlr:'} */}</span>}
           <button onClick={() => this.copyToClipboard()} class="myai-product-item-name-copy">
             {this.copySuccess
               ? copiedSuccessfully('16px', 'gray')

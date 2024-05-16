@@ -20,8 +20,6 @@ export class MyaiSearch {
     e.preventDefault();
     if (this.userPrompt) {
       await searchState.processSearchRequest(this.userPrompt);
-
-      this.userPrompt = '';
     }
   }
 
