@@ -61,14 +61,6 @@ myai-chat-area {
   color: rgb(180, 180, 180);
 }
 
-.product-highlight-note {
-  background-color: rgb(255, 253, 240);
-  padding: 2px 8px;
-  margin: 0 auto 16px auto;
-  box-shadow: 2px 2px 1px 1px rgb(200, 200, 200);
-  color: rgb(100, 100, 100);
-  text-align: center;
-}
 
 @media (max-width: 740px) {
   .chat-textarea {
@@ -77,10 +69,5 @@ myai-chat-area {
 
   .chat-history {
     padding: 0 4px;
-  }
-
-  .product-highlight-note {
-    font-size: small;
-    margin-bottom: 4px;
   }
 }

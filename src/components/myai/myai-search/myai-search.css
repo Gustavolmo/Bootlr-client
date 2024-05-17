@@ -90,7 +90,6 @@
 @keyframes searching {
   0% {
     color: rgb(150, 150, 150);
-    /* transform: translateY(0); */
   }
   50% {
     color: rgb(225, 225, 225);
@@ -98,6 +97,5 @@
   }
   100% {
     color: rgb(150, 150, 150);
-    /* transform: translateY(0); */
   }
 }

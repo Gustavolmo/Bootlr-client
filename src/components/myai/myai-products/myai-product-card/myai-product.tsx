@@ -1,6 +1,5 @@
 import { Component, Prop, State, h } from '@stencil/core';
 import { Product } from '../../../stores/myai-products-store/product-store';
-/* import { copiedSuccessfully, copyToClipboard } from '../../../../assets/heroIcons/collection'; */
 
 @Component({
   tag: 'myai-product',
@@ -16,14 +15,6 @@ export class MyaiProduct {
     this.stars = '★'.repeat(Math.round(this.product.product_rating));
   }
 
-/*   private copyToClipboard() {
-    navigator.clipboard.writeText(this.product.product_title);
-    this.copySuccess = true;
-    setTimeout(() => {
-      this.copySuccess = false;
-    }, 2000);
-  } */
-
   render() {
     return (
       <section
@@ -32,16 +23,8 @@ export class MyaiProduct {
           'myai-product-item-wrap focus': this.inFocus,
         }}
       >
-        {/* {<div class="myai-product-top">
-          {<span class="bootlr-suggested">{{this.inFocus && 'Bootlr:'}}</span>}
-          <button onClick={() => this.copyToClipboard()} class="myai-product-item-name-copy">
-            {this.copySuccess
-              ? copiedSuccessfully('16px', 'gray')
-              : copyToClipboard('16px', 'gray')}
-          </button>
-        </div>} */}
         <a
-          /* onClick={() => console.log('LOG THIS')} */
+          /* TODO onClick={() => console.log('LOG THIS')} */
           href={this.product.offer.offer_page_url}
           target="_blank"
         >

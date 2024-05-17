@@ -14,7 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(236, 80, 80);
+  background-color: cornflowerblue;
   height: 16px;
   width: 16px;
   border-radius: 100%;
@@ -155,5 +155,9 @@
 
   .chat-window-button-close :nth-child(1) {
     background-color: rgb(245, 239, 200);
+  }
+
+  .notification-alert {
+    left: 32px;
   }
 }

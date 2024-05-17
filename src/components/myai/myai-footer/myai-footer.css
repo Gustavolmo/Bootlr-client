@@ -1,7 +1,6 @@
 .myai-footer-wrap {
   display: flex;
   flex-wrap: wrap;
-  /* flex-direction: column; */
   justify-content: center;
   background-color: rgb(245, 245, 245);
   padding: 16px 48px;
@@ -23,7 +22,6 @@
 .myai-footer-policy {
   display: flex;
   gap: 4px;
-  /* flex-direction: column; */
   color: gray;
   align-items: center;
 }
