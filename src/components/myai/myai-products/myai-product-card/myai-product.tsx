@@ -33,18 +33,26 @@ export class MyaiProduct {
           </div>
 
           <div class="myai-product-info-wrap">
-            <p class="info-product-source">{this.product.offer.store_name}</p>
+            <p class="info-product-title">{this.product.product_title}</p>{' '}
             <p class="info-price-tag">
               {this.product.offer.price}{' '}
               <span class="old-price-tag">{this.product.offer.original_price}</span>
             </p>
+            <p class="info-product-delivery">{this.product.offer.shipping}</p>
+            
+            <p class="info-product-source">{this.product.offer.store_name}</p>
+            
             <div class="rating-container">
               <span class="rating-text">{this.product.product_rating}</span>{' '}
               <span class="rating-start">{this.stars}</span>{' '}
-              <span class="rating-text">({this.product.product_num_reviews ?? '0 reviews'})</span>
+              <span class="rating-text">
+                (
+                {this.product.product_num_reviews === 0
+                  ? '0 reviews'
+                  : this.product.product_num_reviews}
+                )
+              </span>
             </div>
-            <p class="info-product-delivery">{this.product.offer.shipping}</p>
-            <p class="info-product-title">{this.product.product_title}</p>{' '}
           </div>
         </a>
       </section>
