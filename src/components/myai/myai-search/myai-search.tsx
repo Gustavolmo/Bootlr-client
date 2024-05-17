@@ -24,7 +24,7 @@ export class MyaiSearch {
   }
 
   private returnHome = () => {
-    if (chatState.isLoading || searchState.isLoading) return;
+    if (searchState.isLoading) return;
     window.location.reload();
   };
 
