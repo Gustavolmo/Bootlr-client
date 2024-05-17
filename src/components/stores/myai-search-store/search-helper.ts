@@ -47,7 +47,7 @@ export const processSearchRequest = async (userSearch: string): Promise<void> =>
     searchState.isLoading = false;
     if (errorState.errorType === ErrorType.NONE) {
       chatState.processNewChatMessage(
-        'Make an infored recommendation based on the search request. Choose varied items. Explain why you recommeded those products',
+        'Make an infored recommendation based on the search request. Choose varied items. Explain why you recommeded those items',
       );
     }
   }
