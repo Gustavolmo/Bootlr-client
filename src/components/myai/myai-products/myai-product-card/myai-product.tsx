@@ -1,5 +1,6 @@
 import { Component, Prop, State, h } from '@stencil/core';
 import { Product } from '../../../stores/myai-products-store/product-store';
+import { logState } from '../../../stores/myai-logs-store/logs-store';
 
 @Component({
   tag: 'myai-product',
@@ -24,7 +25,7 @@ export class MyaiProduct {
         }}
       >
         <a
-          /* TODO onClick={() => console.log('LOG THIS')} */
+          onClick={() => logState.logProductClick()}
           href={this.product.offer.offer_page_url}
           target="_blank"
         >
@@ -39,9 +40,7 @@ export class MyaiProduct {
               <span class="old-price-tag">{this.product.offer.original_price}</span>
             </p>
             <p class="info-product-delivery">{this.product.offer.shipping}</p>
-            
             <p class="info-product-source">{this.product.offer.store_name}</p>
-            
             <div class="rating-container">
               <span class="rating-text">{this.product.product_rating}</span>{' '}
               <span class="rating-start">{this.stars}</span>{' '}

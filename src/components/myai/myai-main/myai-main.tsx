@@ -1,4 +1,5 @@
 import { Component, h } from '@stencil/core';
+import { logState } from '../../stores/myai-logs-store/logs-store';
 
 @Component({
   tag: 'myai-main',
@@ -6,8 +7,8 @@ import { Component, h } from '@stencil/core';
   shadow: true,
 })
 export class MyaiMain {
-  componentWillLoad() {
-    // TODO: LOG NEW VISIT
+  componentDidLoad() {
+    logState.logNewVisitor()
   }
 
   render() {
