@@ -30,23 +30,19 @@
   padding: 8px;
   gap: 0 8px;
   margin-bottom: 32px;
-  justify-content: center;
   background-color: rgb(240, 240, 240);
   border: 1px black solid;
   box-shadow: 5px 5px 0 2px rgb(66, 66, 66);
   background-color: rgb(255, 253, 240);
-  transition: all 0.8s ease;
 }
 
 .close {
   opacity: 0;
   height: 0px;
-  transition: all 0.8s ease;
 }
 .open {
   opacity: 1;
   height: 350px;
-  transition: all 0.8s ease;
 }
 
 .message-box-content {
