@@ -29,7 +29,6 @@ export const processNewChatMessage = async (userMessage: string): Promise<void> 
 
     productState.populateProductsInFocus(chatResponse.productReference);
 
-    if (!chatState.isChatOpen) chatState.isNewChatNotification = true;
   } catch (err) {
     errorState.setNewError(ErrorType.CHAT, 'Something went wrong, please try again.');
     console.error('Error while processing chat ->', err);
@@ -39,7 +38,7 @@ export const processNewChatMessage = async (userMessage: string): Promise<void> 
   }
 };
 
-export const enableChat = () => {
+export const enableChat = () => { // TODO: REMOVE
   if (window.innerWidth > 740) chatState.isChatOpen = true;
   chatState.isChatEnabled = true;
 };

@@ -1,11 +1,13 @@
 :host {
-  padding: 0px 8px;
   display: flex;
   flex-direction: column;
   min-height: 100svh;
   justify-content: space-between;
+  align-items: center;
 }
 
-.growth-fix{
-  flex: 1;
+.myai-content {
+  width: 92%;
+  max-width: 760px;
+  margin: 0 0 96px 0;
 }

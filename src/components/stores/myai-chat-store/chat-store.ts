@@ -24,7 +24,7 @@ export type Messages = {
 };
 
 export const chatStore = createStore<ChatStore>({
-  isLoading: false,
+  isLoading: false, //DEFAULT false
   isChatOpen: false,
   isChatEnabled: false,
   isNewChatNotification: false,

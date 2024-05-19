@@ -21,8 +21,8 @@ export type Messages = {
 };
 
 export const searchStore = createStore<searchStore>({
-  isFirstSearch: true, //set to true
-  isLoading: false, //set to false
+  isFirstSearch: true, //default is true
+  isLoading: false, //default is false
   messages: [
     {
       role: Role.SYSTEM,

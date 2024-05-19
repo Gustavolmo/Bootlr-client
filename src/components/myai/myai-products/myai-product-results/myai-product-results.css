@@ -2,26 +2,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 12px 32px;
-  padding: 4px;
 }
 
 .myai-product-results-wrap {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  overflow-x: auto;
+  overflow-x: scroll;
   overflow-y: hidden;
   height: 350px;
   max-width: 760px;
-  min-width: 95%;
+  width: 88vw;
   padding: 8px;
-  margin: 0 8px;
   gap: 0 8px;
-  justify-content: center;
+  margin-bottom: 32px;
   background-color: rgb(240, 240, 240);
   border: 1px black solid;
   box-shadow: 5px 5px 0 2px rgb(66, 66, 66);
+  transition: all 0.8s ease;
 }
 
 .myai-product-results-message-wrap {
@@ -29,12 +25,11 @@
   max-width: 760px;
   align-items: left;
   width: 100%;
+  margin-bottom: 32px;
 }
 
 .product-results-message {
   height: 100%;
-  padding: 0px 8px;
-  margin-bottom: 16px;
 }
 
 .bootlr-is-searching {

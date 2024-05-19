@@ -21,8 +21,8 @@
 .chat-form {
   display: flex;
   justify-content: center;
-  max-width: 760px;
-  width: 95%;
+  max-width: 780px;
+  width: 92vw;
 }
 
 .chat-textarea {

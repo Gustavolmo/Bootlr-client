@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Fragment, Host, h } from '@stencil/core';
 import { logState } from '../../stores/myai-logs-store/logs-store';
 import { searchState } from '../../stores/myai-search-store/search-store';
 
@@ -15,10 +15,12 @@ export class MyaiMain {
   render() {
     return (
       <Host>
-        <myai-search />
-        {!searchState.isFirstSearch && <myai-chat />}
-        <div class="growth-fix"></div>
-        {searchState.isFirstSearch && <myai-footer />}
+        <section class="myai-content">
+          <myai-search />
+          {!searchState.isFirstSearch && <myai-chat-history />}
+        </section>
+
+        {searchState.isFirstSearch ? <myai-footer /> : <myai-chat-input />}
       </Host>
     );
   }

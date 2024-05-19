@@ -46,7 +46,7 @@ export const processSearchRequest = async (userSearch: string): Promise<void> =>
   } finally {
     searchState.isLoading = false;
     if (errorState.errorType === ErrorType.NONE && !productState.isResultEmpty) {
-      chatState.processNewChatMessage('Based on my search, what would you recommend?');
+      chatState.processNewChatMessage('What would you recommend?');
     }
   }
 };

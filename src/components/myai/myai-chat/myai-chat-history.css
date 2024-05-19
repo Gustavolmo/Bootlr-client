@@ -1,39 +1,40 @@
-/* :host {
+:host {
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  height: 100%;
-} */
+  align-items: center;
+}
 
 .history-message-box-you {
-  background-color: rgb(248, 248, 248);
-  word-wrap: break-word;
-  margin: 32px 0;
   padding: 8px;
-  border-radius: 8px;
+  background-color: rgb(240, 240, 240);
+  word-wrap: break-word;
+  border-radius: 0px;
+  margin-bottom: 16px;
+  width: 100%;
 }
 
 .history-message-box-bootlr {
+  padding: 8px;
   word-wrap: break-word;
-  margin: 0;
-  padding: 12px;
-  padding-bottom: 0;
-  border-radius: 8px;
+  margin-bottom: 16px;
+  width: 100%;
 }
 
 .bootlr-product-suggestions-wrap {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
   overflow-x: scroll;
   overflow-y: hidden;
+  height: 350px;
+  max-width: 760px;
+  width: 88vw;
   padding: 8px;
-  margin: 32px 12px;
   gap: 0 8px;
+  margin-bottom: 32px;
   justify-content: center;
-  background-color: rgb(255, 253, 240);
+  background-color: rgb(240, 240, 240);
   border: 1px black solid;
   box-shadow: 5px 5px 0 2px rgb(66, 66, 66);
+  background-color: rgb(255, 253, 240);
   transition: all 0.8s ease;
 }
 
@@ -49,7 +50,7 @@
 }
 
 .message-box-content {
-  padding-top: 4px;
+  margin-top: 4px;
 }
 
 .message-loading {
@@ -76,12 +77,6 @@
 }
 
 @media (max-width: 740px) {
-  .history-message-box-you {
-    margin: 16px 0px;
-  }
-  .history-message-box-bootlr {
-    padding: 0 12px;
-  }
   .bootlr-product-suggestions-wrap {
     max-height: 260px;
   }

@@ -5,6 +5,6 @@ import { Component, h } from '@stencil/core';
 })
 export class BootlrRoot {
   render() {
-    return <myai-main></myai-main>;
+    return <myai-main />;
   }
 }
