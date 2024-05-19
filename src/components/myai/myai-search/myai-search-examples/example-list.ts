@@ -1,27 +1,27 @@
 export const ideasForExamples = [
   'mid-century home decoration',
-  'my wine collection display',
+  'games to play with friends',
   'beach vacation activities',
-  'my home office setup',
+  'balcony furniture',
 ];
 
 export const showMeExamples = [
   'beautiful things',
   'funny gifts',
-  'halloween masks',
-  'smart home devices'
+  'scary stuff',
+  'romantic gifts'
 ];
 
 export const canYouFindExamples = [
-  'kitchen gadgets',
-  'fitness equipment',
-  'pet supplies',
-  'tech accessories',
+  'Modern kitchen utencils',
+  'home fitness equipment',
+  'pet supplies for lazy cats',
+  'tech gadgets for iPhone',
 ];
 
 export const iAmLookingForExamples = [
   'gifts for my kids',
-  'home improvement tools',
-  'outdoor gear',
-  'travel accessories'
+  'furniture for small apartments',
+  'beginner running shoes',
+  'compact travel accessories'
 ];

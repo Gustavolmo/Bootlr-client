@@ -1,7 +1,7 @@
 import { Component, Host, State, h } from '@stencil/core';
 import { chatState } from '../../stores/myai-chat-store/chat-store';
 import { sparkles } from '../../../assets/heroIcons/collection';
-import { productState } from '../../stores/myai-products-store/product-store';
+import { searchState } from '../../stores/myai-search-store/search-store';
 
 @Component({
   tag: 'myai-chat-area',
@@ -46,11 +46,6 @@ export class MyaiChatArea {
         </div>
 
         <section class="chat-bottom-section">
-          {productState.productsInFocus.length > 0 && (
-            <p class="product-highlight-note">
-              Bootlr placed items at the top of the page for you
-            </p>
-          )}
           <form class="chat-form">
             <textarea
               placeholder="Ask Bootlr about the products. It may highlight items in the page for you."
@@ -63,7 +58,7 @@ export class MyaiChatArea {
               type="submit"
               class="chat-textarea-submit"
               onClick={e => this.submitMessage(e)}
-              disabled={chatState.isLoading}
+              disabled={chatState.isLoading || searchState.isLoading}
             >
               {sparkles('32px', 'black')}
             </button>

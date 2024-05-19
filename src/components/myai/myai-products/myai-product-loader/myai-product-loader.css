@@ -1,0 +1,61 @@
+.cards {
+  opacity: 0.5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 8px;
+  max-width: 760px;
+  justify-content: center;
+  margin: 32px auto;
+}
+
+.card {
+  padding: 8px;
+  width: 156px;
+  background: #fff;
+  box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.card .content {
+  padding: 4px;
+}
+
+.card.is-loading .image,
+.card.is-loading h2,
+.card.is-loading p {
+  background: #eee;
+  background: linear-gradient(110deg, #ececec 8%, #f3f3f3 18%, #ececec 33%);
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+
+.card.is-loading .image {
+  height: 160px;
+}
+
+.card.is-loading h2 {
+  height: 20px;
+}
+
+.card.is-loading p {
+  height: 70px;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+@media (max-width: 728px) {
+  .card.is-loading .image {
+    height: 100px;
+  }
+
+  .card.is-loading h2 {
+    height: 10px;
+  }
+
+  .card.is-loading p {
+    height: 40px;
+  }
+}

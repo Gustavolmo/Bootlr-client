@@ -1,40 +1,50 @@
 import { createStore } from '@stencil/store';
+import { populateProductsInFocus } from './product-store-helper';
 
 export interface Product {
-  badge?: string;
-  comparison_link?: string;
-  delivery?: string;
-  extensions?: string[];
-  extracted_old_price?: number;
-  extracted_price?: number;
-  link?: string;
-  number_of_comparisons?: string;
-  old_price?: string;
-  position?: number;
-  price?: string;
   product_id?: string;
-  product_link?: string;
-  reviews?: number;
-  rating?: number;
-  second_hand_condition?: string;
-  serpapi_product_api?: string;
-  serpapi_product_api_comparisons?: string;
-  source?: string;
+  product_title?: string;
+  product_description?: string;
+  product_photos?: string[];
+  product_attributes?: any | null;
+  product_rating?: number;
+  product_page_url?: string;
+  product_offers_page_url?: string;
+  product_specs_page_url?: string;
+  product_reviews_page_url?: string;
+  product_num_reviews?: number;
+  product_num_offers?: string;
+  typical_price_range?: string[];
+  offer?: Offer;
+}
+
+interface Offer {
+  store_name?: string;
   store_rating?: number;
-  store_reviews?: number;
-  tag?: string;
-  thumbnail?: string;
-  title?: string;
+  offer_page_url?: string;
+  store_review_count?: number;
+  store_reviews_page_url?: string;
+  price?: string;
+  shipping?: string;
+  tax?: string;
+  on_sale?: boolean;
+  original_price?: string | null;
+  product_condition?: string;
+  top_quality_store?: boolean,
 }
 
 interface productStore {
+  isResultEmpty: boolean;
   shoppingResults: Product[];
   productsInFocus: Product[];
+  populateProductsInFocus: (productReference: string[]) => void
 }
 
 export const productStore = createStore<productStore>({
+  isResultEmpty: false,
   shoppingResults: [],
   productsInFocus: [],
+  populateProductsInFocus: populateProductsInFocus
 });
 
 export const { state: productState } = productStore;

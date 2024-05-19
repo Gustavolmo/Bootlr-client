@@ -1,7 +1,8 @@
 import { Component, State, h } from '@stencil/core';
 import { searchState } from '../../stores/myai-search-store/search-store';
-import { bootlrIcon, magnifyingGlass } from '../../../assets/heroIcons/collection';
+import { bootlrIcon, magnifyingGlass, swedishFlag } from '../../../assets/heroIcons/collection';
 import { ErrorType, errorState } from '../../stores/myai-error-store/error-store';
+import { chatState } from '../../stores/myai-chat-store/chat-store';
 
 @Component({
   tag: 'myai-search',
@@ -19,18 +20,33 @@ export class MyaiSearch {
     e.preventDefault();
     if (this.userPrompt) {
       await searchState.processSearchRequest(this.userPrompt);
-
-      this.userPrompt = '';
     }
   }
+
+  private returnHome = () => {
+    if (searchState.isLoading) return;
+    window.location.reload();
+  };
 
   render() {
     return (
       <section class="myai-search-container">
         <header class="search-header">
-          <h2 class={searchState.isLoading && 'search-loading'}>Bootlr{bootlrIcon('52')}</h2>
+          <div
+            class={{
+              'header-swedish-flag': searchState.isFirstSearch,
+              'header-swedish-flag-no-margin': !searchState.isFirstSearch,
+            }}
+          >
+            {swedishFlag('12', 0.6)} Developed in Sweden
+          </div>
+
+          <h2 onClick={this.returnHome} class={searchState.isLoading && 'search-loading'}>
+            Bootlr{bootlrIcon('52')}
+          </h2>
           <p>The shopping assistant</p>
         </header>
+        
         <form class="search-form">
           <textarea
             placeholder="Tell Bootlr what you are looking for"
@@ -43,15 +59,15 @@ export class MyaiSearch {
             class="myai-search-submit"
             type="submit"
             onClick={e => this.submitSearch(e)}
-            disabled={searchState.isLoading}
+            disabled={searchState.isLoading || chatState.isLoading}
           >
             {magnifyingGlass('24px', 'gray')}
           </button>
         </form>
         <div class="myai-search-sponsor-message">
-          <i>*Bootlr offers sponsored products</i>
+          {/* <i>*Bootlr offers sponsored products</i> */}
         </div>
-        {searchState.isFirstSearch && !searchState.isLoading && <myai-search-examples />}
+        {searchState.isFirstSearch && <myai-search-examples />}
         {errorState.errorType === ErrorType.SEARCH && <myai-error />}
       </section>
     );

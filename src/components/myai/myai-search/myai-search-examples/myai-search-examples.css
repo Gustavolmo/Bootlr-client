@@ -13,10 +13,11 @@
   flex-direction: column;
   margin: 12px;
   padding: 8px;
-  box-shadow: 4px 3px 1px 1px rgb(225, 225, 225);
-  border: 1px solid rgb(225, 225, 225);
+  box-shadow: 4px 3px 1px 1px rgb(235, 233, 226);
+  border: 1px solid rgb(224, 222, 210);
   width: 240px;
   font-size: small;
+  font-weight: bold;
 }
 
 .search-example:hover {
@@ -25,6 +26,11 @@
   box-shadow: 2px 2px 1px 1px rgb(225, 225, 225);
 }
 
-.gray {
+.serch-example-type {
   color: gray;
+  font-weight: normal;
+}
+
+.disabled {
+  opacity: 0.2;
 }

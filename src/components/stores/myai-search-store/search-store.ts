@@ -1,5 +1,5 @@
 import { createStore } from '@stencil/store';
-import { processSearchRequest } from './search-helper';
+import { addMessageToSearch, processSearchRequest } from './search-helper';
 
 export enum Role {
   USER = 'user',
@@ -11,7 +11,8 @@ export interface searchStore {
   isLoading: boolean;
   isFirstSearch: boolean;
   messages: Messages[];
-  processSearchRequest: (userMessage: string) => Promise<void>;
+  processSearchRequest: (userSearch: string) => Promise<void>;
+  addMessageToSearch: (content: string, role: Role) => void
 }
 
 export type Messages = {
@@ -26,20 +27,27 @@ export const searchStore = createStore<searchStore>({
     {
       role: Role.SYSTEM,
       content: `
-      You are a Google Shopping expert tasked with helping users generate the best possible search results.
+      You are an expert in generating search keywords for product searches on Amazon and Google Shopping.
+
+      Your task is to transform user requests into accurate keywords that best represent the user's purchase intention.
 
       Here are your instructions:
 
-      1. UNDERSTAND WHAT THE USER WANTS TO BUY AND GENERATE A SEARCH QUERY.
+      1. THE SEARCHES ARE MADE IN SWEDEN, USE SWEDISH KEYWORDS.
 
-      2. YOU MUST ANSWER ONLY WITH THE SEARCH QUERY, NOTHING ELSE.
+      2. GENERATE A MAXIMUM OF 3 KEYWORDS TO BE USED IN A SEARCH, FOR EXAMPLE: <keyword1 keyword2 keyword3>
 
-      3. IF YOU DO NOT UNDERSTAND THE USER'S REQUEST, STILL CREATE A SEARCH QUERY.
-      `
+      3. DO NOT GENERATE MORE THAN 3 KEYWORDS. USE ONLY LETTERS TO GENERATE KEYWORDS, AVOID SPECIAL CHARACTERS.
+
+      4. YOU MUST ANSWER ONLY WITH SEARCH KEYWORDS, NOTHING ELSE!
+
+      5. IF YOU DO NOT UNDERSTAND THE USER'S REQUEST, STILL CREATE SEARCH KEYWORDS.
+      `,
     },
   ],
 
   processSearchRequest: processSearchRequest,
+  addMessageToSearch: addMessageToSearch,
 });
 
 export const { state: searchState } = searchStore;

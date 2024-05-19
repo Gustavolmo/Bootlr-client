@@ -1,5 +1,5 @@
 import { createStore } from '@stencil/store';
-import { addShoppingContextToChat, enableChat, processNewChatMessage } from './chat-helper';
+import { addSearchContext as addSearchContext, enableChat, processNewChatMessage } from './chat-helper';
 
 enum Role {
   USER = 'user',
@@ -10,9 +10,11 @@ enum Role {
 export interface ChatStore {
   isLoading: boolean;
   isChatOpen: boolean;
+  isChatEnabled: boolean;
+  isNewChatNotification: boolean;
   messages: Messages[];
   enableChat: () => void;
-  addShoppingContextToChat: (userMessage: string) => void;
+  addSearchContext: (userSearch: string) => void;
   processNewChatMessage: (content: string) => Promise<void>;
 }
 
@@ -24,11 +26,13 @@ export type Messages = {
 export const chatStore = createStore<ChatStore>({
   isLoading: false,
   isChatOpen: false,
+  isChatEnabled: false,
+  isNewChatNotification: false,
   messages: [
     {
       role: Role.SYSTEM,
       content: `
-      You are Bootlr, a helpful AI shopping assistant in a product search website. YOUR TASK IS TO PROVIDE PROFESSIONAL ADVICE AND RECOMMENDATIONS about products.
+      You are Bootlr, a helpful shopping assistant in a product search website. YOUR TASK IS TO TALK TO THE USER AND PROVIDE PROFESSIONAL ADVICE AND RECOMMENDATIONS about shopping and products.
 
       The response format JSON_OBJECT mode is enabled, which means you MUST answer in the following JSON format:
 
@@ -46,13 +50,15 @@ export const chatStore = createStore<ChatStore>({
 
       3. You may ONLY populate the productReference array with strings.
 
-      4. Always be friendly, answer and talk to the user. If you do not understand, ask for clarification.
+      4. Be friendly, answer and talk to the user. If you do not understand ask for clarifications.
+
+      5. If the user asks for products that are not present in the current search, you may tell them that it is possible to search for new products in the search bar.
       `,
     },
   ],
 
   enableChat: enableChat,
-  addShoppingContextToChat: addShoppingContextToChat,
+  addSearchContext: addSearchContext,
   processNewChatMessage: processNewChatMessage,
 });
 

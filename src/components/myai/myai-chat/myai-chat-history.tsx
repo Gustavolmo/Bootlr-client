@@ -2,6 +2,7 @@ import { Component, Host, h } from '@stencil/core';
 import { chatState } from '../../stores/myai-chat-store/chat-store';
 import { Role } from '../../stores/myai-search-store/search-store';
 import { ErrorType, errorState } from '../../stores/myai-error-store/error-store';
+import { productState } from '../../stores/myai-products-store/product-store';
 
 @Component({
   tag: 'myai-chat-history',
@@ -9,11 +10,22 @@ import { ErrorType, errorState } from '../../stores/myai-error-store/error-store
   shadow: true,
 })
 export class MyaiChatHistory {
+  private renderBootlrSuggestions() {
+    return (
+      <div class="bootlr-product-suggestions-wrap">
+        {productState.productsInFocus.length > 0 &&
+          productState.productsInFocus.map(product => {
+            return <myai-product product={product} inFocus={true} />;
+          })}
+      </div>
+    );
+  }
+
   render() {
     return (
       <Host>
         {chatState.messages.map((message, index) => {
-          if (index <= 1) return;
+          if (index <= 2) return;
           return (
             <div
               class={{
@@ -28,12 +40,17 @@ export class MyaiChatHistory {
               >
                 {message.role === Role.USER ? message.content : ''}
               </div>
-
             </div>
           );
         })}
+
+        {productState.productsInFocus.length > 0 &&
+          !chatState.isLoading &&
+          this.renderBootlrSuggestions()}
+
         <i class="message-loading">{chatState.isLoading && 'Bootlr is typing...'}</i>
-        {errorState.errorType === ErrorType.CHAT && <myai-error/>}
+
+        {errorState.errorType === ErrorType.CHAT && <myai-error />}
       </Host>
     );
   }

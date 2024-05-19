@@ -14,6 +14,20 @@
   border-radius: 8px;
 }
 
+.bootlr-product-suggestions-wrap {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 400px;
+  max-width: 760px;
+  padding: 8px 16px;
+  margin: 0 8px;
+  gap: 0 8px;
+  justify-content: center;
+}
+
 .message-box-content {
   padding-top: 4px;
 }
@@ -23,6 +37,10 @@
   padding-bottom: 8px;
   color: gray;
   animation: thinking 1s infinite;
+}
+
+:host a {
+  color: cornflowerblue;
 }
 
 @keyframes thinking {
@@ -43,5 +61,8 @@
   }
   .history-message-box-bootlr {
     padding: 0 8px;
+  }
+  .bootlr-product-suggestions-wrap {
+    max-height: 260px;
   }
 }

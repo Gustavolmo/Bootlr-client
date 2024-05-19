@@ -8,13 +8,13 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Product } from "./components/stores/myai-products-store/product-store";
 export { Product } from "./components/stores/myai-products-store/product-store";
 export namespace Components {
-    interface MyaiAds {
-    }
     interface MyaiChat {
     }
     interface MyaiChatArea {
     }
     interface MyaiChatHistory {
+    }
+    interface MyaiEmptyResults {
     }
     interface MyaiError {
     }
@@ -26,24 +26,16 @@ export namespace Components {
         "inFocus": boolean;
         "product": Product;
     }
+    interface MyaiProductLoader {
+    }
     interface MyaiProductResults {
     }
     interface MyaiSearch {
     }
     interface MyaiSearchExamples {
     }
-    interface MyaiTrendingProducts {
-        "productSelection": Product[];
-        "sectionTitle": string;
-    }
 }
 declare global {
-    interface HTMLMyaiAdsElement extends Components.MyaiAds, HTMLStencilElement {
-    }
-    var HTMLMyaiAdsElement: {
-        prototype: HTMLMyaiAdsElement;
-        new (): HTMLMyaiAdsElement;
-    };
     interface HTMLMyaiChatElement extends Components.MyaiChat, HTMLStencilElement {
     }
     var HTMLMyaiChatElement: {
@@ -61,6 +53,12 @@ declare global {
     var HTMLMyaiChatHistoryElement: {
         prototype: HTMLMyaiChatHistoryElement;
         new (): HTMLMyaiChatHistoryElement;
+    };
+    interface HTMLMyaiEmptyResultsElement extends Components.MyaiEmptyResults, HTMLStencilElement {
+    }
+    var HTMLMyaiEmptyResultsElement: {
+        prototype: HTMLMyaiEmptyResultsElement;
+        new (): HTMLMyaiEmptyResultsElement;
     };
     interface HTMLMyaiErrorElement extends Components.MyaiError, HTMLStencilElement {
     }
@@ -86,6 +84,12 @@ declare global {
         prototype: HTMLMyaiProductElement;
         new (): HTMLMyaiProductElement;
     };
+    interface HTMLMyaiProductLoaderElement extends Components.MyaiProductLoader, HTMLStencilElement {
+    }
+    var HTMLMyaiProductLoaderElement: {
+        prototype: HTMLMyaiProductLoaderElement;
+        new (): HTMLMyaiProductLoaderElement;
+    };
     interface HTMLMyaiProductResultsElement extends Components.MyaiProductResults, HTMLStencilElement {
     }
     var HTMLMyaiProductResultsElement: {
@@ -104,35 +108,29 @@ declare global {
         prototype: HTMLMyaiSearchExamplesElement;
         new (): HTMLMyaiSearchExamplesElement;
     };
-    interface HTMLMyaiTrendingProductsElement extends Components.MyaiTrendingProducts, HTMLStencilElement {
-    }
-    var HTMLMyaiTrendingProductsElement: {
-        prototype: HTMLMyaiTrendingProductsElement;
-        new (): HTMLMyaiTrendingProductsElement;
-    };
     interface HTMLElementTagNameMap {
-        "myai-ads": HTMLMyaiAdsElement;
         "myai-chat": HTMLMyaiChatElement;
         "myai-chat-area": HTMLMyaiChatAreaElement;
         "myai-chat-history": HTMLMyaiChatHistoryElement;
+        "myai-empty-results": HTMLMyaiEmptyResultsElement;
         "myai-error": HTMLMyaiErrorElement;
         "myai-footer": HTMLMyaiFooterElement;
         "myai-main": HTMLMyaiMainElement;
         "myai-product": HTMLMyaiProductElement;
+        "myai-product-loader": HTMLMyaiProductLoaderElement;
         "myai-product-results": HTMLMyaiProductResultsElement;
         "myai-search": HTMLMyaiSearchElement;
         "myai-search-examples": HTMLMyaiSearchExamplesElement;
-        "myai-trending-products": HTMLMyaiTrendingProductsElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyaiAds {
-    }
     interface MyaiChat {
     }
     interface MyaiChatArea {
     }
     interface MyaiChatHistory {
+    }
+    interface MyaiEmptyResults {
     }
     interface MyaiError {
     }
@@ -144,47 +142,45 @@ declare namespace LocalJSX {
         "inFocus"?: boolean;
         "product"?: Product;
     }
+    interface MyaiProductLoader {
+    }
     interface MyaiProductResults {
     }
     interface MyaiSearch {
     }
     interface MyaiSearchExamples {
     }
-    interface MyaiTrendingProducts {
-        "productSelection"?: Product[];
-        "sectionTitle"?: string;
-    }
     interface IntrinsicElements {
-        "myai-ads": MyaiAds;
         "myai-chat": MyaiChat;
         "myai-chat-area": MyaiChatArea;
         "myai-chat-history": MyaiChatHistory;
+        "myai-empty-results": MyaiEmptyResults;
         "myai-error": MyaiError;
         "myai-footer": MyaiFooter;
         "myai-main": MyaiMain;
         "myai-product": MyaiProduct;
+        "myai-product-loader": MyaiProductLoader;
         "myai-product-results": MyaiProductResults;
         "myai-search": MyaiSearch;
         "myai-search-examples": MyaiSearchExamples;
-        "myai-trending-products": MyaiTrendingProducts;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "myai-ads": LocalJSX.MyaiAds & JSXBase.HTMLAttributes<HTMLMyaiAdsElement>;
             "myai-chat": LocalJSX.MyaiChat & JSXBase.HTMLAttributes<HTMLMyaiChatElement>;
             "myai-chat-area": LocalJSX.MyaiChatArea & JSXBase.HTMLAttributes<HTMLMyaiChatAreaElement>;
             "myai-chat-history": LocalJSX.MyaiChatHistory & JSXBase.HTMLAttributes<HTMLMyaiChatHistoryElement>;
+            "myai-empty-results": LocalJSX.MyaiEmptyResults & JSXBase.HTMLAttributes<HTMLMyaiEmptyResultsElement>;
             "myai-error": LocalJSX.MyaiError & JSXBase.HTMLAttributes<HTMLMyaiErrorElement>;
             "myai-footer": LocalJSX.MyaiFooter & JSXBase.HTMLAttributes<HTMLMyaiFooterElement>;
             "myai-main": LocalJSX.MyaiMain & JSXBase.HTMLAttributes<HTMLMyaiMainElement>;
             "myai-product": LocalJSX.MyaiProduct & JSXBase.HTMLAttributes<HTMLMyaiProductElement>;
+            "myai-product-loader": LocalJSX.MyaiProductLoader & JSXBase.HTMLAttributes<HTMLMyaiProductLoaderElement>;
             "myai-product-results": LocalJSX.MyaiProductResults & JSXBase.HTMLAttributes<HTMLMyaiProductResultsElement>;
             "myai-search": LocalJSX.MyaiSearch & JSXBase.HTMLAttributes<HTMLMyaiSearchElement>;
             "myai-search-examples": LocalJSX.MyaiSearchExamples & JSXBase.HTMLAttributes<HTMLMyaiSearchExamplesElement>;
-            "myai-trending-products": LocalJSX.MyaiTrendingProducts & JSXBase.HTMLAttributes<HTMLMyaiTrendingProductsElement>;
         }
     }
 }

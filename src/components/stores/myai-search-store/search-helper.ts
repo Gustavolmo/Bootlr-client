@@ -10,37 +10,50 @@ export interface TranslatePromptResponse {
   shoppingResults: Object[];
 }
 
-export const processSearchRequest = async (userMessage: string): Promise<void> => {
-  const isLocalEnv =
-    window.location.href === 'http://testing.stenciljs.com/' ||
-    window.location.href === 'http://localhost:3333/';
+export const processSearchRequest = async (userSearch: string): Promise<void> => {
+  if (searchState.isLoading) return;
+  if (chatState.isLoading) return;
+
+  const isLocalEnv = getIsLocalEnv(userSearch);
 
   searchState.isLoading = true;
+  searchState.isFirstSearch = false;
+
   try {
     errorStore.reset();
     chatStore.reset();
     productStore.reset();
-    searchState.isFirstSearch = false;
 
-    addMessageToSearch(userMessage, Role.USER);
+    searchState.addMessageToSearch(userSearch, Role.USER);
+    /* const response = await translatePromptToSearch(); */
     const response = isLocalEnv
       ? await mockPromptToSearch(window)
       : await translatePromptToSearch();
 
-    addMessageToSearch(response.searchQuery, Role.ASSISTANT);
+    searchState.addMessageToSearch(response.searchQuery, Role.ASSISTANT);
+
+    if (response.shoppingResults.length === 0) {
+      productState.isResultEmpty = true;
+      userSearch += '. But unfortunately the search generated no results';
+    }
+    productState.shoppingResults = response.shoppingResults;
 
     chatState.enableChat();
-    productState.shoppingResults = response.shoppingResults;
-    chatState.addShoppingContextToChat(userMessage);
+    chatState.addSearchContext(userSearch);
   } catch (err) {
-    errorState.setNewError(ErrorType.SEARCH, 'It seems there was an error, please try again.');
+    errorState.setNewError(ErrorType.SEARCH, 'Bootlr made a mistake, please try again.');
     console.error('Error while processing searchrequest ->', err);
   } finally {
     searchState.isLoading = false;
+    if (errorState.errorType === ErrorType.NONE) {
+      chatState.processNewChatMessage(
+        'Make an infored recommendation based on the search request. Choose varied items. Explain why you recommeded those items',
+      );
+    }
   }
 };
 
-const addMessageToSearch = (content: string, role: Role) => {
+export const addMessageToSearch = (content: string, role: Role) => {
   searchState.messages = [
     ...searchState.messages,
     {
@@ -51,8 +64,8 @@ const addMessageToSearch = (content: string, role: Role) => {
 };
 
 const translatePromptToSearch = async (): Promise<TranslatePromptResponse> => {
-  const URL = apiUrl.prod.bootlrSearch;
-  //const URL = apiUrl.local.bootlrSearch;
+  const URL = apiUrl().bootlrSearch;
+
   const requestBody = JSON.stringify(searchState.messages);
   const requestOptions: RequestInit = {
     method: 'POST',
@@ -69,4 +82,12 @@ const translatePromptToSearch = async (): Promise<TranslatePromptResponse> => {
   } catch (error) {
     console.error('translatePromptToSearch Error:', error);
   }
+};
+
+const getIsLocalEnv = (userSearch: string): boolean => {
+  return (
+    window.location.href === 'http://testing.stenciljs.com/' ||
+    window.location.href === 'http://localhost:3333/' ||
+    userSearch === 'super-secret-search-for-testing'
+  );
 };

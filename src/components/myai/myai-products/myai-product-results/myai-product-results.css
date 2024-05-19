@@ -7,14 +7,14 @@
 .myai-product-results-wrap {
   display: flex;
   flex-wrap: wrap;
-  gap: 32px 8px;
+  gap: 8px 4px;
   max-width: 760px;
   justify-content: center;
-  margin: 32px 0px 100px;
+  margin: 16px 0px 100px;
 }
 
 @media (max-width: 740px) {
-  .myai-product-results-wrap {
-    gap: 16px 8px;
+  .bootlr-product-suggestions-wrap {
+    max-height: 260px;
   }
 }
