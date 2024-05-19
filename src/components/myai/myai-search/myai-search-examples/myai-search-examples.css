@@ -6,6 +6,7 @@
   align-items: center;
   max-width: 600px;
   margin: auto;
+  margin-bottom: 32px;
 }
 
 .search-example {

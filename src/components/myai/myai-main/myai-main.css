@@ -1,6 +1,11 @@
 :host {
-  padding: 0;
+  padding: 0px 8px;
   display: flex;
   flex-direction: column;
   min-height: 100svh;
+  justify-content: space-between;
+}
+
+.growth-fix{
+  flex: 1;
 }

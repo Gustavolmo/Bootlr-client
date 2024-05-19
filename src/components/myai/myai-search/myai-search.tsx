@@ -1,4 +1,4 @@
-import { Component, State, h } from '@stencil/core';
+import { Component, Host, State, h } from '@stencil/core';
 import { searchState } from '../../stores/myai-search-store/search-store';
 import { bootlrIcon, magnifyingGlass, swedishFlag } from '../../../assets/heroIcons/collection';
 import { ErrorType, errorState } from '../../stores/myai-error-store/error-store';
@@ -30,7 +30,7 @@ export class MyaiSearch {
 
   render() {
     return (
-      <section class="myai-search-container">
+      <Host>
         <header
           class={{
             'search-header': searchState.isFirstSearch,
@@ -65,7 +65,7 @@ export class MyaiSearch {
         </div>
         {searchState.isFirstSearch && <myai-search-examples />}
         {errorState.errorType === ErrorType.SEARCH && <myai-error />}
-      </section>
+      </Host>
     );
   }
 }

@@ -16,8 +16,9 @@ export class MyaiMain {
     return (
       <Host>
         <myai-search />
-
-        {searchState.isFirstSearch ? <myai-footer /> : <myai-chat />}
+        {!searchState.isFirstSearch && <myai-chat />}
+        <div class="growth-fix"></div>
+        {searchState.isFirstSearch && <myai-footer />}
       </Host>
     );
   }
