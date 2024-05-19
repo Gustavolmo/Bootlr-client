@@ -1,7 +1,7 @@
 export const ideasForExamples = [
   'mid-century home decoration',
   'games to play with friends',
-  'beach vacation activities',
+  'beach vacation games',
   'balcony furniture',
 ];
 
@@ -21,7 +21,7 @@ export const canYouFindExamples = [
 
 export const iAmLookingForExamples = [
   'gifts for my kids',
-  'furniture for small apartments',
+  'party hats',
   'beginner running shoes',
   'compact travel accessories'
 ];
