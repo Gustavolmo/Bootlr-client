@@ -32,11 +32,11 @@ export const processSearchRequest = async (userSearch: string): Promise<void> =>
 
     searchState.addMessageToSearch(response.searchQuery, Role.ASSISTANT);
 
+    productState.shoppingResults = response.shoppingResults;
     if (response.shoppingResults.length === 0) {
       productState.isResultEmpty = true;
       userSearch += '. But unfortunately the search generated no results';
     }
-    productState.shoppingResults = response.shoppingResults;
 
     chatState.enableChat();
     chatState.addSearchContext(userSearch);
