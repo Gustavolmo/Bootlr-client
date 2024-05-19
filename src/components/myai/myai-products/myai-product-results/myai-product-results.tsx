@@ -32,7 +32,7 @@ export class MyaiProductResults {
   render() {
     return (
       <Host>
-        {searchState.isLoading && <i class="bootlr-is-searching">Bootlr is searching...</i>}
+        {searchState.isLoading && <p class="bootlr-is-searching">Bootlr is searching...</p>}
         {productState.shoppingResults.length > 0 && this.renderSearchResults()}
         {productState.isResultEmpty && <myai-empty-results />}
       </Host>

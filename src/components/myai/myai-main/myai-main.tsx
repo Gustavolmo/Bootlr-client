@@ -1,4 +1,4 @@
-import { Component, Fragment, Host, h } from '@stencil/core';
+import { Component, Host, h } from '@stencil/core';
 import { logState } from '../../stores/myai-logs-store/logs-store';
 import { searchState } from '../../stores/myai-search-store/search-store';
 

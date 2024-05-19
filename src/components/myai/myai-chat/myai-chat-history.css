@@ -54,24 +54,40 @@
 }
 
 .message-loading {
-  margin-left: 32px;
-  padding-bottom: 8px;
-  color: gray;
-  animation: thinking 1s infinite;
+  margin: 16px 0;
+  padding: 2px 4px;
+  border: 1px solid black;
+  animation: border-run 1s infinite ease-in-out;
 }
 
-@keyframes thinking {
+
+@keyframes border-run {
   0% {
-    color: rgb(200, 200, 200);
+    box-shadow: 1px 1px 0 0 rgb(66, 66, 66);
+    transform: translateY(0);
+    transform: translateX(0);
+  }
+  25% {
+    box-shadow: 2px 2px 0 0 rgb(66, 66, 66);
+    transform: translateY(1px);
+    transform: translateX(1px);
   }
   50% {
-    color: gray;
+    box-shadow: 3px 3px 0 0 rgb(66, 66, 66);
+    transform: translateY(2px);
+    transform: translateX(2px);
+  }
+  75% {
+    box-shadow: 2px 2px 0 0 rgb(66, 66, 66);
+    transform: translateY(1px);
+    transform: translateX(1px);
   }
   100% {
-    color: rgb(200, 200, 200);
+    box-shadow: 1px 1px 0 0 rgb(66, 66, 66);
+    transform: translateY(0);
+    transform: translateX(0);
   }
 }
-
 :host a {
   color: cornflowerblue;
 }

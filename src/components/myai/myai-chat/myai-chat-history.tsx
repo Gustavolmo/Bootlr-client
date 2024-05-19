@@ -66,7 +66,7 @@ export class MyaiChatHistory {
 
         {productState.productsInFocus.length > 0 && this.renderBootlrSuggestions()}
 
-        <i class="message-loading">{chatState.isLoading && 'Bootlr is typing...'}</i>
+        {chatState.isLoading && <p class="message-loading">Bootlr is typing...</p>}
 
         {errorState.errorType === ErrorType.CHAT && <myai-error />}
       </Host>
