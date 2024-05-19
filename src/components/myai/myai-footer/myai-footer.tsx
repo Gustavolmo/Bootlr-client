@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { Component, Host, h } from '@stencil/core';
 
 @Component({
   tag: 'myai-footer',
@@ -8,15 +8,20 @@ import { Component, h } from '@stencil/core';
 export class MyaiFooter {
   render() {
     return (
-      <footer class="myai-footer-wrap">
-        <div class="myai-footer-title">Bootlr.com</div>
-        <div class="myai-footer-policy">
-          Terms:<a href="/policy.html" target='_blank'>Privacy Policy</a>
-        </div>
-        <div class="myai-footer-contact">
-          Contact:<a href="mailto:admin@bootlr.com">admin@bootlr.com</a>
-        </div>
-      </footer>
+      <Host>
+        <footer class="myai-footer-wrap">
+          <div class="myai-footer-title">Bootlr.com</div>
+          <div class="myai-footer-policy">
+            Terms:
+            <a href="/policy.html" target="_blank">
+              Privacy Policy
+            </a>
+          </div>
+          <div class="myai-footer-contact">
+            Contact:<a href="mailto:admin@bootlr.com">admin@bootlr.com</a>
+          </div>
+        </footer>
+      </Host>
     );
   }
 }

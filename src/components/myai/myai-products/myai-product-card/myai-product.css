@@ -69,7 +69,7 @@
 .myai-product-info-wrap {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
 }
 
 .info-product-source {
@@ -154,7 +154,7 @@ a {
   .myai-product-info-wrap {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 4px;
   }
 
   .myai-product-image-wrap > img {
@@ -167,7 +167,7 @@ a {
   }
 
   .info-product-source {
-    height: 24px;
+    /* height: 24px; */
     margin-bottom: 4px;
     white-space: nowrap;
     overflow: hidden;

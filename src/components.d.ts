@@ -8,11 +8,13 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Product } from "./components/stores/myai-products-store/product-store";
 export { Product } from "./components/stores/myai-products-store/product-store";
 export namespace Components {
+    interface BootlrRoot {
+    }
     interface MyaiChat {
     }
-    interface MyaiChatArea {
-    }
     interface MyaiChatHistory {
+    }
+    interface MyaiChatInput {
     }
     interface MyaiEmptyResults {
     }
@@ -36,23 +38,29 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLBootlrRootElement extends Components.BootlrRoot, HTMLStencilElement {
+    }
+    var HTMLBootlrRootElement: {
+        prototype: HTMLBootlrRootElement;
+        new (): HTMLBootlrRootElement;
+    };
     interface HTMLMyaiChatElement extends Components.MyaiChat, HTMLStencilElement {
     }
     var HTMLMyaiChatElement: {
         prototype: HTMLMyaiChatElement;
         new (): HTMLMyaiChatElement;
     };
-    interface HTMLMyaiChatAreaElement extends Components.MyaiChatArea, HTMLStencilElement {
-    }
-    var HTMLMyaiChatAreaElement: {
-        prototype: HTMLMyaiChatAreaElement;
-        new (): HTMLMyaiChatAreaElement;
-    };
     interface HTMLMyaiChatHistoryElement extends Components.MyaiChatHistory, HTMLStencilElement {
     }
     var HTMLMyaiChatHistoryElement: {
         prototype: HTMLMyaiChatHistoryElement;
         new (): HTMLMyaiChatHistoryElement;
+    };
+    interface HTMLMyaiChatInputElement extends Components.MyaiChatInput, HTMLStencilElement {
+    }
+    var HTMLMyaiChatInputElement: {
+        prototype: HTMLMyaiChatInputElement;
+        new (): HTMLMyaiChatInputElement;
     };
     interface HTMLMyaiEmptyResultsElement extends Components.MyaiEmptyResults, HTMLStencilElement {
     }
@@ -109,9 +117,10 @@ declare global {
         new (): HTMLMyaiSearchExamplesElement;
     };
     interface HTMLElementTagNameMap {
+        "bootlr-root": HTMLBootlrRootElement;
         "myai-chat": HTMLMyaiChatElement;
-        "myai-chat-area": HTMLMyaiChatAreaElement;
         "myai-chat-history": HTMLMyaiChatHistoryElement;
+        "myai-chat-input": HTMLMyaiChatInputElement;
         "myai-empty-results": HTMLMyaiEmptyResultsElement;
         "myai-error": HTMLMyaiErrorElement;
         "myai-footer": HTMLMyaiFooterElement;
@@ -124,11 +133,13 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface BootlrRoot {
+    }
     interface MyaiChat {
     }
-    interface MyaiChatArea {
-    }
     interface MyaiChatHistory {
+    }
+    interface MyaiChatInput {
     }
     interface MyaiEmptyResults {
     }
@@ -151,9 +162,10 @@ declare namespace LocalJSX {
     interface MyaiSearchExamples {
     }
     interface IntrinsicElements {
+        "bootlr-root": BootlrRoot;
         "myai-chat": MyaiChat;
-        "myai-chat-area": MyaiChatArea;
         "myai-chat-history": MyaiChatHistory;
+        "myai-chat-input": MyaiChatInput;
         "myai-empty-results": MyaiEmptyResults;
         "myai-error": MyaiError;
         "myai-footer": MyaiFooter;
@@ -169,9 +181,10 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "bootlr-root": LocalJSX.BootlrRoot & JSXBase.HTMLAttributes<HTMLBootlrRootElement>;
             "myai-chat": LocalJSX.MyaiChat & JSXBase.HTMLAttributes<HTMLMyaiChatElement>;
-            "myai-chat-area": LocalJSX.MyaiChatArea & JSXBase.HTMLAttributes<HTMLMyaiChatAreaElement>;
             "myai-chat-history": LocalJSX.MyaiChatHistory & JSXBase.HTMLAttributes<HTMLMyaiChatHistoryElement>;
+            "myai-chat-input": LocalJSX.MyaiChatInput & JSXBase.HTMLAttributes<HTMLMyaiChatInputElement>;
             "myai-empty-results": LocalJSX.MyaiEmptyResults & JSXBase.HTMLAttributes<HTMLMyaiEmptyResultsElement>;
             "myai-error": LocalJSX.MyaiError & JSXBase.HTMLAttributes<HTMLMyaiErrorElement>;
             "myai-footer": LocalJSX.MyaiFooter & JSXBase.HTMLAttributes<HTMLMyaiFooterElement>;

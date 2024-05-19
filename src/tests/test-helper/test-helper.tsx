@@ -2,7 +2,6 @@ import { h } from '@stencil/core';
 import { SpecPage, newSpecPage } from '@stencil/core/testing';
 import { MyaiMain } from '../../components/myai/myai-main/myai-main';
 import { MyaiChat } from '../../components/myai/myai-chat/myai-chat';
-import { MyaiChatArea } from '../../components/myai/myai-chat/myai-chat-area';
 import { MyaiChatHistory } from '../../components/myai/myai-chat/myai-chat-history';
 import { MyaiProduct } from '../../components/myai/myai-products/myai-product-card/myai-product';
 import { MyaiProductResults } from '../../components/myai/myai-products/myai-product-results/myai-product-results';
@@ -21,7 +20,6 @@ export class TestHelper {
       components: [
         MyaiMain,
         MyaiChat,
-        MyaiChatArea,
         MyaiChatHistory,
         MyaiProduct,
         MyaiProductResults,

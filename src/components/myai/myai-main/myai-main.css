@@ -1,12 +1,6 @@
-.myai-main-wrap{
-  display: flex;
-}
-
-.myai-main-left {
+:host {
   padding: 0;
-  flex-grow: 1;
-  min-height: 100svh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  min-height: 100svh;
 }

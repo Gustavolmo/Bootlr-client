@@ -1,5 +1,6 @@
-import { Component, h } from '@stencil/core';
+import { Component, Host, h } from '@stencil/core';
 import { logState } from '../../stores/myai-logs-store/logs-store';
+import { searchState } from '../../stores/myai-search-store/search-store';
 
 @Component({
   tag: 'myai-main',
@@ -8,21 +9,16 @@ import { logState } from '../../stores/myai-logs-store/logs-store';
 })
 export class MyaiMain {
   componentDidLoad() {
-    logState.logNewVisitor()
+    logState.logNewVisitor();
   }
 
   render() {
     return (
-      <article class="myai-main-wrap">
-        <div class="myai-main-left">
-          <myai-search />
+      <Host>
+        <myai-search />
 
-          <myai-product-results />
-
-          <myai-footer />
-        </div>
-        <myai-chat />
-      </article>
+        {searchState.isFirstSearch ? <myai-footer /> : <myai-chat />}
+      </Host>
     );
   }
 }

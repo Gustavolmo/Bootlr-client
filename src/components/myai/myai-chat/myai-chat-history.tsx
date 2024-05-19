@@ -12,7 +12,13 @@ import { productState } from '../../stores/myai-products-store/product-store';
 export class MyaiChatHistory {
   private renderBootlrSuggestions() {
     return (
-      <div class="bootlr-product-suggestions-wrap">
+      <div
+        class={
+          chatState.isLoading
+            ? 'bootlr-product-suggestions-wrap close'
+            : 'bootlr-product-suggestions-wrap open'
+        }
+      >
         {productState.productsInFocus.length > 0 &&
           productState.productsInFocus.map(product => {
             return <myai-product product={product} inFocus={true} />;
@@ -21,9 +27,23 @@ export class MyaiChatHistory {
     );
   }
 
+  private scrollToBottom() {
+    window.scrollTo({
+      left: 0,
+      top: window.outerHeight * window.outerHeight, // TODO: refactor this hack
+      behavior: 'smooth',
+    });
+  }
+
+  componentDidRender() {
+    this.scrollToBottom();
+  }
+
   render() {
     return (
       <Host>
+        <myai-product-results />
+
         {chatState.messages.map((message, index) => {
           if (index <= 2) return;
           return (
@@ -44,9 +64,7 @@ export class MyaiChatHistory {
           );
         })}
 
-        {productState.productsInFocus.length > 0 &&
-          !chatState.isLoading &&
-          this.renderBootlrSuggestions()}
+        {productState.productsInFocus.length > 0 && this.renderBootlrSuggestions()}
 
         <i class="message-loading">{chatState.isLoading && 'Bootlr is typing...'}</i>
 

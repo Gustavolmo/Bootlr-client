@@ -8,28 +8,33 @@ import { searchState } from '../../../stores/myai-search-store/search-store';
   shadow: true,
 })
 export class MyaiProductResults {
-  private renderLoadedProducts() {
+  private renderSearchResults() {
     return (
       <Fragment>
-        {productState.shoppingResults.length > 0 &&
-          productState.shoppingResults.map(product => {
+        <section class="myai-product-results-message-wrap">
+          <div class="product-results-message">
+            <b>Bootlr:</b>
+            <p>
+              I found these results online.
+            </p>
+          </div>
+        </section>
+
+        <section class="myai-product-results-wrap">
+          {productState.shoppingResults.map(product => {
             return <myai-product product={product} inFocus={false} />;
           })}
+        </section>
       </Fragment>
     );
-  }
-
-  private renderLoadingState() {
-    return <myai-product-loader />;
   }
 
   render() {
     return (
       <Host>
-        <div class="myai-product-results-wrap">
-          {searchState.isLoading ? this.renderLoadingState() : this.renderLoadedProducts()}
-          {productState.isResultEmpty && <myai-empty-results />}
-        </div>
+        {searchState.isLoading && <p class="bootlr-is-searching">Bootlr is searching...</p>}
+        {productState.shoppingResults.length > 0 && this.renderSearchResults()}
+        {productState.isResultEmpty && <myai-empty-results />}
       </Host>
     );
   }
