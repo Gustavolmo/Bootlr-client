@@ -20,7 +20,6 @@ export class MyaiChatInput {
     if (this.userMessage) {
       await chatState.processNewChatMessage(this.userMessage);
       this.userMessage = '';
-      console.log(chatState.messages);
     }
   }
 
