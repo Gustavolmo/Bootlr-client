@@ -13,20 +13,21 @@
   display: flex;
   flex-direction: column;
   margin: 12px;
-  padding: 8px;
-  border: 1px solid rgb(150, 150, 150);
+  padding: 8px 12px;
   width: 240px;
   font-weight: bold;
-  color: gray;
+  color: rgb(66, 66, 66);
+  box-shadow: 3px 3px 0 0 rgb(66, 66, 66);
+  border: 1px solid rgb(66, 66, 66);
 }
 
 .search-example:hover {
   cursor: pointer;
-  border: 1px solid rgb(66, 66, 66);
+  box-shadow: 2px 2px 0 0 rgb(66, 66, 66);
 }
 
 .serch-example-type {
-  color: gray;
+  color: rgb(121, 121, 121);
   font-weight: normal;
 }
 
