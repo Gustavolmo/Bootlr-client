@@ -30,19 +30,11 @@
   padding: 8px;
   gap: 0 8px;
   margin-bottom: 32px;
+  margin-top: 8px;
   background-color: rgb(240, 240, 240);
   border: 1px black solid;
   box-shadow: 5px 5px 0 2px rgb(66, 66, 66);
   background-color: rgb(255, 253, 240);
-}
-
-.close {
-  opacity: 0;
-  height: 0px;
-}
-.open {
-  opacity: 1;
-  height: 350px;
 }
 
 .message-box-content {
@@ -69,9 +61,9 @@
     transform: translateX(1px);
   }
   50% {
-    box-shadow: 3px 3px 0 0 rgb(66, 66, 66);
+    box-shadow: 3px 4px 0 0 rgb(66, 66, 66);
     transform: translateY(2px);
-    transform: translateX(2px);
+    transform: translateX(1px);
   }
   75% {
     box-shadow: 2px 2px 0 0 rgb(66, 66, 66);

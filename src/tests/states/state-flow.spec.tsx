@@ -12,7 +12,6 @@ describe('SEARCH FLOW STATES', () => {
     expect(chatState.messages[0].role).toBe('system');
 
     expect(productState.shoppingResults).toStrictEqual([]);
-    expect(productState.productsInFocus).toStrictEqual([]);
 
     expect(searchState.isLoading).toBe(false);
     expect(searchState.isFirstSearch).toBe(true);
@@ -39,7 +38,6 @@ describe('SEARCH FLOW STATES', () => {
     expect(chatState.messages[2].role).toBe('assistant');
 
     expect(productState.shoppingResults.length).toBe(30);
-    expect(productState.productsInFocus).toStrictEqual([]);
   });
 });
 

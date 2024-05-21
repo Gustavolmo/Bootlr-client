@@ -1,5 +1,4 @@
 import { createStore } from '@stencil/store';
-import { populateProductsInFocus } from './product-store-helper';
 
 export interface Product {
   product_id?: string;
@@ -36,15 +35,11 @@ interface Offer {
 interface productStore {
   isResultEmpty: boolean;
   shoppingResults: Product[];
-  productsInFocus: Product[];
-  populateProductsInFocus: (productReference: string[]) => void
 }
 
 export const productStore = createStore<productStore>({
   isResultEmpty: false,
   shoppingResults: [],
-  productsInFocus: [],
-  populateProductsInFocus: populateProductsInFocus
 });
 
 export const { state: productState } = productStore;

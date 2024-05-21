@@ -25,20 +25,19 @@ export const processSearchRequest = async (userSearch: string): Promise<void> =>
     productStore.reset();
 
     searchState.addMessageToSearch(userSearch, Role.USER);
-    /* const response = await translatePromptToSearch(); */
-    const response = isLocalEnv
+    const response = await translatePromptToSearch();
+    /* const response = isLocalEnv
       ? await mockPromptToSearch(window)
-      : await translatePromptToSearch();
+      : await translatePromptToSearch(); */
 
     searchState.addMessageToSearch(response.searchQuery, Role.ASSISTANT);
 
     productState.shoppingResults = response.shoppingResults;
-    if (response.shoppingResults.length === 0) {
+    if (productState.shoppingResults.length === 0) {
       productState.isResultEmpty = true;
-      userSearch += '. But unfortunately the search generated no results';
+      userSearch += '. But no results were found';
     }
 
-    chatState.enableChat();
     chatState.addSearchContext(userSearch);
   } catch (err) {
     errorState.setNewError(ErrorType.SEARCH, 'Bootlr made a mistake, please try again.');
@@ -46,7 +45,7 @@ export const processSearchRequest = async (userSearch: string): Promise<void> =>
   } finally {
     searchState.isLoading = false;
     if (errorState.errorType === ErrorType.NONE && !productState.isResultEmpty) {
-      chatState.processNewChatMessage('What would you recommend?');
+      chatState.processNewChatMessage('What would you recommend based on my search? Make sure to choose distinct products');
     }
   }
 };
@@ -77,6 +76,7 @@ const translatePromptToSearch = async (): Promise<TranslatePromptResponse> => {
     const response = await fetch(URL, requestOptions);
     const responseData = await response.json();
     return responseData;
+
   } catch (error) {
     console.error('translatePromptToSearch Error:', error);
   }

@@ -5,7 +5,7 @@ import { Product, productState } from '../myai-products-store/product-store';
 import { Role, searchState } from '../myai-search-store/search-store';
 import { chatState } from './chat-store';
 
-type chatAiResponse = {
+export type chatAiResponse = {
   responseText: string;
   productReference: string[];
 };
@@ -21,13 +21,10 @@ export const processNewChatMessage = async (userMessage: string): Promise<void> 
     errorStore.reset();
 
     addMessageToChat(userMessage, Role.USER);
-    const response = isTestingEnv
+    const chatResponse = isTestingEnv
         ? mockChatResponse
         : await getAiRespose();
-    const chatResponse: chatAiResponse = JSON.parse(response);
-    addMessageToChat(chatResponse.responseText, Role.ASSISTANT);
-
-    productState.populateProductsInFocus(chatResponse.productReference);
+    addMessageToChat(chatResponse, Role.ASSISTANT);
 
   } catch (err) {
     errorState.setNewError(ErrorType.CHAT, 'Something went wrong, please try again.');
@@ -36,11 +33,6 @@ export const processNewChatMessage = async (userMessage: string): Promise<void> 
   } finally {
     chatState.isLoading = false;
   }
-};
-
-export const enableChat = () => { // TODO: REMOVE
-  if (window.innerWidth > 740) chatState.isChatOpen = true;
-  chatState.isChatEnabled = true;
 };
 
 export const addSearchContext = (userSearch: string) => {
@@ -74,7 +66,8 @@ export const addSearchContext = (userSearch: string) => {
       content: `
       The user made the following search request "${userSearch}"
       and is now presented with these products:
-      ${JSON.stringify(shoppingResultSummary)}`,
+      ${JSON.stringify(shoppingResultSummary)}
+      `,
     },
   ];
 };
@@ -104,8 +97,8 @@ const getAiRespose = async () => {
   try {
     const response = await fetch(URL, requestOptions);
     const responseData = await response.json();
-    const generatedQuery = responseData;
-    return generatedQuery;
+    return responseData;
+
   } catch (error) {
     console.error('getAiRespose Error:', error);
   }

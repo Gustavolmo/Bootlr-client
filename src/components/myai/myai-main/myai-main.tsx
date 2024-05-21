@@ -1,6 +1,7 @@
 import { Component, Host, h } from '@stencil/core';
 import { logState } from '../../stores/myai-logs-store/logs-store';
 import { searchState } from '../../stores/myai-search-store/search-store';
+import { ErrorType, errorState } from '../../stores/myai-error-store/error-store';
 
 @Component({
   tag: 'myai-main',
@@ -20,7 +21,11 @@ export class MyaiMain {
           {!searchState.isFirstSearch && <myai-chat-history />}
         </section>
 
-        {searchState.isFirstSearch ? <myai-footer /> : <myai-chat-input />}
+        {searchState.isFirstSearch && <myai-footer />}
+
+        {!searchState.isFirstSearch && errorState.errorType === ErrorType.NONE && (
+          <myai-chat-input />
+        )}
       </Host>
     );
   }

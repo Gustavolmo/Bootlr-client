@@ -24,11 +24,14 @@
   max-width: 760px;
   align-items: left;
   width: 100%;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
 .product-results-message {
+  display: flex;
+  flex-direction: column;
   height: 100%;
+  gap: 4px;
 }
 
 .bootlr-is-searching {
@@ -50,9 +53,9 @@
     transform: translateX(1px);
   }
   50% {
-    box-shadow: 3px 3px 0 0 rgb(66, 66, 66);
+    box-shadow: 3px 4px 0 0 rgb(66, 66, 66);
     transform: translateY(2px);
-    transform: translateX(2px);
+    transform: translateX(1px);
   }
   75% {
     box-shadow: 2px 2px 0 0 rgb(66, 66, 66);

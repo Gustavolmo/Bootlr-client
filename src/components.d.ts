@@ -10,8 +10,6 @@ export { Product } from "./components/stores/myai-products-store/product-store";
 export namespace Components {
     interface BootlrRoot {
     }
-    interface MyaiChat {
-    }
     interface MyaiChatHistory {
     }
     interface MyaiChatInput {
@@ -41,12 +39,6 @@ declare global {
     var HTMLBootlrRootElement: {
         prototype: HTMLBootlrRootElement;
         new (): HTMLBootlrRootElement;
-    };
-    interface HTMLMyaiChatElement extends Components.MyaiChat, HTMLStencilElement {
-    }
-    var HTMLMyaiChatElement: {
-        prototype: HTMLMyaiChatElement;
-        new (): HTMLMyaiChatElement;
     };
     interface HTMLMyaiChatHistoryElement extends Components.MyaiChatHistory, HTMLStencilElement {
     }
@@ -110,7 +102,6 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "bootlr-root": HTMLBootlrRootElement;
-        "myai-chat": HTMLMyaiChatElement;
         "myai-chat-history": HTMLMyaiChatHistoryElement;
         "myai-chat-input": HTMLMyaiChatInputElement;
         "myai-empty-results": HTMLMyaiEmptyResultsElement;
@@ -125,8 +116,6 @@ declare global {
 }
 declare namespace LocalJSX {
     interface BootlrRoot {
-    }
-    interface MyaiChat {
     }
     interface MyaiChatHistory {
     }
@@ -152,7 +141,6 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "bootlr-root": BootlrRoot;
-        "myai-chat": MyaiChat;
         "myai-chat-history": MyaiChatHistory;
         "myai-chat-input": MyaiChatInput;
         "myai-empty-results": MyaiEmptyResults;
@@ -170,7 +158,6 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "bootlr-root": LocalJSX.BootlrRoot & JSXBase.HTMLAttributes<HTMLBootlrRootElement>;
-            "myai-chat": LocalJSX.MyaiChat & JSXBase.HTMLAttributes<HTMLMyaiChatElement>;
             "myai-chat-history": LocalJSX.MyaiChatHistory & JSXBase.HTMLAttributes<HTMLMyaiChatHistoryElement>;
             "myai-chat-input": LocalJSX.MyaiChatInput & JSXBase.HTMLAttributes<HTMLMyaiChatInputElement>;
             "myai-empty-results": LocalJSX.MyaiEmptyResults & JSXBase.HTMLAttributes<HTMLMyaiEmptyResultsElement>;
