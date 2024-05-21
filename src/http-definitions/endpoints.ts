@@ -1,4 +1,4 @@
-export const apiUrl = (endPoint: 'local' | 'prod' = 'local') => {
+export const apiUrl = (endPoint: 'local' | 'prod' = 'prod') => {
   if (endPoint === 'local') {
     return {
       bootlrSearch: 'http://localhost:4000/bootlr-search',
