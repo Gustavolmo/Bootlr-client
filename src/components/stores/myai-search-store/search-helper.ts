@@ -25,10 +25,10 @@ export const processSearchRequest = async (userSearch: string): Promise<void> =>
     productStore.reset();
 
     searchState.addMessageToSearch(userSearch, Role.USER);
-    const response = await translatePromptToSearch();
-    /* const response = isLocalEnv
+    /* const response = await translatePromptToSearch(); */
+    const response = isLocalEnv
       ? await mockPromptToSearch(window)
-      : await translatePromptToSearch(); */
+      : await translatePromptToSearch();
 
     searchState.addMessageToSearch(response.searchQuery, Role.ASSISTANT);
 
