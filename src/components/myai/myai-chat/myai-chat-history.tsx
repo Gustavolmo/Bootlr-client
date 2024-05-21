@@ -40,7 +40,7 @@ export class MyaiChatHistory {
   private scrollToBottom() {
     window.scrollTo({
       left: 0,
-      top: window.outerHeight * window.outerHeight, // TODO: refactor this hack
+      top: document.body.scrollHeight,
       behavior: 'smooth',
     });
   }
