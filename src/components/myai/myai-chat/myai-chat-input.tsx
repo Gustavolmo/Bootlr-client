@@ -18,7 +18,7 @@ export class MyaiChatInput {
   private async submitMessage(e: Event) {
     e.preventDefault();
     if (this.userMessage) {
-      await chatState.processNewChatMessage(this.userMessage);
+      chatState.processNewChatMessage(this.userMessage);
       this.userMessage = '';
     }
   }

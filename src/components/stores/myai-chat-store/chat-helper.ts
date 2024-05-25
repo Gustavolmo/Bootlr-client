@@ -65,7 +65,7 @@ export const addSearchContext = (userSearch: string) => {
       role: Role.SYSTEM,
       content: `
       The user made the following search request "${userSearch}"
-      and is now presented with these products:
+      and is now presented with these product results:
       ${JSON.stringify(shoppingResultSummary)}
       `,
     },
