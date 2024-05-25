@@ -18,16 +18,7 @@ export class MyaiChatHistory {
     });
 
     if (matchedProducts.length === 0) return [];
-
-    const uniqueProductMap = new Map<string, Product>();
-    matchedProducts.forEach(product => {
-      if (!uniqueProductMap.has(product.product_id)) {
-        uniqueProductMap.set(product.product_id, product);
-      }
-    });
-
-    const uniqueProducts = Array.from(uniqueProductMap.values());
-    return uniqueProducts;
+    return matchedProducts;
   };
 
   private renderBootlrSuggestions(suggestions: Product[]) {

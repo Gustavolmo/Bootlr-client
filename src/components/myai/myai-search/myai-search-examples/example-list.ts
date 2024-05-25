@@ -1,7 +1,7 @@
 export const ideasForExamples = [
   'mid-century home decoration',
   'games to play with friends',
-  'beach vacation games',
+  'games to play at the beach',
   'balcony furniture',
 ];
 

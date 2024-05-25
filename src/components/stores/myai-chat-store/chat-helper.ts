@@ -14,7 +14,7 @@ export const processNewChatMessage = async (userMessage: string): Promise<void> 
   if (searchState.isLoading) return;
   if (chatState.isLoading) return;
 
-  const isTestingEnv = window.location.href === 'http://testing.stenciljs.com/'
+  const isTestingEnv = window.location.href === 'http://testing.stenciljs.com/' // TODO: Remove this testing mock by implementing MSW
 
   chatState.isLoading = true;
   try {
