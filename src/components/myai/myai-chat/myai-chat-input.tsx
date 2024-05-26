@@ -18,26 +18,35 @@ export class MyaiChatInput {
   private async submitMessage(e: Event) {
     e.preventDefault();
     if (this.userMessage) {
-      chatState.processNewChatMessage(this.userMessage);
+      const chatMessage = this.userMessage
       this.userMessage = '';
+      await chatState.processNewChatMessage(chatMessage);
     }
   }
+
+  private handleKeyPress = (e: KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      this.submitMessage(e);
+    }
+  };
+
 
   render() {
     return (
       <section class="chat-bottom-section">
-        <form class="chat-form">
+        <form onSubmit={e => this.submitMessage(e)} class="chat-form">
           <textarea
             placeholder="You can ask Bootlr about the search results."
             class="chat-textarea"
             maxlength="1200"
             value={this.userMessage}
-            onChange={e => this.captureUserMessage(e)}
+            onInput={e => this.captureUserMessage(e)}
+            onKeyPress={this.handleKeyPress}
           />
           <button
             type="submit"
             class="chat-textarea-submit"
-            onClick={e => this.submitMessage(e)}
             disabled={chatState.isLoading || searchState.isLoading}
           >
             {sparkles('32px', 'black')}

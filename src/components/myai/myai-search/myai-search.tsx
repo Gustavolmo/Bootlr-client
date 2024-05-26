@@ -23,6 +23,13 @@ export class MyaiSearch {
     }
   }
 
+  private handleKeyPress = (e: KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      this.submitSearch(e);
+    }
+  };
+
   private returnHome = () => {
     if (searchState.isLoading) return;
     window.location.reload();
@@ -43,18 +50,24 @@ export class MyaiSearch {
           <p>The shopping assistant</p>
         </header>
 
-        <form class="search-form">
+        {!searchState.isFirstSearch && (
+          <header class="search-header">
+            <h2 onClick={this.returnHome}>Bootlr {bootlrIcon('40')}</h2>
+          </header>
+        )}
+
+        <form onSubmit={e => this.submitSearch(e)} class="search-form">
           <textarea
             placeholder="Tell Bootlr what you are looking for"
             maxlength="240"
             class="search-textarea"
-            onChange={e => this.captureUserPrompt(e)}
             value={this.userPrompt}
+            onInput={e => this.captureUserPrompt(e)}
+            onKeyPress={this.handleKeyPress}
           />
           <button
-            class="myai-search-submit"
             type="submit"
-            onClick={e => this.submitSearch(e)}
+            class="myai-search-submit"
             disabled={searchState.isLoading || chatState.isLoading}
           >
             {magnifyingGlass('24px', 'gray')}
