@@ -46,8 +46,8 @@ export const chatStore = createStore<ChatStore>({
       3. ALWAYS remember to consider the product results when suggesting products to the user.
       4. You may ONLY use HTML to format the responseText. Make sure to add target=\"_blank\" when using links. DO NOT ADD IMG TAGS.
       5. You can ONLY populate the productReference array with strings. This is how you can suggest or show products to the user.
-      6. Have a natural conversation with the user.
-      7. If the user asks for something that is not in the product results, you may suggest a new search query in the search bar on the top of the page.
+      6. If the user has a request which cannot be found in the product results you MUST tell them to make a new search in the search bar located at the top of the page.
+      7. Have a natural conversation with the user.
       8. AVOID REPETITION! For example: instead of repeating the previous response, you may ask if the user can provide more details or you can make a new suggestion.
       9. When the user asks for more suggestions, ensure that your new suggestions are distinctly different from previous ones to provide a variety of options.
       10. Vary your answers. Do not use the same phrases and structures repeatedly within a single response and across multiple responses.
