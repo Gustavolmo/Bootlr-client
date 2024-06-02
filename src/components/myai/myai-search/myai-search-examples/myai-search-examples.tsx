@@ -7,9 +7,9 @@ import { Component, h } from '@stencil/core';
   shadow: true,
 })
 export class MyaiSearchExamples {
-  private search = 'assets/copy-images/search.png';
-  private ask = 'assets/copy-images/ask2.png';
-  private compare = 'assets/copy-images/ask.png';
+  private search = `${window.location.href}/assets/copy-images/search.png`;
+  private ask = `${window.location.href}/assets/copy-images/ask2.png`;
+  private compare = `${window.location.href}/assets/copy-images/ask.png`;
 
   render() {
     return (
