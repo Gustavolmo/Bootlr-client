@@ -1,11 +1,4 @@
-import { Component, State, h } from '@stencil/core';
-import { searchState } from '../../../stores/myai-search-store/search-store';
-import {
-  canYouFindExamples,
-  iAmLookingForExamples,
-  ideasForExamples,
-  showMeExamples,
-} from './example-list';
+import { Component, h } from '@stencil/core';
 
 @Component({
   tag: 'myai-search-examples',
@@ -13,58 +6,33 @@ import {
   shadow: true,
 })
 export class MyaiSearchExamples {
-  @State() ideasFor: string;
-  @State() showMe: string;
-  @State() canYouFind: string;
-  @State() iAmLookingFor: string;
-
-  componentWillLoad() {
-    this.ideasFor = this.suggestionRandomizer(ideasForExamples);
-    this.showMe = this.suggestionRandomizer(showMeExamples);
-    this.canYouFind = this.suggestionRandomizer(canYouFindExamples);
-    this.iAmLookingFor = this.suggestionRandomizer(iAmLookingForExamples);
-  }
-
-  private suggestionRandomizer = (examples: string[]): string => {
-    const randomIndex = Math.floor(Math.random() * examples.length);
-    return examples[randomIndex];
-  };
+  private search = '../../../../assets/copy-images/search.png';
+  private ask = '../../../../assets/copy-images/ask2.png';
+  private compare = '../../../../assets/copy-images/ask.png';
 
   render() {
     return (
-      <article
-        class={{
-          'search-example-wrap': !searchState.isLoading,
-          'search-example-wrap disabled': searchState.isLoading,
-        }}
-      >
-        <div
-          class="search-example"
-          onClick={() => searchState.processSearchRequest(`Ideas for ${this.ideasFor}`)}
-        >
-          Ideas for <span class="serch-example-type">{this.ideasFor}</span>
-        </div>
+      <article class="search-example-wrap">
+        <section class="example">
+          <div class="example-title">SEARCH ANYTHING</div>
+          <div class="example-content">
+            <img src={this.search} alt="search-example-img" />
+          </div>
+        </section>
 
-        <div
-          class="search-example"
-          onClick={() => searchState.processSearchRequest(`Show me ${this.showMe}`)}
-        >
-          Show me <span class="serch-example-type">{this.showMe}</span>
-        </div>
+        <section class="example margin-top-36">
+          <div class="example-title">ASK QUESTIONS</div>
+          <div class="example-content">
+            <img src={this.ask} alt="search-example-img" />
+          </div>
+        </section>
 
-        <div
-          class="search-example"
-          onClick={() => searchState.processSearchRequest(`Can you find ${this.canYouFind}`)}
-        >
-          Can you find <span class="serch-example-type">{this.canYouFind}</span>
-        </div>
-
-        <div
-          class="search-example"
-          onClick={() => searchState.processSearchRequest(`I am looking for ${this.iAmLookingFor}`)}
-        >
-          I am looking for <span class="serch-example-type">{this.iAmLookingFor}</span>
-        </div>
+        <section class="example margin-top-36">
+          <div class="example-title">COMPARE RESULTS</div>
+          <div class="example-content">
+            <img src={this.compare} alt="search-example-img" />
+          </div>
+        </section>
       </article>
     );
   }

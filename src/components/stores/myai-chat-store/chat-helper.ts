@@ -7,14 +7,14 @@ import { chatState } from './chat-store';
 
 export type chatAiResponse = {
   responseText: string;
-  productReference: string[];
+  productReference: string[] | undefined;
 };
 
 export const processNewChatMessage = async (userMessage: string): Promise<void> => {
   if (searchState.isLoading) return;
   if (chatState.isLoading) return;
 
-  const isTestingEnv = window.location.href === 'http://testing.stenciljs.com/' // TODO: Remove this testing mock by implementing MSW
+  const isTestingEnv = window.location.href === 'http://testing.stenciljs.com/' || 'http://localhost:3333/' // TODO: Remove this testing mock by implementing MSW
 
   chatState.isLoading = true;
   try {
@@ -27,7 +27,7 @@ export const processNewChatMessage = async (userMessage: string): Promise<void> 
     addMessageToChat(chatResponse, Role.ASSISTANT);
 
   } catch (err) {
-    errorState.setNewError(ErrorType.CHAT, 'Something went wrong, please try again.');
+    errorState.setNewError(ErrorType.CHAT, 'Ops!! please try again or reload the page.');
     console.error('Error while processing chat ->', err);
   
   } finally {
@@ -40,7 +40,7 @@ export const addSearchContext = (userSearch: string) => {
 
     let reducedDescription: string;
     if (product.product_description) {
-      reducedDescription = product.product_description.substring(0, 300)
+      reducedDescription = product.product_description.substring(0, 100)
     }
 
     return {

@@ -1,6 +1,6 @@
 import { Component, Host, State, h } from '@stencil/core';
 import { searchState } from '../../stores/myai-search-store/search-store';
-import { bootlrIcon, magnifyingGlass, swedishFlag } from '../../../assets/heroIcons/collection';
+import { magnifyingGlass, swedishFlag } from '../../../assets/heroIcons/collection';
 import { ErrorType, errorState } from '../../stores/myai-error-store/error-store';
 import { chatState } from '../../stores/myai-chat-store/chat-store';
 
@@ -41,10 +41,10 @@ export class MyaiSearch {
       <Host>
         {searchState.isFirstSearch && (
           <header class="search-header">
-            <div class="header-swedish-flag">{swedishFlag('12', 0.6)} Developed in Sweden</div>
 
-            <h2 onClick={this.returnHome}>Bootlr{bootlrIcon('52')}</h2>
+            <h2 onClick={this.returnHome}>Bootlr</h2>
             <p>The shopping assistant</p>
+            <div class="header-swedish-flag">{swedishFlag('12', 0.6)} Developed in Sweden</div>
           </header>
         )}
 
@@ -73,7 +73,6 @@ export class MyaiSearch {
         <div class="myai-search-sponsor-message">
           {/* <i>*Bootlr offers sponsored products</i> */}
         </div>
-        {searchState.isFirstSearch && <myai-search-examples />}
         {errorState.errorType === ErrorType.SEARCH && <myai-error />}
       </Host>
     );

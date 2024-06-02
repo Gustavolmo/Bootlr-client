@@ -3,17 +3,22 @@
 }
 
 .search-header {
-  margin: 12px;
+  margin: 32px auto;
+  max-width: 300px;
+  padding-top: 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   opacity: 1;
+  background-color: rgb(250, 250, 250);
+  box-shadow: 6px 6px 0 0 rgb(66, 66, 66);
+  border: 2px dashed rgb(66, 66, 66)
 }
 
 .header-swedish-flag {
   color: rgb(200, 200, 200);
-  margin-bottom: 32px;
+  margin: 20px 0 8px 0;
 }
 
 .search-header > h2 {
@@ -28,8 +33,7 @@
 }
 
 .search-header > p {
-  color: rgb(150, 150, 150);
-  margin-top: 4px;
+  margin: 4px;
 }
 
 .search-form {
@@ -59,9 +63,9 @@
   padding: 8px;
   font-size: large;
   resize: none;
-  border: 1px solid rgb(255, 255, 255);
-  background-color: rgb(240, 240, 240);
-  border-bottom: 2px solid rgb(240, 240, 240);
+  border: none;
+  border-bottom: 1px solid rgb(66, 66, 66);
+  background-color: rgb(245, 245, 245);
   border-right: none;
 }
 

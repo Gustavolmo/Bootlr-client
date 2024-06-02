@@ -8,6 +8,17 @@
 
 .myai-content {
   width: 92%;
-  max-width: 760px;
-  margin: 0 0 120px 0;
+  max-width: 780px;
+  margin: 0 0 80px 0;
+}
+
+.landing-page-decoration {
+  position: absolute;
+  background-color: rgb(255, 232, 122);
+  top: 0;
+  left: 0;
+  height: 64vh;
+  width: 100%;
+  z-index: -1;
+  clip-path: polygon(0 100%, 100% 74%, 100% 0, 0 0);
 }

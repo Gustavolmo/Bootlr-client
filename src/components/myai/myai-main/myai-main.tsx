@@ -16,10 +16,12 @@ export class MyaiMain {
   render() {
     return (
       <Host>
+        {searchState.isFirstSearch && <div class="landing-page-decoration"></div>}
         <section class="myai-content">
           <myai-search />
           {!searchState.isFirstSearch && <myai-chat-history />}
         </section>
+          {searchState.isFirstSearch && <myai-search-examples />}
 
         {searchState.isFirstSearch && <myai-footer />}
 
