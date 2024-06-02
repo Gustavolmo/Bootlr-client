@@ -25,7 +25,7 @@ export class MyaiChatInput {
   }
 
   private handleKeyPress = (e: KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
+    if (e.key === 'Enter' && !e.shiftKey && navigator.maxTouchPoints === 0) {
       e.preventDefault();
       this.submitMessage(e);
     }
