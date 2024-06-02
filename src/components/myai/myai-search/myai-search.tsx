@@ -7,6 +7,7 @@ import { chatState } from '../../stores/myai-chat-store/chat-store';
 @Component({
   tag: 'myai-search',
   styleUrl: 'myai-search.css',
+  shadow: true,
 })
 export class MyaiSearch {
   @State() userPrompt = '';
@@ -38,41 +39,37 @@ export class MyaiSearch {
   render() {
     return (
       <Host>
-        <header
-          class={{
-            'search-header': searchState.isFirstSearch,
-            'search-header search-header-closed': !searchState.isFirstSearch,
-          }}
-        >
-          <div class="header-swedish-flag">{swedishFlag('12', 0.6)} Developed in Sweden</div>
-
-          <h2 onClick={this.returnHome}>Bootlr{bootlrIcon('52')}</h2>
-          <p>The shopping assistant</p>
-        </header>
-
-        {!searchState.isFirstSearch && (
+        {searchState.isFirstSearch && (
           <header class="search-header">
-            <h2 onClick={this.returnHome}>Bootlr {bootlrIcon('40')}</h2>
+            <div class="header-swedish-flag">{swedishFlag('12', 0.6)} Developed in Sweden</div>
+
+            <h2 onClick={this.returnHome}>Bootlr{bootlrIcon('52')}</h2>
+            <p>The shopping assistant</p>
           </header>
         )}
 
-        <form onSubmit={e => this.submitSearch(e)} class="search-form">
-          <textarea
-            placeholder="Tell Bootlr what you are looking for"
-            maxlength="240"
-            class="search-textarea"
-            value={this.userPrompt}
-            onInput={e => this.captureUserPrompt(e)}
-            onKeyPress={this.handleKeyPress}
-          />
-          <button
-            type="submit"
-            class="myai-search-submit"
-            disabled={searchState.isLoading || chatState.isLoading}
-          >
-            {magnifyingGlass('24px', 'gray')}
-          </button>
-        </form>
+        {!searchState.isFirstSearch && <div class="search-form-fixed-spacer"></div>}
+
+        <section class={{"search-form-wrapper": !searchState.isFirstSearch}}>
+          <form onSubmit={e => this.submitSearch(e)} class="search-form">
+            <textarea
+              placeholder="Tell Bootlr what you are looking for"
+              maxlength="240"
+              class="search-textarea"
+              value={this.userPrompt}
+              onInput={e => this.captureUserPrompt(e)}
+              onKeyPress={this.handleKeyPress}
+            />
+            <button
+              type="submit"
+              class="myai-search-submit"
+              disabled={searchState.isLoading || chatState.isLoading}
+            >
+              {magnifyingGlass('24px', 'gray')}
+            </button>
+          </form>
+        </section>
+
         <div class="myai-search-sponsor-message">
           {/* <i>*Bootlr offers sponsored products</i> */}
         </div>

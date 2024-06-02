@@ -9,14 +9,6 @@
   justify-content: center;
   align-items: center;
   opacity: 1;
-  transition: all 0.8s ease;
-}
-
-.search-header-closed {
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: all 0.8s ease;
 }
 
 .header-swedish-flag {
@@ -42,16 +34,30 @@
 
 .search-form {
   display: flex;
-  width: 100%;
   justify-content: center;
-  margin-bottom: 32px;
+  max-width: 780px;
+  width: 92vw;
+}
+
+.search-form-wrapper {
+  background-color: white;
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 0;
+  left: 0;
+  top: 0;
+}
+
+.search-form-fixed-spacer {
+  height: 80px;
 }
 
 .search-textarea {
   width: 100%;
   padding: 8px;
   font-size: large;
-  max-width: 680px;
   resize: none;
   border: 1px solid rgb(255, 255, 255);
   background-color: rgb(240, 240, 240);
