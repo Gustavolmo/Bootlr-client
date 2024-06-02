@@ -16,7 +16,7 @@
   margin-bottom: 32px;
 }
 
-.search-header > h2{
+.search-header > h2 {
   color: rgb(66, 66, 66);
   margin: 0;
   font-size: xx-large;
@@ -27,7 +27,7 @@
   transform: translateY(6px);
 }
 
-.search-header > p{
+.search-header > p {
   color: rgb(150, 150, 150);
   margin-top: 4px;
 }
@@ -40,7 +40,7 @@
 }
 
 .search-form-wrapper {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   display: flex;
   position: fixed;
   justify-content: center;
@@ -77,7 +77,7 @@
   cursor: pointer;
 }
 
-.myai-search-submit:hover{
+.myai-search-submit:hover {
   border: 1px solid rgb(150, 150, 150);
   box-shadow: 1px 1px 0 0px rgb(66, 66, 66);
 }

@@ -49,11 +49,11 @@ export class MyaiChatInput {
             class="chat-textarea-submit"
             disabled={chatState.isLoading || searchState.isLoading}
           >
-            {sparkles('32px', 'black')}
+            {sparkles('28px', '#fffdf0')}
           </button>
         </form>
         <i class="chat-bootlr-disclaimer">
-          *Bootlr can make mistakes, always check the information before buying
+          *Bootlr can make mistakes. Check important info.
         </i>
       </section>
     );
