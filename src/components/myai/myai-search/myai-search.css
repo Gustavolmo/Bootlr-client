@@ -3,7 +3,7 @@
 }
 
 .search-header {
-  margin: 32px auto;
+  margin: 0 auto 32px;
   max-width: 300px;
   padding-top: 16px;
   display: flex;
@@ -11,14 +11,12 @@
   justify-content: center;
   align-items: center;
   opacity: 1;
-  background-color: rgb(250, 250, 250);
-  box-shadow: 6px 6px 0 0 rgb(66, 66, 66);
-  border: 2px dashed rgb(66, 66, 66)
+  background-color: rgb(255, 255, 255);
 }
 
 .header-swedish-flag {
   color: rgb(200, 200, 200);
-  margin: 20px 0 8px 0;
+  margin: 0 0 32px 0;
 }
 
 .search-header > h2 {
@@ -67,10 +65,12 @@
   border-bottom: 1px solid rgb(66, 66, 66);
   background-color: rgb(245, 245, 245);
   border-right: none;
+  border-radius: 0 !important;
 }
 
 .search-textarea:focus {
   outline: none;
+  border-radius: 0 !important;
 }
 
 .myai-search-submit {

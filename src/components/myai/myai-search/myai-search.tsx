@@ -41,10 +41,10 @@ export class MyaiSearch {
       <Host>
         {searchState.isFirstSearch && (
           <header class="search-header">
+            <div class="header-swedish-flag">{swedishFlag('12', 0.6)} Developed in Sweden</div>
 
             <h2 onClick={this.returnHome}>Bootlr</h2>
             <p>The shopping assistant</p>
-            <div class="header-swedish-flag">{swedishFlag('12', 0.6)} Developed in Sweden</div>
           </header>
         )}
 

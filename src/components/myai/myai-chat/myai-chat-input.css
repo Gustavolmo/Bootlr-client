@@ -31,10 +31,12 @@
   width: 100%;
   resize: none;
   border: 1px solid rgb(66, 66, 66);
+  border-radius: 0 !important;
 }
 
 .chat-textarea:focus {
   outline: none;
+  border-radius: 0 !important;
 }
 
 .chat-textarea-submit {
