@@ -1,14 +1,15 @@
 import { Component, h } from '@stencil/core';
 
+
 @Component({
   tag: 'myai-search-examples',
   styleUrl: './myai-search-examples.css',
   shadow: true,
 })
 export class MyaiSearchExamples {
-  private search = '../../../../assets/copy-images/search.png';
-  private ask = '../../../../assets/copy-images/ask2.png';
-  private compare = '../../../../assets/copy-images/ask.png';
+  private search = 'assets/copy-images/search.png';
+  private ask = 'assets/copy-images/ask2.png';
+  private compare = 'assets/copy-images/ask.png';
 
   render() {
     return (
