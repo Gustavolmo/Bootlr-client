@@ -10,6 +10,11 @@ import { searchState } from '../../stores/myai-search-store/search-store';
 export class MyaiChatInput {
   @State() userMessage = '';
 
+  private isLocalEnv = window.location.href === 'http://localhost:3333/';
+  private chatBulb = this.isLocalEnv
+    ? 'assets/copy-images/chat-bulb.png'
+    : `${window.location.href}/assets/copy-images/chat-bulb.png`;
+
   private captureUserMessage(e: Event) {
     const target = e.target as HTMLTextAreaElement;
     this.userMessage = target.value.trim();
@@ -36,6 +41,7 @@ export class MyaiChatInput {
     return (
       <section class="chat-bottom-section">
         <form onSubmit={e => this.submitMessage(e)} class="chat-form">
+          <img class="chat-bulb" src={this.chatBulb} alt="" />
           <textarea
             placeholder="You can ask Bootlr about the search results."
             class="chat-textarea"

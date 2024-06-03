@@ -12,6 +12,14 @@ import { chatState } from '../../stores/myai-chat-store/chat-store';
 export class MyaiSearch {
   @State() userPrompt = '';
 
+  private isLocalEnv = window.location.href === 'http://localhost:3333/';
+  private bootlrDecor = this.isLocalEnv
+    ? 'assets/copy-images/bootlr-decor.png'
+    : `${window.location.href}/assets/copy-images/bootlr-decor.png`;
+  private click = this.isLocalEnv
+    ? 'assets/copy-images/click.png'
+    : `${window.location.href}/assets/copy-images/click.png`;
+
   private captureUserPrompt(e: Event) {
     const target = e.target as HTMLTextAreaElement;
     this.userPrompt = target.value.trim();
@@ -43,15 +51,18 @@ export class MyaiSearch {
           <header class="search-header">
             <div class="header-swedish-flag">{swedishFlag('12', 0.6)} Developed in Sweden</div>
 
-            <h2 onClick={this.returnHome}>Bootlr</h2>
+            <h2 onClick={this.returnHome}>
+              Bootlr <img class="bootlr-decor" src={this.bootlrDecor} />
+            </h2>
             <p>The shopping assistant</p>
           </header>
         )}
 
         {!searchState.isFirstSearch && <div class="search-form-fixed-spacer"></div>}
 
-        <section class={{"search-form-wrapper": !searchState.isFirstSearch}}>
+        <section class={{ 'search-form-wrapper': !searchState.isFirstSearch }}>
           <form onSubmit={e => this.submitSearch(e)} class="search-form">
+            <img class="click" src={this.click} />
             <textarea
               placeholder="Tell Bootlr what you are looking for"
               maxlength="240"

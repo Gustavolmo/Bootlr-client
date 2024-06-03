@@ -19,10 +19,18 @@
 }
 
 .chat-form {
+  position: relative;
   display: flex;
   justify-content: center;
   max-width: 780px;
   width: 92vw;
+}
+
+.chat-bulb {
+  position: absolute;
+  left: -10px;
+  top: -28px;
+  transform: rotate(16deg)
 }
 
 .chat-textarea {

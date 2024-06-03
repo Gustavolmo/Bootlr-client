@@ -13,15 +13,22 @@ export class MyaiSearchExamples {
     ? 'assets/copy-images/bootlr-anatomy.png'
     : `${window.location.href}/assets/copy-images/bootlr-anatomy.png`;
 
+  private trymeDecor = this.isLocalEnv
+    ? 'assets/copy-images/tryme-decor.png'
+    : `${window.location.href}/assets/copy-images/tryme-decor.png`;
+
   private tryMeSearch() {
-    searchState.processSearchRequest('You decide on the search query!')
+    searchState.processSearchRequest('You decide on the search query!');
   }
 
   render() {
     return (
       <article class="search-example-wrap">
-        <button onClick={this.tryMeSearch} class="let-bootlr-decide">TRY ME</button>
-        <img src={this.bootlrAnatomy} alt="search-example-img" />
+        <img class="tryme-decor" src={this.trymeDecor} />
+        <button onClick={this.tryMeSearch} class="let-bootlr-decide">
+          TRY ME
+        </button>
+        <img class="search-example-img" src={this.bootlrAnatomy} alt="search-example-img" />
       </article>
     );
   }

@@ -20,10 +20,17 @@
 }
 
 .search-header > h2 {
+  position: relative;
   color: rgb(66, 66, 66);
   margin: 0;
   font-size: xx-large;
   cursor: pointer;
+}
+
+.bootlr-decor {
+  position: absolute;
+  left: 22px;
+  top: -13px;
 }
 
 .search-header > h2 > svg {
@@ -35,10 +42,17 @@
 }
 
 .search-form {
+  position: relative;
   display: flex;
   justify-content: center;
   max-width: 780px;
   width: 92vw;
+}
+
+.click {
+  position: absolute;
+  top: 64px;
+  right: -4px;
 }
 
 .search-form-wrapper {
