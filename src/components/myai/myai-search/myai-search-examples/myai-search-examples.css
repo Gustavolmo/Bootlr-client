@@ -1,7 +1,8 @@
 .search-example-wrap {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items:last baseline;
+  align-items: center;
   margin: auto;
   gap: 16px;
   padding: 0 0 64px 0;
@@ -14,4 +15,26 @@
 
 img {
   max-width: 100%;
+}
+
+.let-bootlr-decide {
+  font-size: large;
+  padding: 4px 8px;
+  width: fit-content;
+  margin-bottom: 128px;
+  margin-top: -64px;
+  border-radius: 0px;
+  color: rgb(66, 66, 66);
+  border: 1px solid rgb(66, 66, 66);
+  background-color: rgb(255, 253, 240);
+  box-shadow: 4px 5px 0 0 rgb(66, 66, 66);
+}
+
+.let-bootlr-decide:hover {
+  box-shadow: 2px 3px 0 0 rgb(66, 66, 66);
+  cursor: pointer;
+}
+
+.let-bootlr-decide:active {
+  box-shadow: 1px 1px 0 0 rgb(66, 66, 66);
 }
