@@ -14,8 +14,8 @@ export class MyaiSearchExamples {
     : `${window.location.href}/assets/copy-images/bootlr-anatomy.png`;
 
   private trymeDecor = this.isLocalEnv
-    ? 'assets/copy-images/tryme-decor.png'
-    : `${window.location.href}/assets/copy-images/tryme-decor.png`;
+    ? 'assets/copy-images/tryme-decor.svg'
+    : `${window.location.href}/assets/copy-images/tryme-decor.svg`;
 
   private tryMeSearch() {
     searchState.processSearchRequest('You decide on the search query!');

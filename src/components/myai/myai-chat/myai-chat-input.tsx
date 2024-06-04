@@ -12,8 +12,8 @@ export class MyaiChatInput {
 
   private isLocalEnv = window.location.href === 'http://localhost:3333/';
   private chatBulb = this.isLocalEnv
-    ? 'assets/copy-images/chat-bulb.png'
-    : `${window.location.href}/assets/copy-images/chat-bulb.png`;
+    ? 'assets/copy-images/chat-bulb.svg'
+    : `${window.location.href}/assets/copy-images/chat-bulb.svg`;
 
   private captureUserMessage(e: Event) {
     const target = e.target as HTMLTextAreaElement;

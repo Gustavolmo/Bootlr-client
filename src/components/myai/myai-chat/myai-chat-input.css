@@ -30,7 +30,9 @@
   position: absolute;
   left: -10px;
   top: -28px;
-  transform: rotate(16deg)
+  height: 52px;
+  width: 29px;
+  transform: rotate(16deg);
 }
 
 .chat-textarea {

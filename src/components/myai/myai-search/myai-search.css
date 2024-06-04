@@ -30,7 +30,9 @@
 .bootlr-decor {
   position: absolute;
   left: 22px;
-  top: -13px;
+  top: -12px;
+  width: 100px;
+  height: 50px;
 }
 
 .search-header > h2 > svg {
@@ -51,8 +53,10 @@
 
 .click {
   position: absolute;
-  top: 64px;
+  top: 72px;
   right: -4px;
+  width: 64px;
+  height: 36px;
 }
 
 .search-form-wrapper {

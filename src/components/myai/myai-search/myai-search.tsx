@@ -14,11 +14,11 @@ export class MyaiSearch {
 
   private isLocalEnv = window.location.href === 'http://localhost:3333/';
   private bootlrDecor = this.isLocalEnv
-    ? 'assets/copy-images/bootlr-decor.png'
-    : `${window.location.href}/assets/copy-images/bootlr-decor.png`;
+    ? 'assets/copy-images/bootlr-decor.svg'
+    : `${window.location.href}/assets/copy-images/bootlr-decor.svg`;
   private click = this.isLocalEnv
-    ? 'assets/copy-images/click.png'
-    : `${window.location.href}/assets/copy-images/click.png`;
+    ? 'assets/copy-images/click.svg'
+    : `${window.location.href}/assets/copy-images/click.svg`;
 
   private captureUserPrompt(e: Event) {
     const target = e.target as HTMLTextAreaElement;

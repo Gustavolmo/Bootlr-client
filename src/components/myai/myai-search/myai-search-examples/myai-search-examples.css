@@ -13,8 +13,9 @@
 .tryme-decor{
   position: absolute;
   top: -56px;
-  min-width: fit-content;
   z-index: -1;
+  width: 236px;
+  height: 87px;
 }
 
 .example {
